@@ -15,8 +15,12 @@ export default function VillagersPage() {
   return (
     <CardsWrapper>
       {villagers?.map(
-        ({ id, name, personality, species, gender, image_uri: imageUri }) => (
+        (
+          { id, name, personality, species, gender, image_uri: imageUri },
+          index
+        ) => (
           <VillagersCard
+            index={index}
             key={id}
             name={name}
             personality={personality}

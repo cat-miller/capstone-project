@@ -5,7 +5,8 @@ export default function CardsWrapper({ children }) {
 }
 
 const StyledCardsWrapper = styled.div`
-  max-width: 325px;
   display: grid;
-  gap: 2rem;
+  justify-content: center;
+  justify-items: center;
+  gap: 1.5rem;
 `;
