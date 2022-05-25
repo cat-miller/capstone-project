@@ -6,7 +6,7 @@ const StyledCard = styled.section`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  border: 2px solid hsl(${({ hue = '313' }) => hue}, 100%, 75%);
+  border: 2px solid hsl(${({ hue = '313' }) => hue}, 100%, 80%);
   border-radius: 26px;
   background-color: hsl(${({ hue = '313' }) => hue}, 100%, 95%);
   color: #9c37b3;
