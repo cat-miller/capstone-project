@@ -9,7 +9,7 @@ export default function VillagersCard({
   imageUri,
   index,
 }) {
-  const hue = index + 10;
+  const hue = (index % 360) * 18;
   return (
     <StyledCard hue={hue}>
       <StyledImage hue={hue} src={imageUri} alt="Picture of villager" />
