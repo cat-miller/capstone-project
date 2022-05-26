@@ -8,12 +8,8 @@ export default function useFetch(url) {
     if (url) {
       fetch(url)
         .then(response => response.json())
-        .then(data => {
-          setData(data);
-        })
-        .catch(error_ => {
-          setError(error_);
-        });
+        .then(data => setData(data))
+        .catch(error_ => setError(error_));
     }
   }, [url]);
   return { data, error };

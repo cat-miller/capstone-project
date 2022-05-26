@@ -1,6 +1,6 @@
 import useFetch from '../useFetch';
 import { useState, useEffect } from 'react';
-import CardsWrapper from '../components/CardsWrapper';
+import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import VillagersCard from '../components/VillagerCard';
 
 export default function VillagersPage() {
@@ -13,7 +13,7 @@ export default function VillagersPage() {
   }, [data]);
 
   return (
-    <CardsWrapper>
+    <StyledCardsWrapper>
       {villagers?.map(
         (
           { id, name, personality, species, gender, image_uri: imageUri },
@@ -30,6 +30,6 @@ export default function VillagersPage() {
           />
         )
       )}
-    </CardsWrapper>
+    </StyledCardsWrapper>
   );
 }

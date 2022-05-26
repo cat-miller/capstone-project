@@ -13,11 +13,6 @@ const StyledCard = styled.section`
   box-shadow: 0px 4px 15px hsla(${({ hue = '1' }) => hue}, 100%, 73%, 0.53);
   padding: 0.4rem;
   font-family: 'Roboto';
-
-  & ul {
-    padding-left: 0;
-    list-style: none;
-  }
 `;
 
 export default StyledCard;
