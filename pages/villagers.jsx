@@ -1,4 +1,4 @@
-import useFetch from '../useFetch';
+import useFetch from '../hooks/useFetch';
 import { useState, useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import VillagersCard from '../components/VillagerCard';

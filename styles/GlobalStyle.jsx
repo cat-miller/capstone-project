@@ -2,8 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   *{
-    padding: 0;
     box-sizing: border-box;
+  }
+
+  :root {
+    --color: #9c37b3;
+    --border-radius: 26px;
+
   }
   
   body {
