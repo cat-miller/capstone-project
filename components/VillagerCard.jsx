@@ -11,9 +11,14 @@ export default function VillagerCard({
   gender,
   imageUri,
   index,
+  birthday,
+  catchPhrase,
+  bubbleColor,
+  textColor,
 }) {
   const hue = (index % 360) * 18;
   const [detailedCard, setDetailedCard] = useState(false);
+  console.log(detailedCard);
 
   function showDetailedCard() {
     return (
@@ -25,6 +30,12 @@ export default function VillagerCard({
           gender={gender}
           imageUri={imageUri}
           index={index}
+          hue={hue}
+          birthday={birthday}
+          catchPhrase={catchPhrase}
+          bubbleColor={bubbleColor}
+          textColor={textColor}
+          onClick={setDetailedCard}
         />
       </StyledOverlay>
     );
