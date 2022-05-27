@@ -1,7 +1,7 @@
 import useFetch from '../hooks/useFetch';
 import { useState, useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
-import VillagersCard from '../components/VillagerCard';
+import VillagerCard from '../components/VillagerCard';
 import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 
 export default function VillagersPage() {
@@ -21,7 +21,7 @@ export default function VillagersPage() {
             { id, name, personality, species, gender, image_uri: imageUri },
             index
           ) => (
-            <VillagersCard
+            <VillagerCard
               index={index}
               key={id}
               name={name}

@@ -5,6 +5,7 @@ const StyledPageWrapper = styled.div`
   height: 100vh;
   display: grid;
   justify-items: center;
+  overflow-y: auto;
 `;
 
 export default StyledPageWrapper;
