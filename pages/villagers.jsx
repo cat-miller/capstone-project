@@ -1,7 +1,7 @@
 import useFetch from '../hooks/useFetch';
 import { useState, useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
-import VillagersCard from '../components/VillagerCard';
+import VillagerCard from '../components/VillagerCard';
 import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 
 export default function VillagersPage() {
@@ -18,10 +18,21 @@ export default function VillagersPage() {
       <StyledCardsWrapper>
         {villagers?.map(
           (
-            { id, name, personality, species, gender, image_uri: imageUri },
+            {
+              id,
+              name,
+              personality,
+              species,
+              gender,
+              image_uri: imageUri,
+              birthday,
+              'catch-phrase': catchPhrase,
+              'bubble-color': bubbleColor,
+              'text-color': textColor,
+            },
             index
           ) => (
-            <VillagersCard
+            <VillagerCard
               index={index}
               key={id}
               name={name}
@@ -29,6 +40,10 @@ export default function VillagersPage() {
               species={species}
               gender={gender}
               imageUri={imageUri}
+              birthday={birthday}
+              catchPhrase={catchPhrase}
+              bubbleColor={bubbleColor}
+              textColor={textColor}
             />
           )
         )}

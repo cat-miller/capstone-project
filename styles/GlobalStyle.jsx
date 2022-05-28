@@ -7,7 +7,12 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --color: #9c37b3;
+    --color-button: hsl(313, 100%, 65%);
     --border-radius: 26px;
+    --border-radius-inner: 20px;
+    --background-color:  hsl(266, 100%, 98%);
+    --background-color-button: hsl(313, 100%, 95%)
+
 
   }
   
@@ -15,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: hsl(266, 100%, 98%);
+    background-color:var(--background-color);
     font-family: 'Roboto';
   }
   h1, h2, h3, h4, h5, h6 {
