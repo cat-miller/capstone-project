@@ -1,13 +1,18 @@
 import styled from 'styled-components';
+import StyledDetailedCard from './StyledDetailedCard';
 
 const StyledSpan = styled.span`
-  background-color: ${({ bubbleColor }) => bubbleColor};
-  color: ${({ textColor }) => textColor};
+  background-color: ${({ backgroundColor }) => backgroundColor};
+  color: ${({ color }) => color};
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  position: absolute;
-  top: 16rem;
-  right: 4rem;
+  letter-spacing: 0.7px;
+
+  ${StyledDetailedCard} & {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
 `;
 
 export default StyledSpan;

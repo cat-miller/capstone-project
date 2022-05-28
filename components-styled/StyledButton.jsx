@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import StyledDetailedCard from './StyledDetailedCard';
 
 const StyledButton = styled.button`
   background-color: var(--background-color-button);
@@ -6,9 +7,12 @@ const StyledButton = styled.button`
   border-radius: 999px;
   border: 2px solid var(--color-button);
   padding: 0.25rem 0.6rem;
-  position: absolute;
-  top: -0.7rem;
-  right: 2rem;
+
+  ${StyledDetailedCard} & {
+    position: absolute;
+    top: -1rem;
+    right: 2rem;
+  }
 `;
 
 export default StyledButton;

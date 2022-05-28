@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     --color: #9c37b3;
     --color-button: hsl(313, 100%, 65%);
     --border-radius: 26px;
+    --border-radius-inner: 20px;
     --background-color:  hsl(266, 100%, 98%);
     --background-color-button: hsl(313, 100%, 95%)
 

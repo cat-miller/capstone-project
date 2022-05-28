@@ -1,4 +1,4 @@
-import StyledDetailedImage from '../components-styled/StyledDetailedImage';
+import StyledImage from '../components-styled/StyledImage';
 import StyledDetailedCard from '../components-styled/StyledDetailedCard';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
@@ -23,13 +23,24 @@ export default function VillagerDetailedCard({
   }
 
   return (
-    <StyledDetailedCard index={index} hue={hue}>
-      <StyledDetailedImage hue={hue} src={imageUri} alt="" />
+    <StyledDetailedCard
+      index={index}
+      style={{
+        backgroundColor: `hsl(${hue}, 100%, 95%)`,
+        border: `2px solid hsl(${hue}, 100%, 80%)`,
+        boxShadow: `0px 4px 15px hsla(${hue}, 100%, 73%, 0.53)`,
+      }}
+    >
+      <StyledImage
+        style={{ border: `2px solid hsl(${hue}, 100%, 80%)` }}
+        src={imageUri}
+        alt=""
+      />
       <div>
-        <StyledSpan bubbleColor={bubbleColor} textColor={textColor}>
-          {catchPhrase}
+        <StyledSpan color={bubbleColor} backgroundColor={textColor}>
+          &quot;{catchPhrase}!&quot;
         </StyledSpan>
-        <h2>{name['name-EUen']}</h2>
+        <h2>{name}</h2>
         <ul>
           <li>Personality: {personality}</li>
           <li>Gender: {gender}</li>

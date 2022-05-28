@@ -16,15 +16,15 @@ export default function VillagerCard({
   bubbleColor,
   textColor,
 }) {
+  const { ['name-EUen']: characterName } = name;
   const hue = (index % 360) * 18;
   const [detailedCard, setDetailedCard] = useState(false);
-  console.log(detailedCard);
 
   function showDetailedCard() {
     return (
       <StyledOverlay>
         <VillagerDetailedCard
-          name={name}
+          name={characterName}
           personality={personality}
           species={species}
           gender={gender}
@@ -42,8 +42,19 @@ export default function VillagerCard({
   }
 
   return (
-    <StyledCard hue={hue} onClick={() => setDetailedCard(true)}>
-      <StyledImage hue={hue} src={imageUri} alt="" />
+    <StyledCard
+      style={{
+        backgroundColor: `hsl(${hue}, 100%, 95%)`,
+        border: `2px solid hsl(${hue}, 100%, 80%)`,
+        boxShadow: `0px 4px 15px hsla(${hue}, 100%, 73%, 0.53)`,
+      }}
+      onClick={() => setDetailedCard(true)}
+    >
+      <StyledImage
+        style={{ border: `2px solid hsl(${hue}, 100%, 80%)` }}
+        src={imageUri}
+        alt=""
+      />
       <div>
         <h2>{name['name-EUen']}</h2>
         <ul>
