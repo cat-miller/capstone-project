@@ -1,5 +1,5 @@
 import StyledImage from '../components-styled/StyledImage';
-import StyledCard from '../components-styled/StyledCard';
+import StyledFishCard from '../components-styled/StyledFishCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import FishDetailedCard from './FishDetailedCard';
@@ -15,7 +15,7 @@ export default function FishCard({
   rarity,
   priceCJ,
 }) {
-  const hue = (index % 360) * 18;
+  const hue = index + 200;
   const [detailedCard, setDetailedCard] = useState(false);
 
   function showDetailedCard() {
@@ -39,7 +39,7 @@ export default function FishCard({
   }
 
   return (
-    <StyledCard
+    <StyledFishCard
       style={{
         backgroundColor: `hsl(${hue}, 100%, 95%)`,
         border: `2px solid hsl(${hue}, 100%, 80%)`,
@@ -48,7 +48,10 @@ export default function FishCard({
       onClick={() => setDetailedCard(true)}
     >
       <StyledImage
-        style={{ border: `2px solid hsl(${hue}, 100%, 80%)` }}
+        style={{
+          border: `2px solid hsl(${hue}, 100%, 80%)`,
+          backgroundColor: `hsl(${hue}, 100%, 88%)`,
+        }}
         src={imageUri}
         alt=""
       />
@@ -62,6 +65,6 @@ export default function FishCard({
         </ul>
         {detailedCard && showDetailedCard()}
       </div>
-    </StyledCard>
+    </StyledFishCard>
   );
 }

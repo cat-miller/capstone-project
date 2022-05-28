@@ -10,6 +10,12 @@ const StyledDetailedCard = styled.section`
   color: var(--color);
   padding: 0.4rem;
   position: relative;
+
+  &.fish {
+    padding: 0.75rem;
+    width: 16rem;
+    height: 28rem;
+  }
 `;
 
 export default StyledDetailedCard;

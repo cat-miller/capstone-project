@@ -23,6 +23,7 @@ export default function FishDetailedCard({
 
   return (
     <StyledDetailedCard
+      className="fish"
       index={index}
       style={{
         backgroundColor: `hsl(${hue}, 100%, 95%)`,
@@ -31,7 +32,10 @@ export default function FishDetailedCard({
       }}
     >
       <StyledImage
-        style={{ border: `2px solid hsl(${hue}, 100%, 80%)` }}
+        style={{
+          border: `2px solid hsl(${hue}, 100%, 80%)`,
+          backgroundColor: `hsl(${hue}, 100%, 88%)`,
+        }}
         src={imageUri}
         alt=""
       />
