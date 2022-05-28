@@ -2,19 +2,18 @@ import StyledImage from '../components-styled/StyledImage';
 import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
-import VillagerDetailedCard from './VillagerDetailedCard';
+import FishDetailedCard from './FishDetailedCard';
 
-export default function VillagerCard({
+export default function FishCard({
   name,
-  personality,
-  species,
-  gender,
   imageUri,
   index,
-  birthday,
   catchPhrase,
-  bubbleColor,
-  textColor,
+  shadow,
+  price,
+  location,
+  rarity,
+  priceCJ,
 }) {
   const hue = (index % 360) * 18;
   const [detailedCard, setDetailedCard] = useState(false);
@@ -22,18 +21,17 @@ export default function VillagerCard({
   function showDetailedCard() {
     return (
       <StyledOverlay>
-        <VillagerDetailedCard
+        <FishDetailedCard
           name={name}
-          personality={personality}
-          species={species}
-          gender={gender}
           imageUri={imageUri}
           index={index}
-          hue={hue}
-          birthday={birthday}
           catchPhrase={catchPhrase}
-          bubbleColor={bubbleColor}
-          textColor={textColor}
+          shadow={shadow}
+          price={price}
+          priceCJ={priceCJ}
+          rarity={rarity}
+          location={location}
+          hue={hue}
           onClick={setDetailedCard}
         />
       </StyledOverlay>
@@ -57,9 +55,10 @@ export default function VillagerCard({
       <div>
         <h2>{name}</h2>
         <ul>
-          <li>{personality}</li>
-          <li>{gender}</li>
-          <li>{species}</li>
+          <li>Rarity: {rarity}</li>
+          <li>Location: {location}</li>
+          <li>Price: {price}</li>
+          <li>Price-CJ: {priceCJ}</li>
         </ul>
         {detailedCard && showDetailedCard()}
       </div>
