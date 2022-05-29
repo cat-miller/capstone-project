@@ -60,8 +60,6 @@ export default function FishCard({
         <ul>
           <li>Rarity: {rarity}</li>
           <li>Location: {location}</li>
-          <li>Price: {price}</li>
-          <li>Price-CJ: {priceCJ}</li>
         </ul>
         {detailedCard && showDetailedCard()}
       </div>

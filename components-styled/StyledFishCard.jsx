@@ -5,7 +5,7 @@ const StyledFishCard = styled.section`
   align-items: center;
   gap: 0.5rem;
   width: 17rem;
-  height: 18rem;
+  height: 17rem;
   border-radius: var(--border-radius);
   color: var(--color);
   padding: 1rem;

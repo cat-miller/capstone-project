@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import StyledDetailedCard from './StyledDetailedCard';
-import FishCard from '../components/FishCard';
 
 const StyledSpan = styled.span`
   background-color: ${({ backgroundColor }) => backgroundColor};
