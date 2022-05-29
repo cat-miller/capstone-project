@@ -4,6 +4,7 @@ import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import FishCard from '../components/FishCard';
 import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
+import StyledHeader from '../components-styled/StyledHeader';
 
 export default function VillagersPage() {
   const { data } = useFetch('https://acnhapi.com/v1/fish');
@@ -16,6 +17,7 @@ export default function VillagersPage() {
 
   return (
     <StyledPageWrapper>
+      <StyledHeader>Fishes</StyledHeader>
       <StyledCardsWrapper>
         {fish?.map(
           (
