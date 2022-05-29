@@ -1,38 +1,36 @@
 import StyledImage from '../components-styled/StyledImage';
-import StyledCard from '../components-styled/StyledCard';
+import StyledFishCard from '../components-styled/StyledFishCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
-import VillagerDetailedCard from './VillagerDetailedCard';
+import FishDetailedCard from './FishDetailedCard';
 
-export default function VillagerCard({
+export default function FishCard({
   name,
-  personality,
-  species,
-  gender,
   imageUri,
   index,
-  birthday,
   catchPhrase,
-  bubbleColor,
-  textColor,
+  shadow,
+  price,
+  location,
+  rarity,
+  priceCJ,
 }) {
-  const hue = (index % 360) * 18;
+  const hue = index + 200;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
 
   function detailedCard() {
     return (
       <StyledOverlay>
-        <VillagerDetailedCard
+        <FishDetailedCard
           name={name}
-          personality={personality}
-          species={species}
-          gender={gender}
           imageUri={imageUri}
-          hue={hue}
-          birthday={birthday}
           catchPhrase={catchPhrase}
-          bubbleColor={bubbleColor}
-          textColor={textColor}
+          shadow={shadow}
+          price={price}
+          priceCJ={priceCJ}
+          rarity={rarity}
+          location={location}
+          hue={hue}
           onClick={setShowDetailedCard}
         />
       </StyledOverlay>
@@ -40,7 +38,7 @@ export default function VillagerCard({
   }
 
   return (
-    <StyledCard
+    <StyledFishCard
       style={{
         backgroundColor: `hsl(${hue}, 100%, 95%)`,
         border: `2px solid hsl(${hue}, 100%, 80%)`,
@@ -49,19 +47,21 @@ export default function VillagerCard({
       onClick={() => setShowDetailedCard(true)}
     >
       <StyledImage
-        style={{ border: `2px solid hsl(${hue}, 100%, 80%)` }}
+        style={{
+          border: `2px solid hsl(${hue}, 100%, 80%)`,
+          backgroundColor: `hsl(${hue}, 100%, 88%)`,
+        }}
         src={imageUri}
         alt=""
       />
       <div>
         <h2>{name}</h2>
         <ul>
-          <li>{personality}</li>
-          <li>{gender}</li>
-          <li>{species}</li>
+          <li>Rarity: {rarity}</li>
+          <li>Location: {location}</li>
         </ul>
         {showDetailedCard && detailedCard()}
       </div>
-    </StyledCard>
+    </StyledFishCard>
   );
 }

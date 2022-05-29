@@ -3,17 +3,16 @@ import StyledDetailedCard from '../components-styled/StyledDetailedCard';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
 
-export default function VillagerDetailedCard({
+export default function FishDetailedCard({
   name,
-  personality,
-  species,
-  gender,
   imageUri,
   hue,
-  birthday,
   catchPhrase,
-  bubbleColor,
-  textColor,
+  shadow,
+  price,
+  priceCJ,
+  location,
+  rarity,
   onClick,
 }) {
   function handleClose(e) {
@@ -23,6 +22,7 @@ export default function VillagerDetailedCard({
 
   return (
     <StyledDetailedCard
+      className="fish"
       style={{
         backgroundColor: `hsl(${hue}, 100%, 95%)`,
         border: `2px solid hsl(${hue}, 100%, 80%)`,
@@ -30,20 +30,22 @@ export default function VillagerDetailedCard({
       }}
     >
       <StyledImage
-        style={{ border: `2px solid hsl(${hue}, 100%, 80%)` }}
+        style={{
+          border: `2px solid hsl(${hue}, 100%, 80%)`,
+          backgroundColor: `hsl(${hue}, 100%, 88%)`,
+        }}
         src={imageUri}
         alt=""
       />
       <div>
-        <StyledSpan color={bubbleColor} backgroundColor={textColor}>
-          &quot;{catchPhrase}!&quot;
-        </StyledSpan>
+        <StyledSpan>&quot;{catchPhrase}!&quot;</StyledSpan>
         <h2>{name}</h2>
         <ul>
-          <li>Personality: {personality}</li>
-          <li>Gender: {gender}</li>
-          <li>Species: {species}</li>
-          <li>Birthday: {birthday}</li>
+          <li>Location: {location}</li>
+          <li>Shadow: {shadow}</li>
+          <li>Rarity: {rarity}</li>
+          <li>Price: {price}</li>
+          <li>Price-CJ: {priceCJ}</li>
         </ul>
         <StyledButton onClick={handleClose}>close</StyledButton>
       </div>

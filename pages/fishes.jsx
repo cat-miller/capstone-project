@@ -1,49 +1,46 @@
 import useFetch from '../hooks/useFetch';
 import { useState, useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
-import VillagerCard from '../components/VillagerCard';
+import FishCard from '../components/FishCard';
 import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 
 export default function VillagersPage() {
-  const { data } = useFetch('https://acnhapi.com/v1/villagers');
-  const [villagers, setVillagers] = useState([]);
+  const { data } = useFetch('https://acnhapi.com/v1/fish');
+  const [fish, setFish] = useState([]);
 
   useEffect(() => {
     if (!data) return;
-    setVillagers(Object.values(data));
+    setFish(Object.values(data));
   }, [data]);
 
   return (
     <StyledPageWrapper>
       <StyledCardsWrapper>
-        {villagers?.map(
+        {fish?.map(
           (
             {
               id,
               name,
-              personality,
-              species,
-              gender,
               image_uri: imageUri,
-              birthday,
               'catch-phrase': catchPhrase,
-              'bubble-color': bubbleColor,
-              'text-color': textColor,
+              shadow,
+              price,
+              availability,
+              'price-cj': priceCJ,
             },
             index
           ) => (
-            <VillagerCard
+            <FishCard
               index={index}
               key={id}
               name={name['name-EUen']}
-              personality={personality}
-              species={species}
-              gender={gender}
               imageUri={imageUri}
-              birthday={birthday}
               catchPhrase={catchPhrase}
-              bubbleColor={bubbleColor}
-              textColor={textColor}
+              shadow={shadow}
+              price={price}
+              priceCJ={priceCJ}
+              location={availability['location']}
+              rarity={availability['rarity']}
             />
           )
         )}
