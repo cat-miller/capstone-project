@@ -6,7 +6,6 @@ import StyledButton from '../components-styled/StyledButton';
 export default function FishDetailedCard({
   name,
   imageUri,
-  index,
   hue,
   catchPhrase,
   shadow,
@@ -24,7 +23,6 @@ export default function FishDetailedCard({
   return (
     <StyledDetailedCard
       className="fish"
-      index={index}
       style={{
         backgroundColor: `hsl(${hue}, 100%, 95%)`,
         border: `2px solid hsl(${hue}, 100%, 80%)`,

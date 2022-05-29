@@ -17,9 +17,9 @@ export default function VillagerCard({
   textColor,
 }) {
   const hue = (index % 360) * 18;
-  const [detailedCard, setDetailedCard] = useState(false);
+  const [showDetailedCard, setShowDetailedCard] = useState(false);
 
-  function showDetailedCard() {
+  function detailedCard() {
     return (
       <StyledOverlay>
         <VillagerDetailedCard
@@ -28,13 +28,12 @@ export default function VillagerCard({
           species={species}
           gender={gender}
           imageUri={imageUri}
-          index={index}
           hue={hue}
           birthday={birthday}
           catchPhrase={catchPhrase}
           bubbleColor={bubbleColor}
           textColor={textColor}
-          onClick={setDetailedCard}
+          onClick={setShowDetailedCard}
         />
       </StyledOverlay>
     );
@@ -47,7 +46,7 @@ export default function VillagerCard({
         border: `2px solid hsl(${hue}, 100%, 80%)`,
         boxShadow: `0px 4px 15px hsla(${hue}, 100%, 73%, 0.53)`,
       }}
-      onClick={() => setDetailedCard(true)}
+      onClick={() => setShowDetailedCard(true)}
     >
       <StyledImage
         style={{ border: `2px solid hsl(${hue}, 100%, 80%)` }}
@@ -61,7 +60,7 @@ export default function VillagerCard({
           <li>{gender}</li>
           <li>{species}</li>
         </ul>
-        {detailedCard && showDetailedCard()}
+        {showDetailedCard && detailedCard()}
       </div>
     </StyledCard>
   );

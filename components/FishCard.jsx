@@ -16,15 +16,14 @@ export default function FishCard({
   priceCJ,
 }) {
   const hue = index + 200;
-  const [detailedCard, setDetailedCard] = useState(false);
+  const [showDetailedCard, setShowDetailedCard] = useState(false);
 
-  function showDetailedCard() {
+  function detailedCard() {
     return (
       <StyledOverlay>
         <FishDetailedCard
           name={name}
           imageUri={imageUri}
-          index={index}
           catchPhrase={catchPhrase}
           shadow={shadow}
           price={price}
@@ -32,7 +31,7 @@ export default function FishCard({
           rarity={rarity}
           location={location}
           hue={hue}
-          onClick={setDetailedCard}
+          onClick={setShowDetailedCard}
         />
       </StyledOverlay>
     );
@@ -45,7 +44,7 @@ export default function FishCard({
         border: `2px solid hsl(${hue}, 100%, 80%)`,
         boxShadow: `0px 4px 15px hsla(${hue}, 100%, 73%, 0.53)`,
       }}
-      onClick={() => setDetailedCard(true)}
+      onClick={() => setShowDetailedCard(true)}
     >
       <StyledImage
         style={{
@@ -61,7 +60,7 @@ export default function FishCard({
           <li>Rarity: {rarity}</li>
           <li>Location: {location}</li>
         </ul>
-        {detailedCard && showDetailedCard()}
+        {showDetailedCard && detailedCard()}
       </div>
     </StyledFishCard>
   );

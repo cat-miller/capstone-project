@@ -9,7 +9,6 @@ export default function VillagerDetailedCard({
   species,
   gender,
   imageUri,
-  index,
   hue,
   birthday,
   catchPhrase,
@@ -24,7 +23,6 @@ export default function VillagerDetailedCard({
 
   return (
     <StyledDetailedCard
-      index={index}
       style={{
         backgroundColor: `hsl(${hue}, 100%, 95%)`,
         border: `2px solid hsl(${hue}, 100%, 80%)`,
