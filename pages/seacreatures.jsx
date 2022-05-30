@@ -1,25 +1,25 @@
 import useFetch from '../hooks/useFetch';
 import { useState, useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
-import FishCard from '../components/FishCard';
+import SeaCreatureCard from '../components/SeaCreatureCard';
 import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 
 export default function VillagersPage() {
-  const { data } = useFetch('https://acnhapi.com/v1/fish');
-  const [fishes, setFishes] = useState([]);
+  const { data } = useFetch('https://acnhapi.com/v1/sea');
+  const [seaCreatures, setSeaCreatures] = useState([]);
 
   useEffect(() => {
     if (!data) return;
-    setFishes(Object.values(data));
+    setSeaCreatures(Object.values(data));
   }, [data]);
 
   return (
     <StyledPageWrapper>
-      <StyledHeader>Fishes</StyledHeader>
+      <StyledHeader>Sea Creatures</StyledHeader>
       <StyledCardsWrapper>
-        {fishes?.map(
+        {seaCreatures?.map(
           (
             {
               id,
@@ -28,12 +28,11 @@ export default function VillagersPage() {
               'catch-phrase': catchPhrase,
               shadow,
               price,
-              availability,
-              'price-cj': priceCJ,
+              speed,
             },
             index
           ) => (
-            <FishCard
+            <SeaCreatureCard
               index={index}
               key={id}
               name={name['name-EUen']}
@@ -41,9 +40,7 @@ export default function VillagersPage() {
               catchPhrase={catchPhrase}
               shadow={shadow}
               price={price}
-              priceCJ={priceCJ}
-              location={availability['location']}
-              rarity={availability['rarity']}
+              speed={speed}
             />
           )
         )}

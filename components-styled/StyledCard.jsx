@@ -5,6 +5,7 @@ const StyledCard = styled.section`
   align-items: center;
   gap: 1.5rem;
   height: 10rem;
+  max-width: 19.5rem;
   border-radius: var(--border-radius);
   color: var(--color);
   padding: 0.6rem;

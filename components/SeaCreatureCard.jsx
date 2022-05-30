@@ -1,35 +1,31 @@
 import StyledImage from '../components-styled/StyledImage';
-import StyledFishCard from '../components-styled/StyledFishCard';
+import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
-import FishDetailedCard from './FishDetailedCard';
+import SeaCreatureDetailedCard from './SeaCreatureDetailedCard';
 
-export default function FishCard({
+export default function SeaCreatureCard({
   name,
   imageUri,
   index,
   catchPhrase,
-  shadow,
   price,
-  location,
-  rarity,
-  priceCJ,
+  speed,
+  shadow,
 }) {
-  const hue = index + 200;
+  const hue = index + 250;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
 
   function detailedCard() {
     return (
       <StyledOverlay>
-        <FishDetailedCard
+        <SeaCreatureDetailedCard
           name={name}
           imageUri={imageUri}
           catchPhrase={catchPhrase}
+          speed={speed}
           shadow={shadow}
           price={price}
-          priceCJ={priceCJ}
-          rarity={rarity}
-          location={location}
           hue={hue}
           onClick={setShowDetailedCard}
         />
@@ -38,7 +34,8 @@ export default function FishCard({
   }
 
   return (
-    <StyledFishCard
+    <StyledCard
+      className="seacreature"
       style={{
         backgroundColor: `hsl(${hue}, 100%, 95%)`,
         border: `2px solid hsl(${hue}, 100%, 80%)`,
@@ -57,11 +54,11 @@ export default function FishCard({
       <div>
         <h2>{name}</h2>
         <ul>
-          <li>{rarity}</li>
-          <li>{location}</li>
+          <li>{speed}</li>
+          <li>{shadow} shadow</li>
         </ul>
         {showDetailedCard && detailedCard()}
       </div>
-    </StyledFishCard>
+    </StyledCard>
   );
 }

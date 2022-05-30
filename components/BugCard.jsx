@@ -1,33 +1,31 @@
 import StyledImage from '../components-styled/StyledImage';
-import StyledFishCard from '../components-styled/StyledFishCard';
+import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
-import FishDetailedCard from './FishDetailedCard';
+import BugDetailedCard from './BugDetailedCard';
 
-export default function FishCard({
+export default function BugCard({
   name,
   imageUri,
   index,
   catchPhrase,
-  shadow,
-  price,
   location,
   rarity,
-  priceCJ,
+  price,
+  priceFlick,
 }) {
-  const hue = index + 200;
+  const hue = index + 100;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
 
   function detailedCard() {
     return (
       <StyledOverlay>
-        <FishDetailedCard
+        <BugDetailedCard
           name={name}
           imageUri={imageUri}
           catchPhrase={catchPhrase}
-          shadow={shadow}
           price={price}
-          priceCJ={priceCJ}
+          priceFlick={priceFlick}
           rarity={rarity}
           location={location}
           hue={hue}
@@ -38,7 +36,8 @@ export default function FishCard({
   }
 
   return (
-    <StyledFishCard
+    <StyledCard
+      className="bug"
       style={{
         backgroundColor: `hsl(${hue}, 100%, 95%)`,
         border: `2px solid hsl(${hue}, 100%, 80%)`,
@@ -62,6 +61,6 @@ export default function FishCard({
         </ul>
         {showDetailedCard && detailedCard()}
       </div>
-    </StyledFishCard>
+    </StyledCard>
   );
 }

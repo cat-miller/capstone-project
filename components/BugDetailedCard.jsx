@@ -1,0 +1,52 @@
+import StyledImage from '../components-styled/StyledImage';
+import StyledDetailedCard from '../components-styled/StyledDetailedCard';
+import StyledSpan from '../components-styled/StyledSpan';
+import StyledButton from '../components-styled/StyledButton';
+
+export default function BugDetailedCard({
+  name,
+  imageUri,
+  hue,
+  catchPhrase,
+  price,
+  priceFlick,
+  location,
+  rarity,
+  onClick,
+}) {
+  function handleClose(e) {
+    e.stopPropagation();
+    onClick(false);
+  }
+
+  return (
+    <StyledDetailedCard
+      className="bug"
+      style={{
+        backgroundColor: `hsl(${hue}, 100%, 95%)`,
+        border: `2px solid hsl(${hue}, 100%, 80%)`,
+        boxShadow: `0px 4px 15px hsla(${hue}, 100%, 73%, 0.53)`,
+      }}
+    >
+      <StyledImage
+        style={{
+          border: `2px solid hsl(${hue}, 100%, 80%)`,
+          backgroundColor: `hsl(${hue}, 100%, 88%)`,
+        }}
+        src={imageUri}
+        alt=""
+      />
+      <div>
+        <StyledSpan>&quot;{catchPhrase}!&quot;</StyledSpan>
+        <h2>{name}</h2>
+        <ul>
+          <li>Location: {location}</li>
+          <li>Rarity: {rarity}</li>
+          <li>Price: {price}</li>
+          <li>Price-Flick: {priceFlick}</li>
+        </ul>
+        <StyledButton onClick={handleClose}>close</StyledButton>
+      </div>
+    </StyledDetailedCard>
+  );
+}

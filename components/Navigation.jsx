@@ -16,9 +16,19 @@ export default function Navigation() {
           <Image src={'/villagers.svg'} alt="" width="40px" height="40px" />
         </StyledActiveWrapper>
       </Link>
+      <Link passHref href="/seacreatures">
+        <StyledActiveWrapper isActive={router.pathname === '/seacreatures'}>
+          <Image src={'/seacreatures.svg'} alt="" width="40px" height="40px" />
+        </StyledActiveWrapper>
+      </Link>
       <Link passHref href="/fishes">
         <StyledActiveWrapper isActive={router.pathname === '/fishes'}>
           <Image src={'/fishes.svg'} alt="" width="40px" height="40px" />
+        </StyledActiveWrapper>
+      </Link>
+      <Link passHref href="/bugs">
+        <StyledActiveWrapper isActive={router.pathname === '/bugs'}>
+          <Image src={'/bugs.svg'} alt="" width="40px" height="40px" />
         </StyledActiveWrapper>
       </Link>
     </StyledNavigation>

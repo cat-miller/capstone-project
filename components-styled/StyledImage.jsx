@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import StyledDetailedCard from './StyledDetailedCard';
 import StyledFishCard from './StyledFishCard';
+import StyledCard from './StyledCard';
 
 const StyledImage = styled.img`
   width: auto;
@@ -9,7 +10,6 @@ const StyledImage = styled.img`
 
   ${StyledDetailedCard} & {
     justify-self: center;
-    align-self: center;
     width: 100%;
     height: auto;
     border-radius: var(--border-radius-inner);
@@ -17,16 +17,24 @@ const StyledImage = styled.img`
 
   ${StyledDetailedCard}, .fish & {
     justify-self: center;
-    align-self: start;
     width: 100%;
     height: auto;
     border-radius: var(--border-radius-inner);
   }
+
   ${StyledFishCard} & {
     justify-self: center;
     align-self: start;
     width: 100%;
     height: auto;
+    border-radius: var(--border-radius-inner);
+  }
+
+  ${StyledCard}, .bug & {
+    border-radius: var(--border-radius-inner);
+  }
+
+  ${StyledCard}, .seacreature & {
     border-radius: var(--border-radius-inner);
   }
 `;

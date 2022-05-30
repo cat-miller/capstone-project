@@ -4,11 +4,11 @@ const StyledFishCard = styled.section`
   display: grid;
   align-items: center;
   gap: 0.5rem;
-  width: 17rem;
+  width: 18.4rem;
   height: 17rem;
   border-radius: var(--border-radius);
   color: var(--color);
-  padding: 1rem;
+  padding: 0.65rem;
 `;
 
 export default StyledFishCard;
