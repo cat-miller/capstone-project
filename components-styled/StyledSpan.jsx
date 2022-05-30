@@ -19,16 +19,16 @@ const StyledSpan = styled.span`
     top: 8.5rem;
     left: 1.5rem;
     right: 1.5rem;
-    background-color: hsl(40, 100%, 65%);
+    background-color: hsl(50, 100%, 65%);
     border-radius: 10px;
   }
 
   ${StyledDetailedCard}, .seacreature & {
     position: absolute;
-    top: 16.1rem;
+    top: 15.2rem;
     left: 1.5rem;
     right: 1.5rem;
-    background-color: hsl(40, 100%, 65%);
+    background-color: hsl(140, 100%, 65%);
     border-radius: 10px;
   }
 
@@ -37,7 +37,7 @@ const StyledSpan = styled.span`
     top: 14.5rem;
     left: 1.5rem;
     right: 1.5rem;
-    background-color: hsl(40, 100%, 65%);
+    background-color: hsl(30, 100%, 65%);
     border-radius: 10px;
   }
 `;

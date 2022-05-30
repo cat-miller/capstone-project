@@ -56,8 +56,8 @@ export default function BugCard({
       <div>
         <h2>{name}</h2>
         <ul>
-          <li>Rarity: {rarity}</li>
-          <li>Location: {location}</li>
+          <li>{rarity}</li>
+          <li>{location}</li>
         </ul>
         {showDetailedCard && detailedCard()}
       </div>

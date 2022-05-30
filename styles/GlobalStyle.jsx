@@ -32,11 +32,21 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.5rem;
   }
 
+  
+
   ul {
     padding-left: 0;
     list-style: none;
     line-height: 1.5rem;
     letter-spacing: 0.5px;
+    font-weight: 300;
+    font-size: 0.85rem;
+
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 1.1rem;
   }
   
 `;

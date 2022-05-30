@@ -54,8 +54,8 @@ export default function SeaCreatureCard({
       <div>
         <h2>{name}</h2>
         <ul>
-          <li>Speed: {speed}</li>
-          <li>Shadow: {shadow}</li>
+          <li>{speed}</li>
+          <li>{shadow} shadow</li>
         </ul>
         {showDetailedCard && detailedCard()}
       </div>
