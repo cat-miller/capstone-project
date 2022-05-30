@@ -22,6 +22,24 @@ const StyledSpan = styled.span`
     background-color: hsl(40, 100%, 65%);
     border-radius: 10px;
   }
+
+  ${StyledDetailedCard}, .seacreature & {
+    position: absolute;
+    top: 16.1rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    background-color: hsl(40, 100%, 65%);
+    border-radius: 10px;
+  }
+
+  ${StyledDetailedCard}, .bug & {
+    position: absolute;
+    top: 14.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    background-color: hsl(40, 100%, 65%);
+    border-radius: 10px;
+  }
 `;
 
 export default StyledSpan;

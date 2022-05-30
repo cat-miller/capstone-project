@@ -16,6 +16,18 @@ const StyledDetailedCard = styled.section`
     width: 16rem;
     height: 28rem;
   }
+
+  &.seacreature {
+    padding: 0.75rem;
+    width: 16rem;
+    height: 28rem;
+  }
+
+  &.bug {
+    padding: 0.75rem;
+    width: 16rem;
+    height: 28rem;
+  }
 `;
 
 export default StyledDetailedCard;
