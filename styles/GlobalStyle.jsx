@@ -12,8 +12,6 @@ const GlobalStyle = createGlobalStyle`
     --border-radius-inner: 20px;
     --background-color:  hsl(266, 100%, 98%);
     --background-color-button: hsl(313, 100%, 95%)
-
-
   }
   
   body {
@@ -23,10 +21,15 @@ const GlobalStyle = createGlobalStyle`
     background-color:var(--background-color);
     font-family: 'Roboto';
   }
+
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
     letter-spacing: 1px;
+  }
 
+  h1 {
+    font-weight: 300;
+    font-size: 1.5rem;
   }
 
   ul {
@@ -34,7 +37,6 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
     line-height: 1.5rem;
     letter-spacing: 0.5px;
-
   }
   
 `;
