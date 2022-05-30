@@ -34,7 +34,7 @@ const StyledSpan = styled.span`
 
   ${StyledDetailedCard}, .bug & {
     position: absolute;
-    top: 14.5rem;
+    top: 13.5rem;
     left: 1.5rem;
     right: 1.5rem;
     background-color: hsl(30, 100%, 65%);

@@ -8,7 +8,7 @@ const StyledDetailedCard = styled.section`
   gap: 1rem;
   border-radius: var(--border-radius);
   color: var(--color);
-  padding: 0.4rem;
+  padding: 0.6rem;
   position: relative;
 
   &.fish {

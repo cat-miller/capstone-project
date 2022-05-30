@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
     line-height: 1.5rem;
     letter-spacing: 0.5px;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 0.85rem;
 
   }
