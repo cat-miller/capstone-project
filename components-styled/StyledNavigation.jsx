@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 const StyledNavigation = styled.nav`
   position: relative;
-  background-color: hsl(248, 89%, 69%);
+  background-color: var(--background-color-navigation);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-  color: white;
+  color: var(--color-navigation);
   width: 100%;
   display: flex;
   justify-content: space-evenly;
