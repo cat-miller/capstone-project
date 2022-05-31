@@ -3,11 +3,11 @@ import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 import StyledButton from '../components-styled/StyledButton';
 
-export default function Home() {
+export default function Home({ toggleTheme }) {
   return (
     <StyledPageWrapper>
       <StyledHeader>ACNH Journal</StyledHeader>
-      <StyledButton>Switch Theme</StyledButton>
+      <StyledButton onClick={toggleTheme}>x</StyledButton>
       <Navigation />
     </StyledPageWrapper>
   );

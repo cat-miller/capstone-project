@@ -1,17 +1,17 @@
 export const lightTheme = {
-  headline: 'var(--color-headline)',
-  headlinebg: 'var(--background-color)',
-  navigationtext: 'var(--color-navigation)',
-  navigationbg: 'var(--background-color-navigation)',
-  bodybg: 'var(--background-color)',
-  overlaybg: 'var(--background-color-overlay)',
+  headline: 'hsl(248, 89%, 60%)',
+  headlinebg: 'hsl(266, 100%, 98%)',
+  navigationtext: 'hsl(0, 0%, 100%)',
+  navigationbg: 'hsl(248, 89%, 69%)',
+  bodybg: 'hsl(266, 100%, 98%)',
+  overlaybg: 'hsla(0, 0%, 100%, 0.7)',
 };
 
 export const darkTheme = {
-  headline: 'var(--color-headline-dark)',
-  headlinebg: 'var(--background-color-dark)',
-  navigationtext: 'var(--color-navigation-dark)',
-  navigationbg: 'var(--background-color-navigation-dark)',
-  bodybg: 'var(--background-color-dark)',
-  overlaybg: 'var(--background-color-overlay-dark)',
+  headline: 'hsl(9, 89%, 60%)',
+  headlinebg: 'hsl(253, 100%, 64%)',
+  navigationtext: 'hsl(253, 100%, 64%)',
+  navigationbg: 'hsl(19, 89%, 69%)',
+  bodybg: 'hsl(253, 100%, 64%)',
+  overlaybg: 'hsla(273, 100%, 40%, 0.7)',
 };
