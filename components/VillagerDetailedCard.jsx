@@ -23,6 +23,7 @@ export default function VillagerDetailedCard({
 
   return (
     <StyledDetailedCard
+      className="villagers"
       style={{
         backgroundColor: `hsl(${hue}, 100%, 95%)`,
         border: `2px solid hsl(${hue}, 100%, 80%)`,

@@ -8,7 +8,7 @@ const StyledSpan = styled.span`
   padding: 0.25rem 0.6rem;
   letter-spacing: 0.7px;
 
-  ${StyledDetailedCard} & {
+  ${StyledDetailedCard}, .villagers & {
     position: absolute;
     top: 2rem;
     left: 2rem;
