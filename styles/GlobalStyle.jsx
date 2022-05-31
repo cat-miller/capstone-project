@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { lightTheme, darkTheme } from './ThemeConfig';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -44,8 +43,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color:var(--background-color);
+   
     
+
+
     font-family: 'Roboto';
   }
 
@@ -57,6 +58,7 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-weight: 300;
     font-size: 1.5rem;
+   
   }
 
   

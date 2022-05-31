@@ -21,6 +21,11 @@ export default function Navigation() {
           <Image src={'/seacreatures.svg'} alt="" width="40px" height="40px" />
         </StyledActiveWrapper>
       </Link>
+      <Link passHref href="/">
+        <StyledActiveWrapper isActive={router.pathname === '/'}>
+          <Image src={'/passport.svg'} alt="" width="40px" height="40px" />
+        </StyledActiveWrapper>
+      </Link>
       <Link passHref href="/fishes">
         <StyledActiveWrapper isActive={router.pathname === '/fishes'}>
           <Image src={'/fishes.svg'} alt="" width="40px" height="40px" />
