@@ -7,7 +7,9 @@ export default function Home({ toggleTheme }) {
   return (
     <StyledPageWrapper>
       <StyledHeader>ACNH Journal</StyledHeader>
-      <StyledButton onClick={toggleTheme}>x</StyledButton>
+      <StyledButton className="themebutton" onClick={toggleTheme}>
+        Switch Theme
+      </StyledButton>
       <Navigation />
     </StyledPageWrapper>
   );

@@ -8,18 +8,20 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --color: #9c37b3;
     --color-button: hsl(313, 100%, 65%);
+    --color-button-theme: ${({ theme }) => theme.themebutton};
     --color-headline: ${({ theme }) => theme.headline};
     --color-navigation: ${({ theme }) => theme.navigationtext};
    
     --background-color: ${({ theme }) => theme.bodybg};
     --background-color-button: hsl(313, 100%, 95%);
+    --background-color-button-theme: ${({ theme }) => theme.themebuttonbg};
     --background-color-header: ${({ theme }) => theme.headlinebg};
     --background-color-navigation: ${({ theme }) => theme.navigationbg};
     --background-color-overlay: ${({ theme }) => theme.overlaybg};
     --background-color-fishspan: hsl(50, 100%, 65%);
     --background-color-seacreaturespan: hsl(140, 100%, 65%);
     --background-color-bugspan: hsl(30, 100%, 65%);
-    --background-color-activewrapper: hsl(248, 89%, 60%);
+    --background-color-activewrapper: ${({ theme }) => theme.navigationactive};
 
     --border-radius: 26px;
     --border-radius-inner: 20px;
