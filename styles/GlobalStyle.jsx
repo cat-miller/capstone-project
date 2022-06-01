@@ -11,7 +11,8 @@ const GlobalStyle = createGlobalStyle`
     --color-button-theme: ${({ theme }) => theme.themebutton};
     --color-headline: ${({ theme }) => theme.headline};
     --color-navigation: ${({ theme }) => theme.navigationtext};
-   
+    --color-navigation-icon: ${({ theme }) => theme.navigationicons};
+
     --background-color: ${({ theme }) => theme.bodybg};
     --background-color-button: hsl(313, 100%, 95%);
     --background-color-button-theme: ${({ theme }) => theme.themebuttonbg};

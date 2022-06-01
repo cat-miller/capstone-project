@@ -5,11 +5,11 @@ const StyledNavigation = styled.nav`
   background-color: var(--background-color-navigation);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-  color: red;
 
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  padding-top: 0.4rem;
+  align-items: center;
+  padding-top: 0.3rem;
 `;
 export default StyledNavigation;
