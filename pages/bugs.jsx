@@ -6,7 +6,7 @@ import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 
-export default function VillagersPage() {
+export default function BugsPage() {
   const { data } = useFetch('https://acnhapi.com/v1/bugs');
   const [bugs, setBugs] = useState([]);
 

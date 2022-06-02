@@ -6,7 +6,7 @@ import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 
-export default function VillagersPage() {
+export default function SeaCreaturesPage() {
   const { data } = useFetch('https://acnhapi.com/v1/sea');
   const [seaCreatures, setSeaCreatures] = useState([]);
 
@@ -41,6 +41,7 @@ export default function VillagersPage() {
               shadow={shadow}
               price={price}
               speed={speed}
+              id={id}
             />
           )
         )}

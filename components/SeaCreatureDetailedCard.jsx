@@ -2,6 +2,11 @@ import StyledImage from '../components-styled/StyledImage';
 import StyledDetailedCard from '../components-styled/StyledDetailedCard';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
+import StyledIconButton from '../components-styled/StyledIconButton';
+import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import Caught from '../public/caught.svg';
+import { useDispatch } from 'react-redux';
+import { toggleCaught } from '../features/seaCreatures/seaCreatureSlice';
 
 export default function SeaCreatureDetailedCard({
   name,
@@ -12,7 +17,9 @@ export default function SeaCreatureDetailedCard({
   shadow,
   speed,
   onClick,
+  id,
 }) {
+  const dispatch = useDispatch();
   function handleClose(e) {
     e.stopPropagation();
     onClick(false);
@@ -44,6 +51,11 @@ export default function SeaCreatureDetailedCard({
           <li>Price: {price}</li>
         </ul>
         <StyledButton onClick={handleClose}>close</StyledButton>
+        <StyledIconButton onClick={() => dispatch(toggleCaught(id))}>
+          <StyledSvgWrapper>
+            <Caught />
+          </StyledSvgWrapper>
+        </StyledIconButton>
       </div>
     </StyledDetailedCard>
   );

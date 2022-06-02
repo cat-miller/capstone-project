@@ -9,14 +9,18 @@ export const seaCreatureSlice = createSlice({
   initialState,
   reducers: {
     toggleCaught: (state, action) => {
-      if (state.caught.includes(action.payload.id)) {
-        state.caught.filter(id => action.payload.id != id);
+      console.log(action.payload);
+      console.log(state.caught);
+      if (state.caught.includes(action.payload)) {
+        state.caught = state.caught.filter(id => action.payload != id);
+      } else {
+        state.caught = [...state.caught, action.payload];
       }
-      state.caught = [...state.caught, action.payload.id];
     },
   },
 });
 
 export const { toggleCaught } = seaCreatureSlice.actions;
+export const selectSeaCreatures = state => state.seaCreatures;
 
 export default seaCreatureSlice.reducer;

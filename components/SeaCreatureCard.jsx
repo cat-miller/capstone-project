@@ -3,6 +3,11 @@ import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import SeaCreatureDetailedCard from './SeaCreatureDetailedCard';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectSeaCreatures,
+  toggleCaught,
+} from '../features/seaCreatures/seaCreatureSlice';
 
 export default function SeaCreatureCard({
   name,
@@ -12,9 +17,12 @@ export default function SeaCreatureCard({
   price,
   speed,
   shadow,
+  id,
 }) {
   const hue = index + 250;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
+  const { caught } = useSelector(selectSeaCreatures);
+  const dispatch = useDispatch();
 
   function detailedCard() {
     return (
@@ -28,6 +36,7 @@ export default function SeaCreatureCard({
           price={price}
           hue={hue}
           onClick={setShowDetailedCard}
+          id={id}
         />
       </StyledOverlay>
     );
