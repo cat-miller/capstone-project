@@ -4,15 +4,15 @@ import { lightTheme, darkTheme } from '../styles/ThemeConfig';
 import { useState } from 'react';
 
 export default function App({ Component, pageProps }) {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(lightTheme);
 
   const toggleTheme = () => {
-    theme == 'light' ? setTheme('dark') : setTheme('light');
+    theme === lightTheme ? setTheme(darkTheme) : setTheme(lightTheme);
   };
 
   return (
     <>
-      <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Component toggleTheme={toggleTheme} {...pageProps} />
       </ThemeProvider>

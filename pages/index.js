@@ -6,7 +6,7 @@ import StyledButton from '../components-styled/StyledButton';
 export default function Home({ toggleTheme }) {
   return (
     <StyledPageWrapper>
-      <StyledHeader>ACNH Journal</StyledHeader>
+      <StyledHeader>Animal Crossing Journal</StyledHeader>
       <StyledButton className="themebutton" onClick={toggleTheme}>
         Switch Theme
       </StyledButton>
