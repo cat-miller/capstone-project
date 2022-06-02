@@ -7,7 +7,7 @@ const StyledSvgWrapper = styled.div`
   fill: var(--color-navigation-icon);
 
   ${StyledIconButton} & {
-    width: 16px;
+    width: 24px;
     fill: var(--color-button);
   }
 `;

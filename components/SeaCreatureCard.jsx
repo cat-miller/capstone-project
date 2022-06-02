@@ -2,13 +2,17 @@ import StyledImage from '../components-styled/StyledImage';
 import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
+import StyledIconButton from '../components-styled/StyledIconButton';
+import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import Caught from '../public/caught.svg';
 import SeaCreatureDetailedCard from './SeaCreatureDetailedCard';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
 import {
   selectSeaCreatures,
   toggleCaught,
 } from '../features/seaCreatures/seaCreatureSlice';
-
+import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 export default function SeaCreatureCard({
   name,
   imageUri,
@@ -23,6 +27,12 @@ export default function SeaCreatureCard({
   const [showDetailedCard, setShowDetailedCard] = useState(false);
   const { caught } = useSelector(selectSeaCreatures);
   const dispatch = useDispatch();
+
+  const handleIconButtonClick = e => {
+    console.log('test');
+    e.stopPropagation();
+    dispatch(toggleCaught(id));
+  };
 
   function detailedCard() {
     return (
@@ -60,14 +70,30 @@ export default function SeaCreatureCard({
         src={imageUri}
         alt=""
       />
-      <div>
+      <Details>
         <h2>{name}</h2>
         <ul>
           <li>{speed}</li>
           <li>{shadow} shadow</li>
         </ul>
+        <StyledIconButton onClick={handleIconButtonClick}>
+          <StyledSvgWrapper>
+            <Caught />
+          </StyledSvgWrapper>
+        </StyledIconButton>
         {showDetailedCard && detailedCard()}
-      </div>
+      </Details>
     </StyledCard>
   );
 }
+
+const Details = styled.div`
+  padding-top: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-rows: min-content min-content 1fr;
+  gap: 0.5rem;
+  & ul {
+    margin: 0;
+  }
+`;

@@ -25,7 +25,7 @@ const StyledSpan = styled.span`
 
   ${StyledDetailedCard}, .seacreature & {
     position: absolute;
-    top: 15.2rem;
+    top: 13.8rem;
     left: 1.5rem;
     right: 1.5rem;
     background-color: var(--background-color-seacreaturespan);

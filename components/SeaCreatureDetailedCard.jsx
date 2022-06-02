@@ -51,12 +51,12 @@ export default function SeaCreatureDetailedCard({
           <li>Price: {price}</li>
         </ul>
         <StyledButton onClick={handleClose}>close</StyledButton>
-        <StyledIconButton onClick={() => dispatch(toggleCaught(id))}>
-          <StyledSvgWrapper>
-            <Caught />
-          </StyledSvgWrapper>
-        </StyledIconButton>
       </div>
+      <StyledIconButton onClick={() => dispatch(toggleCaught(id))}>
+        <StyledSvgWrapper>
+          <Caught />
+        </StyledSvgWrapper>
+      </StyledIconButton>
     </StyledDetailedCard>
   );
 }

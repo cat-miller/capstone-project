@@ -6,11 +6,11 @@ const StyledOverlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: var(--background-color-overlay);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 10;
 `;
 
 export default StyledOverlay;
