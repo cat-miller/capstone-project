@@ -1,3 +1,16 @@
-export default function Home() {
-  return <h1>My ACNH Journal</h1>;
+import StyledPageWrapper from '../components-styled/StyledPageWrapper';
+import Navigation from '../components/Navigation';
+import StyledHeader from '../components-styled/StyledHeader';
+import StyledButton from '../components-styled/StyledButton';
+
+export default function Home({ toggleTheme }) {
+  return (
+    <StyledPageWrapper>
+      <StyledHeader>Animal Crossing Journal</StyledHeader>
+      <StyledButton className="themebutton" onClick={toggleTheme}>
+        Switch Theme
+      </StyledButton>
+      <Navigation />
+    </StyledPageWrapper>
+  );
 }

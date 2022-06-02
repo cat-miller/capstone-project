@@ -5,7 +5,7 @@ const StyledOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: hsla(0, 0%, 100%, 0.7);
+  background-color: var(--background-color-overlay);
   position: absolute;
   top: 0;
   left: 0;

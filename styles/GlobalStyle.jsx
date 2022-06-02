@@ -8,17 +8,35 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --color: #9c37b3;
     --color-button: hsl(313, 100%, 65%);
+    --color-button-theme: ${({ theme }) => theme.themebutton};
+    --color-headline: ${({ theme }) => theme.headline};
+    --color-navigation: ${({ theme }) => theme.navigationtext};
+    --color-navigation-icon: ${({ theme }) => theme.navigationicons};
+
+    --background-color: ${({ theme }) => theme.bodybg};
+    --background-color-button: hsl(313, 100%, 95%);
+    --background-color-button-theme: ${({ theme }) => theme.themebuttonbg};
+    --background-color-header: ${({ theme }) => theme.headlinebg};
+    --background-color-navigation: ${({ theme }) => theme.navigationbg};
+    --background-color-overlay: ${({ theme }) => theme.overlaybg};
+    --background-color-fishspan: hsl(50, 100%, 65%);
+    --background-color-seacreaturespan: hsl(140, 100%, 65%);
+    --background-color-bugspan: hsl(30, 100%, 65%);
+    --background-color-activewrapper: ${({ theme }) => theme.navigationactive};
+
     --border-radius: 26px;
     --border-radius-inner: 20px;
-    --background-color:  hsl(266, 100%, 98%);
-    --background-color-button: hsl(313, 100%, 95%)
+
   }
   
   body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color:var(--background-color);
+    background-color: var(--background-color);
+    
+
+
     font-family: 'Roboto';
   }
 

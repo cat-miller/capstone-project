@@ -8,7 +8,7 @@ const StyledSpan = styled.span`
   padding: 0.25rem 0.6rem;
   letter-spacing: 0.7px;
 
-  ${StyledDetailedCard} & {
+  ${StyledDetailedCard}, .villagers & {
     position: absolute;
     top: 2rem;
     left: 2rem;
@@ -19,7 +19,7 @@ const StyledSpan = styled.span`
     top: 8.5rem;
     left: 1.5rem;
     right: 1.5rem;
-    background-color: hsl(50, 100%, 65%);
+    background-color: var(--background-color-fishspan);
     border-radius: 10px;
   }
 
@@ -28,7 +28,7 @@ const StyledSpan = styled.span`
     top: 15.2rem;
     left: 1.5rem;
     right: 1.5rem;
-    background-color: hsl(140, 100%, 65%);
+    background-color: var(--background-color-seacreaturespan);
     border-radius: 10px;
   }
 
@@ -37,7 +37,7 @@ const StyledSpan = styled.span`
     top: 13.5rem;
     left: 1.5rem;
     right: 1.5rem;
-    background-color: hsl(30, 100%, 65%);
+    background-color: var(--background-color-bugspan);
     border-radius: 10px;
   }
 `;

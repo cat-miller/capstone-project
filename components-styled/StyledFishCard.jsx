@@ -8,7 +8,7 @@ const StyledFishCard = styled.section`
   height: 17rem;
   border-radius: var(--border-radius);
   color: var(--color);
-  padding: 0.65rem;
+  padding: 0.7rem;
 `;
 
 export default StyledFishCard;
