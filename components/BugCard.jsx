@@ -3,6 +3,7 @@ import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import BugDetailedCard from './BugDetailedCard';
+import StyledDetails from '../components-styled/StyledDetails';
 
 export default function BugCard({
   name,
@@ -53,14 +54,14 @@ export default function BugCard({
         src={imageUri}
         alt=""
       />
-      <div>
-        <h2>{name}</h2>
+      <StyledDetails>
+        <h2>{name.toUpperCase()}</h2>
         <ul>
           <li>{rarity}</li>
           <li>{location}</li>
         </ul>
         {showDetailedCard && detailedCard()}
-      </div>
+      </StyledDetails>
     </StyledCard>
   );
 }

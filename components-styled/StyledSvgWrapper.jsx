@@ -8,7 +8,7 @@ const StyledSvgWrapper = styled.div`
 
   ${StyledIconButton} & {
     width: 24px;
-    fill: var(--color-button);
+    fill: inherit;
   }
 `;
 

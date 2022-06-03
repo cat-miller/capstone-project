@@ -4,15 +4,15 @@ import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import StyledDetails from '../components-styled/StyledDetails';
 import Caught from '../public/caught.svg';
 import SeaCreatureDetailedCard from './SeaCreatureDetailedCard';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
 import {
   selectSeaCreatures,
   toggleCaught,
 } from '../features/seaCreatures/seaCreatureSlice';
-import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
+
 export default function SeaCreatureCard({
   name,
   imageUri,
@@ -26,10 +26,10 @@ export default function SeaCreatureCard({
   const hue = index + 250;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
   const { caught } = useSelector(selectSeaCreatures);
+  const isActive = caught.includes(id);
   const dispatch = useDispatch();
 
   const handleIconButtonClick = e => {
-    console.log('test');
     e.stopPropagation();
     dispatch(toggleCaught(id));
   };
@@ -70,30 +70,19 @@ export default function SeaCreatureCard({
         src={imageUri}
         alt=""
       />
-      <Details>
-        <h2>{name}</h2>
+      <StyledDetails>
+        <h2>{name.toUpperCase()}</h2>
         <ul>
           <li>{speed}</li>
           <li>{shadow} shadow</li>
         </ul>
-        <StyledIconButton onClick={handleIconButtonClick}>
+        <StyledIconButton onClick={handleIconButtonClick} isActive={isActive}>
           <StyledSvgWrapper>
             <Caught />
           </StyledSvgWrapper>
         </StyledIconButton>
         {showDetailedCard && detailedCard()}
-      </Details>
+      </StyledDetails>
     </StyledCard>
   );
 }
-
-const Details = styled.div`
-  padding-top: 1rem;
-  width: 100%;
-  display: grid;
-  grid-template-rows: min-content min-content 1fr;
-  gap: 0.5rem;
-  & ul {
-    margin: 0;
-  }
-`;

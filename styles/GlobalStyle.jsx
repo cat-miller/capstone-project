@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
     --color: #9c37b3;
     --color-button: hsl(313, 100%, 65%);
     --color-button-theme: ${({ theme }) => theme.themebutton};
+    --color-button-caught: ${({ theme }) => theme.caughtbutton};
+    --color-button-caught-active: ${({ theme }) => theme.caughtbuttonactive};
+
     --color-headline: ${({ theme }) => theme.headline};
     --color-navigation: ${({ theme }) => theme.navigationtext};
     --color-navigation-icon: ${({ theme }) => theme.navigationicons};
@@ -16,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
     --background-color: ${({ theme }) => theme.bodybg};
     --background-color-button: hsl(313, 100%, 95%);
     --background-color-button-theme: ${({ theme }) => theme.themebuttonbg};
+    --background-color-button-caught: ${({ theme }) => theme.caughtbuttonbg};
+    --background-color-button-caught-active: ${({ theme }) =>
+      theme.caughtbuttonbgactive};
+
     --background-color-header: ${({ theme }) => theme.headlinebg};
     --background-color-navigation: ${({ theme }) => theme.navigationbg};
     --background-color-overlay: ${({ theme }) => theme.overlaybg};
@@ -64,7 +71,7 @@ const GlobalStyle = createGlobalStyle`
 
   h2 {
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
   
 `;

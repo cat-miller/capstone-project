@@ -5,8 +5,11 @@ import StyledButton from '../components-styled/StyledButton';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import Caught from '../public/caught.svg';
-import { useDispatch } from 'react-redux';
-import { toggleCaught } from '../features/seaCreatures/seaCreatureSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectSeaCreatures,
+  toggleCaught,
+} from '../features/seaCreatures/seaCreatureSlice';
 
 export default function SeaCreatureDetailedCard({
   name,
@@ -20,6 +23,9 @@ export default function SeaCreatureDetailedCard({
   id,
 }) {
   const dispatch = useDispatch();
+  const { caught } = useSelector(selectSeaCreatures);
+  const isActive = caught.includes(id);
+
   function handleClose(e) {
     e.stopPropagation();
     onClick(false);
@@ -44,7 +50,7 @@ export default function SeaCreatureDetailedCard({
       />
       <div>
         <StyledSpan>&quot;{catchPhrase}!&quot;</StyledSpan>
-        <h2>{name}</h2>
+        <h2>{name.toUpperCase()}</h2>
         <ul>
           <li>Shadow: {shadow}</li>
           <li>Speed: {speed}</li>
@@ -52,7 +58,10 @@ export default function SeaCreatureDetailedCard({
         </ul>
         <StyledButton onClick={handleClose}>close</StyledButton>
       </div>
-      <StyledIconButton onClick={() => dispatch(toggleCaught(id))}>
+      <StyledIconButton
+        onClick={() => dispatch(toggleCaught(id))}
+        isActive={isActive}
+      >
         <StyledSvgWrapper>
           <Caught />
         </StyledSvgWrapper>

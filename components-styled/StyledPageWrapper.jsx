@@ -7,7 +7,7 @@ const StyledPageWrapper = styled.div`
   bottom: 0;
   display: grid;
   justify-items: center;
-  grid-template-rows: 3rem 1fr 3.5rem;
+  grid-template-rows: 3.5rem 1fr 3.5rem;
 `;
 
 export default StyledPageWrapper;
