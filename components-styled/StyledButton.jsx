@@ -16,10 +16,9 @@ const StyledButton = styled.button`
   }
 
   ${StyledHeader} & {
-    background-color: var(--background-color-button);
-    color: var(--color-button);
-    border: 2px solid var(--color-button);
-    justify-self: end;
+    background-color: var(--background-color-button-caught);
+    color: var(--color-button-caught);
+    border: 2px solid var(--color-button-caught);
   }
 
   &.themebutton {

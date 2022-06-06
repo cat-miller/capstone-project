@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --color: #9c37b3;
-    --color-button: hsl(313, 100%, 65%);
+    --color-button: ${({ theme }) => theme.button};
     --color-button-theme: ${({ theme }) => theme.themebutton};
     --color-button-caught: ${({ theme }) => theme.caughtbutton};
     --color-button-caught-active: ${({ theme }) => theme.caughtbuttonactive};
@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     --color-navigation-icon: ${({ theme }) => theme.navigationicons};
 
     --background-color: ${({ theme }) => theme.bodybg};
-    --background-color-button: hsl(313, 100%, 95%);
+    --background-color-button:  ${({ theme }) => theme.buttonbg};
     --background-color-button-theme: ${({ theme }) => theme.themebuttonbg};
     --background-color-button-caught: ${({ theme }) => theme.caughtbuttonbg};
     --background-color-button-caught-active: ${({ theme }) =>
