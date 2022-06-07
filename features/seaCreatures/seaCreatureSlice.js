@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import toggleBookmark from '../generalReducers/toggleBookmark';
 
 const initialState = {
   caught: [],
@@ -8,15 +9,7 @@ export const seaCreatureSlice = createSlice({
   name: 'seaCreatures',
   initialState,
   reducers: {
-    toggleCaught: (state, action) => {
-      console.log(action.payload);
-      console.log(state.caught);
-      if (state.caught.includes(action.payload)) {
-        state.caught = state.caught.filter(id => action.payload != id);
-      } else {
-        state.caught = [...state.caught, action.payload];
-      }
-    },
+    toggleCaught: toggleBookmark,
   },
 });
 

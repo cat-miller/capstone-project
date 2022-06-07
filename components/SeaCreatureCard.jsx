@@ -4,7 +4,7 @@ import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
-import StyledDetails from '../components-styled/StyledDetails';
+import StyledCardDetails from '../components-styled/StyledCardDetails';
 import Caught from '../public/caught.svg';
 import SeaCreatureDetailedCard from './SeaCreatureDetailedCard';
 import { useSelector, useDispatch } from 'react-redux';
@@ -70,7 +70,7 @@ export default function SeaCreatureCard({
         src={imageUri}
         alt=""
       />
-      <StyledDetails>
+      <StyledCardDetails>
         <h2>{name.toUpperCase()}</h2>
         <ul>
           <li>{speed}</li>
@@ -82,7 +82,7 @@ export default function SeaCreatureCard({
           </StyledSvgWrapper>
         </StyledIconButton>
         {showDetailedCard && detailedCard()}
-      </StyledDetails>
+      </StyledCardDetails>
     </StyledCard>
   );
 }

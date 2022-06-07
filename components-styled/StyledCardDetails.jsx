@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledDetails = styled.div`
+const StyledCardDetails = styled.div`
   padding-top: 1rem;
   width: 100%;
   display: grid;
@@ -10,4 +10,4 @@ const StyledDetails = styled.div`
     margin: 0;
   }
 `;
-export default StyledDetails;
+export default StyledCardDetails;

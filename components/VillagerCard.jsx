@@ -3,7 +3,7 @@ import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import VillagerDetailedCard from './VillagerDetailedCard';
-import StyledDetails from '../components-styled/StyledDetails';
+import StyledCardDetails from '../components-styled/StyledCardDetails';
 
 export default function VillagerCard({
   name,
@@ -54,7 +54,7 @@ export default function VillagerCard({
         src={imageUri}
         alt=""
       />
-      <StyledDetails>
+      <StyledCardDetails>
         <h2>{name.toUpperCase()}</h2>
         <ul>
           <li>{personality}</li>
@@ -62,7 +62,7 @@ export default function VillagerCard({
           <li>{species}</li>
         </ul>
         {showDetailedCard && detailedCard()}
-      </StyledDetails>
+      </StyledCardDetails>
     </StyledCard>
   );
 }
