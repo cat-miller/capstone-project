@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import StyledDetailedCard from './StyledDetailedCard';
+import StyledHeader from './StyledHeader';
 
 const StyledButton = styled.button`
   border-radius: 999px;
@@ -12,6 +13,12 @@ const StyledButton = styled.button`
     background-color: var(--background-color-button);
     color: var(--color-button);
     border: 2px solid var(--color-button);
+  }
+
+  ${StyledHeader} & {
+    background-color: var(--background-color-button-caught);
+    color: var(--color-button-caught);
+    border: 2px solid var(--color-button-caught);
   }
 
   &.themebutton {

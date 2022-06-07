@@ -55,7 +55,7 @@ export default function FishCard({
         alt=""
       />
       <div>
-        <h2>{name}</h2>
+        <h2>{name.toUpperCase()}</h2>
         <ul>
           <li>{rarity}</li>
           <li>{location}</li>

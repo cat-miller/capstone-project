@@ -39,7 +39,7 @@ export default function FishDetailedCard({
       />
       <div>
         <StyledSpan>&quot;{catchPhrase}!&quot;</StyledSpan>
-        <h2>{name}</h2>
+        <h2>{name.toUpperCase()}</h2>
         <ul>
           <li>Location: {location}</li>
           <li>Shadow: {shadow}</li>

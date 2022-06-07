@@ -1,5 +1,5 @@
 export const lightTheme = {
-  headline: 'hsl(103, 100%, 40%)',
+  headline: 'hsl(103, 100%, 30%)',
   headlinebg: 'hsl(197, 100%, 97%)',
   navigationtext: 'hsl(0, 0%, 100%)',
   navigationbg: 'hsl(334, 100%, 70%)',
@@ -7,8 +7,14 @@ export const lightTheme = {
   navigationactive: 'hsl(334, 100%, 62%)',
   bodybg: 'hsl(197, 100%, 97%)',
   overlaybg: 'hsla(197, 100%, 97%, 0.7)',
+  button: 'hsl(313, 100%, 65%)',
+  buttonbg: 'hsl(313, 100%, 95%)',
   themebutton: 'hsl(313, 100%, 65%)',
   themebuttonbg: 'hsl(313, 100%, 95%)',
+  caughtbutton: 'hsl(283, 100%, 65%)',
+  caughtbuttonactive: 'hsl(263, 100%, 65%)',
+  caughtbuttonbg: 'hsl(283, 100%, 95%)',
+  caughtbuttonbgactive: 'hsl(263, 100%, 85%)',
 };
 
 export const darkTheme = {
@@ -20,8 +26,14 @@ export const darkTheme = {
   navigationactive: 'hsl(256, 35%, 31%)',
   bodybg: 'hsl(248, 65%, 12%)',
   overlaybg: 'hsla(248, 65%, 12%, 0.7)',
+  button: 'hsl(353, 100%, 65%)',
+  buttonbg: 'hsl(353, 100%, 95%)',
   themebutton: 'hsl(9, 100%, 65%)',
   themebuttonbg: 'hsl(9, 100%, 85%)',
+  caughtbutton: 'hsl(10, 100%, 65%)',
+  caughtbuttonactive: 'hsl(3, 100%, 65%)',
+  caughtbuttonbg: 'hsl(10, 100%, 95%)',
+  caughtbuttonbgactive: 'hsl(3, 100%, 85%)',
 };
 
 export const cherryTheme = {
@@ -33,6 +45,12 @@ export const cherryTheme = {
   navigationactive: 'hsl(334, 100%, 60%)',
   bodybg: 'hsl(266, 100%, 97%)',
   overlaybg: 'hsla(0, 0%, 100%, 0.7)',
+  button: 'hsl(313, 100%, 65%)',
+  butonbg: 'hsl(313, 100%, 95%)',
   themebutton: 'hsl(313, 100%, 65%)',
   themebuttonbg: 'hsl(313, 100%, 95%)',
+  caughtbutton: 'hsl(283, 100%, 65%)',
+  caughtbuttonactive: 'hsl(263, 100%, 65%)',
+  caughtbuttonbg: 'hsl(283, 100%, 95%)',
+  caughtbuttonbgactive: 'hsl(263, 100%, 85%)',
 };

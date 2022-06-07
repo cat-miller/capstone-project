@@ -5,7 +5,7 @@ const StyledHeader = styled.h1`
   background-color: var(--background-color-header);
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 export default StyledHeader;

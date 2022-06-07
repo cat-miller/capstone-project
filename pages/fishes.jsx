@@ -6,7 +6,7 @@ import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 
-export default function VillagersPage() {
+export default function FishesPage() {
   const { data } = useFetch('https://acnhapi.com/v1/fish');
   const [fishes, setFishes] = useState([]);
 

@@ -70,6 +70,7 @@ const StyledScrollShadow = styled.div`
   top: -5rem;
   left: 0;
   right: 0;
+  pointer-events: none;
   height: 5rem;
   background: linear-gradient(to top, var(--background-color), transparent);
 `;

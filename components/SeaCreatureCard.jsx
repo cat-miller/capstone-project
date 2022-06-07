@@ -2,7 +2,16 @@ import StyledImage from '../components-styled/StyledImage';
 import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
+import StyledIconButton from '../components-styled/StyledIconButton';
+import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import StyledCardDetails from '../components-styled/StyledCardDetails';
+import Caught from '../public/caught.svg';
 import SeaCreatureDetailedCard from './SeaCreatureDetailedCard';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectSeaCreatures,
+  toggleCaught,
+} from '../features/seaCreatures/seaCreatureSlice';
 
 export default function SeaCreatureCard({
   name,
@@ -12,9 +21,18 @@ export default function SeaCreatureCard({
   price,
   speed,
   shadow,
+  id,
 }) {
   const hue = index + 250;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
+  const { caught } = useSelector(selectSeaCreatures);
+  const isActive = caught.includes(id);
+  const dispatch = useDispatch();
+
+  const handleIconButtonClick = e => {
+    e.stopPropagation();
+    dispatch(toggleCaught(id));
+  };
 
   function detailedCard() {
     return (
@@ -28,6 +46,7 @@ export default function SeaCreatureCard({
           price={price}
           hue={hue}
           onClick={setShowDetailedCard}
+          id={id}
         />
       </StyledOverlay>
     );
@@ -51,14 +70,19 @@ export default function SeaCreatureCard({
         src={imageUri}
         alt=""
       />
-      <div>
-        <h2>{name}</h2>
+      <StyledCardDetails>
+        <h2>{name.toUpperCase()}</h2>
         <ul>
           <li>{speed}</li>
           <li>{shadow} shadow</li>
         </ul>
+        <StyledIconButton onClick={handleIconButtonClick} isActive={isActive}>
+          <StyledSvgWrapper>
+            <Caught />
+          </StyledSvgWrapper>
+        </StyledIconButton>
         {showDetailedCard && detailedCard()}
-      </div>
+      </StyledCardDetails>
     </StyledCard>
   );
 }

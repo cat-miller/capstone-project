@@ -39,7 +39,7 @@ export default function VillagerDetailedCard({
         <StyledSpan color={bubbleColor} backgroundColor={textColor}>
           &quot;{catchPhrase}!&quot;
         </StyledSpan>
-        <h2>{name}</h2>
+        <h2>{name.toUpperCase()}</h2>
         <ul>
           <li>Personality: {personality}</li>
           <li>Gender: {gender}</li>
