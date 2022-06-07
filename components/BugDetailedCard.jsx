@@ -2,6 +2,17 @@ import StyledImage from '../components-styled/StyledImage';
 import StyledDetailedCard from '../components-styled/StyledDetailedCard';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
+import StyledIconButton from '../components-styled/StyledIconButton';
+import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import Caught from '../public/caught.svg';
+import Donated from '../public/donated.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
+import {
+  selectBugs,
+  toggleCaught,
+  toggleDonated,
+} from '../features/bugs/bugSlice';
 
 export default function BugDetailedCard({
   name,
@@ -13,7 +24,15 @@ export default function BugDetailedCard({
   location,
   rarity,
   onClick,
+  id,
 }) {
+  const dispatch = useDispatch();
+  const { caught, donated } = useSelector(selectBugs);
+  const isActive = {
+    caught: caught.includes(id),
+    donated: donated.includes(id),
+  };
+
   function handleClose(e) {
     e.stopPropagation();
     onClick(false);
@@ -47,6 +66,26 @@ export default function BugDetailedCard({
         </ul>
         <StyledButton onClick={handleClose}>close</StyledButton>
       </div>
+      <StyledIconButtonWrapper>
+        <StyledIconButton
+          className="donated"
+          onClick={() => dispatch(toggleDonated(id))}
+          isActive={isActive.donated}
+        >
+          <StyledSvgWrapper>
+            <Donated />
+          </StyledSvgWrapper>
+        </StyledIconButton>
+        <StyledIconButton
+          className="caught"
+          onClick={() => dispatch(toggleCaught(id))}
+          isActive={isActive.caught}
+        >
+          <StyledSvgWrapper>
+            <Caught />
+          </StyledSvgWrapper>
+        </StyledIconButton>
+      </StyledIconButtonWrapper>
     </StyledDetailedCard>
   );
 }

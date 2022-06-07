@@ -5,10 +5,14 @@ import VillagerCard from '../components/VillagerCard';
 import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
+import { useSelector } from 'react-redux';
+import { selectVillagers } from '../features/villagers/villagerSlice';
+import StyledButton from '../components-styled/StyledButton';
 
 export default function VillagersPage() {
   const { data } = useFetch('https://acnhapi.com/v1/villagers');
   const [villagers, setVillagers] = useState([]);
+  const { favorites, neighbors } = useSelector(selectVillagers);
 
   useEffect(() => {
     if (!data) return;
@@ -17,7 +21,15 @@ export default function VillagersPage() {
 
   return (
     <StyledPageWrapper>
-      <StyledHeader>Villagers</StyledHeader>
+      <StyledHeader>
+        <StyledButton className="donated">
+          {favorites.length}/{villagers.length}
+        </StyledButton>
+        Villagers
+        <StyledButton className="caught">
+          {neighbors.length}/{villagers.length}
+        </StyledButton>
+      </StyledHeader>
       <StyledCardsWrapper>
         {villagers?.map(
           (
@@ -38,6 +50,7 @@ export default function VillagersPage() {
             <VillagerCard
               index={index}
               key={id}
+              id={id}
               name={name['name-EUen']}
               personality={personality}
               species={species}

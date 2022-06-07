@@ -3,8 +3,20 @@ import StyledFishCard from '../components-styled/StyledFishCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import FishDetailedCard from './FishDetailedCard';
+import StyledIconButton from '../components-styled/StyledIconButton';
+import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
+import Caught from '../public/caught.svg';
+import Donated from '../public/donated.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectFishes,
+  toggleCaught,
+  toggleDonated,
+} from '../features/fishes/fishSlice';
 
 export default function FishCard({
+  id,
   name,
   imageUri,
   index,
@@ -17,6 +29,22 @@ export default function FishCard({
 }) {
   const hue = index + 200;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
+  const { caught, donated } = useSelector(selectFishes);
+  const isActive = {
+    caught: caught.includes(id),
+    donated: donated.includes(id),
+  };
+  const dispatch = useDispatch();
+
+  const handleCaughtClick = e => {
+    e.stopPropagation();
+    dispatch(toggleCaught(id));
+  };
+
+  const handleDonatedClick = e => {
+    e.stopPropagation();
+    dispatch(toggleDonated(id));
+  };
 
   function detailedCard() {
     return (
@@ -32,6 +60,7 @@ export default function FishCard({
           location={location}
           hue={hue}
           onClick={setShowDetailedCard}
+          id={id}
         />
       </StyledOverlay>
     );
@@ -60,6 +89,26 @@ export default function FishCard({
           <li>{rarity}</li>
           <li>{location}</li>
         </ul>
+        <StyledIconButtonWrapper>
+          <StyledIconButton
+            className="donated"
+            onClick={handleDonatedClick}
+            isActive={isActive.donated}
+          >
+            <StyledSvgWrapper>
+              <Donated />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+          <StyledIconButton
+            className="caught"
+            onClick={handleCaughtClick}
+            isActive={isActive.caught}
+          >
+            <StyledSvgWrapper>
+              <Caught />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+        </StyledIconButtonWrapper>
         {showDetailedCard && detailedCard()}
       </div>
     </StyledFishCard>
