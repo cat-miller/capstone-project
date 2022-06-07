@@ -6,12 +6,15 @@ import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import StyledCardDetails from '../components-styled/StyledCardDetails';
 import Caught from '../public/caught.svg';
+import Donated from '../public/donated.svg';
 import SeaCreatureDetailedCard from './SeaCreatureDetailedCard';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectSeaCreatures,
   toggleCaught,
+  toggleDonated,
 } from '../features/seaCreatures/seaCreatureSlice';
+import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 
 export default function SeaCreatureCard({
   name,
@@ -25,13 +28,21 @@ export default function SeaCreatureCard({
 }) {
   const hue = index + 250;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
-  const { caught } = useSelector(selectSeaCreatures);
-  const isActive = caught.includes(id);
+  const { caught, donated } = useSelector(selectSeaCreatures);
+  const isActive = {
+    caught: caught.includes(id),
+    donated: donated.includes(id),
+  };
   const dispatch = useDispatch();
 
-  const handleIconButtonClick = e => {
+  const handleCaughtClick = e => {
     e.stopPropagation();
     dispatch(toggleCaught(id));
+  };
+
+  const handleDonatedClick = e => {
+    e.stopPropagation();
+    dispatch(toggleDonated(id));
   };
 
   function detailedCard() {
@@ -76,11 +87,26 @@ export default function SeaCreatureCard({
           <li>{speed}</li>
           <li>{shadow} shadow</li>
         </ul>
-        <StyledIconButton onClick={handleIconButtonClick} isActive={isActive}>
-          <StyledSvgWrapper>
-            <Caught />
-          </StyledSvgWrapper>
-        </StyledIconButton>
+        <StyledIconButtonWrapper>
+          <StyledIconButton
+            className="donated"
+            onClick={handleDonatedClick}
+            isActive={isActive.donated}
+          >
+            <StyledSvgWrapper>
+              <Donated />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+          <StyledIconButton
+            className="caught"
+            onClick={handleCaughtClick}
+            isActive={isActive.caught}
+          >
+            <StyledSvgWrapper>
+              <Caught />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+        </StyledIconButtonWrapper>
         {showDetailedCard && detailedCard()}
       </StyledCardDetails>
     </StyledCard>

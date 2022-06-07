@@ -11,10 +11,14 @@ export const lightTheme = {
   buttonbg: 'hsl(313, 100%, 95%)',
   themebutton: 'hsl(313, 100%, 65%)',
   themebuttonbg: 'hsl(313, 100%, 95%)',
-  caughtbutton: 'hsl(283, 100%, 65%)',
-  caughtbuttonactive: 'hsl(263, 100%, 65%)',
-  caughtbuttonbg: 'hsl(283, 100%, 95%)',
-  caughtbuttonbgactive: 'hsl(263, 100%, 85%)',
+  caughtbutton: 'hsl(103, 100%, 40%)',
+  caughtbuttonactive: 'hsl(153, 100%, 35%)',
+  caughtbuttonbg: 'hsl(103, 100%, 95%)',
+  caughtbuttonbgactive: 'hsl(153, 100%, 65%)',
+  donatedbutton: 'hsl(353, 100%, 65%)',
+  donatedbuttonactive: 'hsl(3, 100%, 65%)',
+  donatedbuttonbg: 'hsl(353, 100%, 95%)',
+  donatedbuttonbgactive: 'hsl(3, 100%, 85%)',
 };
 
 export const darkTheme = {
@@ -34,6 +38,10 @@ export const darkTheme = {
   caughtbuttonactive: 'hsl(3, 100%, 65%)',
   caughtbuttonbg: 'hsl(10, 100%, 95%)',
   caughtbuttonbgactive: 'hsl(3, 100%, 85%)',
+  donatedbutton: 'hsl(10, 100%, 65%)',
+  donatedbuttonactive: 'hsl(3, 100%, 65%)',
+  donatedbuttonbg: 'hsl(10, 100%, 95%)',
+  donatedbuttonbgactive: 'hsl(3, 100%, 85%)',
 };
 
 export const cherryTheme = {

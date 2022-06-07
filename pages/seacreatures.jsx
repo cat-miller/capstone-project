@@ -6,16 +6,13 @@ import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 import StyledButton from '../components-styled/StyledButton';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectSeaCreatures,
-  toggleCaught,
-} from '../features/seaCreatures/seaCreatureSlice';
+import { useSelector } from 'react-redux';
+import { selectSeaCreatures } from '../features/seaCreatures/seaCreatureSlice';
 
 export default function SeaCreaturesPage() {
   const { data } = useFetch('https://acnhapi.com/v1/sea');
   const [seaCreatures, setSeaCreatures] = useState([]);
-  const { caught } = useSelector(selectSeaCreatures);
+  const { caught, donated } = useSelector(selectSeaCreatures);
 
   useEffect(() => {
     if (!data) return;
@@ -25,9 +22,11 @@ export default function SeaCreaturesPage() {
   return (
     <StyledPageWrapper>
       <StyledHeader>
-        <StyledButton>all: {seaCreatures.length}</StyledButton>
+        <StyledButton className="donated">
+          {donated.length}/{seaCreatures.length}
+        </StyledButton>
         Sea Creatures
-        <StyledButton>
+        <StyledButton className="caught">
           {caught.length}/{seaCreatures.length}
         </StyledButton>
       </StyledHeader>
