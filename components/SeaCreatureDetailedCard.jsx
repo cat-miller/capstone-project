@@ -5,11 +5,14 @@ import StyledButton from '../components-styled/StyledButton';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import Caught from '../public/caught.svg';
+import Donated from '../public/donated.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectSeaCreatures,
   toggleCaught,
+  toggleDonated,
 } from '../features/seaCreatures/seaCreatureSlice';
+import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 
 export default function SeaCreatureDetailedCard({
   name,
@@ -23,8 +26,11 @@ export default function SeaCreatureDetailedCard({
   id,
 }) {
   const dispatch = useDispatch();
-  const { caught } = useSelector(selectSeaCreatures);
-  const isActive = caught.includes(id);
+  const { caught, donated } = useSelector(selectSeaCreatures);
+  const isActive = {
+    caught: caught.includes(id),
+    donated: donated.includes(id),
+  };
 
   function handleClose(e) {
     e.stopPropagation();
@@ -58,14 +64,26 @@ export default function SeaCreatureDetailedCard({
         </ul>
         <StyledButton onClick={handleClose}>close</StyledButton>
       </div>
-      <StyledIconButton
-        onClick={() => dispatch(toggleCaught(id))}
-        isActive={isActive}
-      >
-        <StyledSvgWrapper>
-          <Caught />
-        </StyledSvgWrapper>
-      </StyledIconButton>
+      <StyledIconButtonWrapper>
+        <StyledIconButton
+          className="donated"
+          onClick={() => dispatch(toggleDonated(id))}
+          isActive={isActive.donated}
+        >
+          <StyledSvgWrapper>
+            <Donated />
+          </StyledSvgWrapper>
+        </StyledIconButton>
+        <StyledIconButton
+          className="caught"
+          onClick={() => dispatch(toggleCaught(id))}
+          isActive={isActive.caught}
+        >
+          <StyledSvgWrapper>
+            <Caught />
+          </StyledSvgWrapper>
+        </StyledIconButton>
+      </StyledIconButtonWrapper>
     </StyledDetailedCard>
   );
 }
