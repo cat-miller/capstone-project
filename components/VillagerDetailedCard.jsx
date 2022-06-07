@@ -2,6 +2,17 @@ import StyledImage from '../components-styled/StyledImage';
 import StyledDetailedCard from '../components-styled/StyledDetailedCard';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
+import StyledIconButton from '../components-styled/StyledIconButton';
+import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import Favorite from '../public/favorite.svg';
+import Neighbor from '../public/neighbor.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectVillagers,
+  toggleFavorites,
+  toggleNeighbors,
+} from '../features/villagers/VillagerSlice';
+import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 
 export default function VillagerDetailedCard({
   name,
@@ -15,7 +26,15 @@ export default function VillagerDetailedCard({
   bubbleColor,
   textColor,
   onClick,
+  id,
 }) {
+  const dispatch = useDispatch();
+  const { favorites, neighbors } = useSelector(selectVillagers);
+  const isActive = {
+    favorites: favorites.includes(id),
+    neighbors: neighbors.includes(id),
+  };
+
   function handleClose(e) {
     e.stopPropagation();
     onClick(false);
@@ -48,6 +67,26 @@ export default function VillagerDetailedCard({
         </ul>
         <StyledButton onClick={handleClose}>close</StyledButton>
       </div>
+      <StyledIconButtonWrapper>
+        <StyledIconButton
+          className="donated"
+          onClick={() => dispatch(toggleFavorites(id))}
+          isActive={isActive.favorites}
+        >
+          <StyledSvgWrapper>
+            <Favorite />
+          </StyledSvgWrapper>
+        </StyledIconButton>
+        <StyledIconButton
+          className="caught"
+          onClick={() => dispatch(toggleNeighbors(id))}
+          isActive={isActive.neighbors}
+        >
+          <StyledSvgWrapper>
+            <Neighbor />
+          </StyledSvgWrapper>
+        </StyledIconButton>
+      </StyledIconButtonWrapper>
     </StyledDetailedCard>
   );
 }
