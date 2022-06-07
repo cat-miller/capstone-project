@@ -1,4 +1,4 @@
-export default function toggleBookmark(state, action) {
+export default function toggleCaughtReducer(state, action) {
   if (state.caught.includes(action.payload)) {
     state.caught = state.caught.filter(id => action.payload != id);
   } else {

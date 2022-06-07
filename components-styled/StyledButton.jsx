@@ -15,10 +15,16 @@ const StyledButton = styled.button`
     border: 2px solid var(--color-button);
   }
 
-  ${StyledHeader} & {
+  &.caught {
     background-color: var(--background-color-button-caught);
     color: var(--color-button-caught);
     border: 2px solid var(--color-button-caught);
+  }
+
+  &.donated {
+    background-color: var(--background-color-button-donated);
+    color: var(--color-button-donated);
+    border: 2px solid var(--color-button-donated);
   }
 
   &.themebutton {

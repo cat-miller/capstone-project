@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
     --color-button-theme: ${({ theme }) => theme.themebutton};
     --color-button-caught: ${({ theme }) => theme.caughtbutton};
     --color-button-caught-active: ${({ theme }) => theme.caughtbuttonactive};
+    --color-button-donated: ${({ theme }) => theme.donatedbutton};
+    --color-button-donated-active: ${({ theme }) => theme.donatedbuttonactive};
+
 
     --color-headline: ${({ theme }) => theme.headline};
     --color-navigation: ${({ theme }) => theme.navigationtext};
@@ -22,6 +25,10 @@ const GlobalStyle = createGlobalStyle`
     --background-color-button-caught: ${({ theme }) => theme.caughtbuttonbg};
     --background-color-button-caught-active: ${({ theme }) =>
       theme.caughtbuttonbgactive};
+      --background-color-button-donated: ${({ theme }) =>
+        theme.donatedbuttonbg};
+    --background-color-button-donated-active: ${({ theme }) =>
+      theme.donatedbuttonbgactive};
 
     --background-color-header: ${({ theme }) => theme.headlinebg};
     --background-color-navigation: ${({ theme }) => theme.navigationbg};
