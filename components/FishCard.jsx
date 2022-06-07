@@ -3,6 +3,8 @@ import StyledFishCard from '../components-styled/StyledFishCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import FishDetailedCard from './FishDetailedCard';
+import StyledDetailWrapper from '../components-styled/StyledDetailWrapper';
+import StyledCardDetails from '../components-styled/StyledCardDetails';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
@@ -83,12 +85,14 @@ export default function FishCard({
         src={imageUri}
         alt=""
       />
-      <div>
-        <h2>{name.toUpperCase()}</h2>
-        <ul>
-          <li>{rarity}</li>
-          <li>{location}</li>
-        </ul>
+      <StyledDetailWrapper>
+        <StyledCardDetails>
+          <h2>{name.toUpperCase()}</h2>
+          <ul>
+            <li>{rarity}</li>
+            <li>{location}</li>
+          </ul>
+        </StyledCardDetails>
         <StyledIconButtonWrapper>
           <StyledIconButton
             className="donated"
@@ -110,7 +114,7 @@ export default function FishCard({
           </StyledIconButton>
         </StyledIconButtonWrapper>
         {showDetailedCard && detailedCard()}
-      </div>
+      </StyledDetailWrapper>
     </StyledFishCard>
   );
 }

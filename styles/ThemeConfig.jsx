@@ -19,6 +19,14 @@ export const lightTheme = {
   donatedbuttonactive: 'hsl(333, 100%, 65%)',
   donatedbuttonbg: 'hsl(343, 100%, 95%)',
   donatedbuttonbgactive: 'hsl(333, 100%, 88%)',
+  neighborbutton: 'hsl(153, 100%, 40%)',
+  neighborbuttonactive: 'hsl(163, 100%, 35%)',
+  neighborbuttonbg: 'hsl(153, 100%, 95%)',
+  neighborbuttonbgactive: 'hsl(163, 100%, 68%)',
+  favoritebutton: 'hsl(343, 100%, 65%)',
+  favoritebuttonactive: 'hsl(333, 100%, 65%)',
+  favoritebuttonbg: 'hsl(343, 100%, 95%)',
+  favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
 };
 
 export const darkTheme = {
@@ -42,6 +50,14 @@ export const darkTheme = {
   donatedbuttonactive: 'hsl(333, 100%, 65%)',
   donatedbuttonbg: 'hsl(343, 100%, 95%)',
   donatedbuttonbgactive: 'hsl(333, 100%, 88%)',
+  neighborbutton: 'hsl(153, 100%, 40%)',
+  neighborbuttonactive: 'hsl(163, 100%, 35%)',
+  neighborbuttonbg: 'hsl(153, 100%, 95%)',
+  neighborbuttonbgactive: 'hsl(163, 100%, 68%)',
+  favoritebutton: 'hsl(343, 100%, 65%)',
+  favoritebuttonactive: 'hsl(333, 100%, 65%)',
+  favoritebuttonbg: 'hsl(343, 100%, 95%)',
+  favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
 };
 
 export const cherryTheme = {
@@ -65,4 +81,12 @@ export const cherryTheme = {
   donatedbuttonactive: 'hsl(333, 100%, 65%)',
   donatedbuttonbg: 'hsl(343, 100%, 95%)',
   donatedbuttonbgactive: 'hsl(333, 100%, 88%)',
+  neighborbutton: 'hsl(153, 100%, 40%)',
+  neighborbuttonactive: 'hsl(163, 100%, 35%)',
+  neighborbuttonbg: 'hsl(153, 100%, 95%)',
+  neighborbuttonbgactive: 'hsl(163, 100%, 68%)',
+  favoritebutton: 'hsl(343, 100%, 65%)',
+  favoritebuttonactive: 'hsl(333, 100%, 65%)',
+  favoritebuttonbg: 'hsl(343, 100%, 95%)',
+  favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
 };

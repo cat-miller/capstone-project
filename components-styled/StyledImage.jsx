@@ -10,6 +10,7 @@ const StyledImage = styled.img`
 
   ${StyledDetailedCard} & {
     justify-self: center;
+    align-self: start;
     width: 100%;
     height: auto;
     border-radius: var(--border-radius-inner);
@@ -17,6 +18,7 @@ const StyledImage = styled.img`
 
   ${StyledDetailedCard}, .fish & {
     justify-self: center;
+    align-self: start;
     width: 100%;
     height: auto;
     border-radius: var(--border-radius-inner);

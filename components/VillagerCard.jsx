@@ -3,6 +3,7 @@ import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import VillagerDetailedCard from './VillagerDetailedCard';
+import StyledDetailWrapper from '../components-styled/StyledDetailWrapper';
 import StyledCardDetails from '../components-styled/StyledCardDetails';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
@@ -83,35 +84,37 @@ export default function VillagerCard({
         src={imageUri}
         alt=""
       />
-      <StyledCardDetails>
-        <h2>{name.toUpperCase()}</h2>
-        <ul>
-          <li>{personality}</li>
-          <li>{gender}</li>
-          <li>{species}</li>
-        </ul>
-        <StyledIconButtonWrapper>
-          <StyledIconButton
-            className="donated"
-            onClick={handleFavoritesClick}
-            isActive={isActive.favorites}
-          >
-            <StyledSvgWrapper>
-              <Favorite />
-            </StyledSvgWrapper>
-          </StyledIconButton>
-          <StyledIconButton
-            className="caught"
-            onClick={handleNeighborsClick}
-            isActive={isActive.neighbors}
-          >
-            <StyledSvgWrapper>
-              <Neighbor />
-            </StyledSvgWrapper>
-          </StyledIconButton>
-        </StyledIconButtonWrapper>
-        {showDetailedCard && detailedCard()}
-      </StyledCardDetails>
+      <StyledDetailWrapper>
+        <StyledCardDetails>
+          <h2>{name.toUpperCase()}</h2>
+          <ul>
+            <li>{personality}</li>
+            <li>{gender}</li>
+            <li>{species}</li>
+          </ul>
+          <StyledIconButtonWrapper>
+            <StyledIconButton
+              className="favorite"
+              onClick={handleFavoritesClick}
+              isActive={isActive.favorites}
+            >
+              <StyledSvgWrapper>
+                <Favorite />
+              </StyledSvgWrapper>
+            </StyledIconButton>
+            <StyledIconButton
+              className="neighbor"
+              onClick={handleNeighborsClick}
+              isActive={isActive.neighbors}
+            >
+              <StyledSvgWrapper>
+                <Neighbor />
+              </StyledSvgWrapper>
+            </StyledIconButton>
+          </StyledIconButtonWrapper>
+          {showDetailedCard && detailedCard()}
+        </StyledCardDetails>
+      </StyledDetailWrapper>
     </StyledCard>
   );
 }

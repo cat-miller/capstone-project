@@ -2,6 +2,8 @@ import StyledImage from '../components-styled/StyledImage';
 import StyledDetailedCard from '../components-styled/StyledDetailedCard';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
+import StyledDetailWrapper from '../components-styled/StyledDetailWrapper';
+import StyledCardDetails from '../components-styled/StyledCardDetails';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import Favorite from '../public/favorite.svg';
@@ -54,39 +56,41 @@ export default function VillagerDetailedCard({
         src={imageUri}
         alt=""
       />
-      <div>
-        <StyledSpan color={bubbleColor} backgroundColor={textColor}>
-          &quot;{catchPhrase}!&quot;
-        </StyledSpan>
-        <h2>{name.toUpperCase()}</h2>
-        <ul>
-          <li>Personality: {personality}</li>
-          <li>Gender: {gender}</li>
-          <li>Species: {species}</li>
-          <li>Birthday: {birthday}</li>
-        </ul>
-        <StyledButton onClick={handleClose}>close</StyledButton>
-      </div>
-      <StyledIconButtonWrapper>
-        <StyledIconButton
-          className="donated"
-          onClick={() => dispatch(toggleFavorites(id))}
-          isActive={isActive.favorites}
-        >
-          <StyledSvgWrapper>
-            <Favorite />
-          </StyledSvgWrapper>
-        </StyledIconButton>
-        <StyledIconButton
-          className="caught"
-          onClick={() => dispatch(toggleNeighbors(id))}
-          isActive={isActive.neighbors}
-        >
-          <StyledSvgWrapper>
-            <Neighbor />
-          </StyledSvgWrapper>
-        </StyledIconButton>
-      </StyledIconButtonWrapper>
+      <StyledDetailWrapper>
+        <StyledCardDetails>
+          <StyledSpan color={bubbleColor} backgroundColor={textColor}>
+            &quot;{catchPhrase}!&quot;
+          </StyledSpan>
+          <h2>{name.toUpperCase()}</h2>
+          <ul>
+            <li>Personality: {personality}</li>
+            <li>Gender: {gender}</li>
+            <li>Species: {species}</li>
+            <li>Birthday: {birthday}</li>
+          </ul>
+          <StyledButton onClick={handleClose}>close</StyledButton>
+        </StyledCardDetails>
+        <StyledIconButtonWrapper>
+          <StyledIconButton
+            className="favorite"
+            onClick={() => dispatch(toggleFavorites(id))}
+            isActive={isActive.favorites}
+          >
+            <StyledSvgWrapper>
+              <Favorite />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+          <StyledIconButton
+            className="neighbor"
+            onClick={() => dispatch(toggleNeighbors(id))}
+            isActive={isActive.neighbors}
+          >
+            <StyledSvgWrapper>
+              <Neighbor />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+        </StyledIconButtonWrapper>
+      </StyledDetailWrapper>
     </StyledDetailedCard>
   );
 }

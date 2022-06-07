@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const StyledCardDetails = styled.div`
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   width: 100%;
   display: grid;
   grid-template-rows: min-content min-content 1fr;
-  gap: 0.5rem;
+
   & ul {
     margin: 0;
   }

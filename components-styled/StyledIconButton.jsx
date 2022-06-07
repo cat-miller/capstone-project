@@ -21,6 +21,7 @@ const StyledIconButton = styled.button`
         ? 'var(--color-button-caught-active)'
         : 'var(--color-button-caught)'};
   }
+
   &.donated {
     background-color: ${({ isActive }) =>
       isActive
@@ -37,6 +38,42 @@ const StyledIconButton = styled.button`
       isActive
         ? 'var(--color-button-donated-active)'
         : 'var(--color-button-donated)'};
+  }
+
+  &.neighbor {
+    background-color: ${({ isActive }) =>
+      isActive
+        ? 'var(--background-color-button-neighbor-active)'
+        : 'var(--background-color-button-neighbor)'};
+    border: 2px solid
+      ${({ isActive }) =>
+        isActive
+          ? 'var(--color-button-neighbor-active)'
+          : 'var(--color-button-neighbor)'};
+    justify-self: end;
+    align-self: end;
+    fill: ${({ isActive }) =>
+      isActive
+        ? 'var(--color-button-neighbor-active)'
+        : 'var(--color-button-neighbor)'};
+  }
+
+  &.favorite {
+    background-color: ${({ isActive }) =>
+      isActive
+        ? 'var(--background-color-button-favorite-active)'
+        : 'var(--background-color-button-favorite)'};
+    border: 2px solid
+      ${({ isActive }) =>
+        isActive
+          ? 'var(--color-button-favorite-active)'
+          : 'var(--color-button-favorite)'};
+    justify-self: end;
+    align-self: end;
+    fill: ${({ isActive }) =>
+      isActive
+        ? 'var(--color-button-favorite-active)'
+        : 'var(--color-button-favorite)'};
   }
 `;
 

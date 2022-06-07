@@ -22,13 +22,11 @@ export default function VillagersPage() {
   return (
     <StyledPageWrapper>
       <StyledHeader>
-        <StyledButton className="donated">
+        <StyledButton className="favorite">
           {favorites.length}/{villagers.length}
         </StyledButton>
         Villagers
-        <StyledButton className="caught">
-          {neighbors.length}/{villagers.length}
-        </StyledButton>
+        <StyledButton className="neighbor">{neighbors.length}/10</StyledButton>
       </StyledHeader>
       <StyledCardsWrapper>
         {villagers?.map(

@@ -27,6 +27,18 @@ const StyledButton = styled.button`
     border: 2px solid var(--color-button-donated);
   }
 
+  &.favorite {
+    background-color: var(--background-color-button-favorite);
+    color: var(--color-button-favorite);
+    border: 2px solid var(--color-button-favorite);
+  }
+
+  &.neighbor {
+    background-color: var(--background-color-button-neighbor);
+    color: var(--color-button-neighbor);
+    border: 2px solid var(--color-button-neighbor);
+  }
+
   &.themebutton {
     height: 2rem;
     background-color: var(--background-color-button-theme);

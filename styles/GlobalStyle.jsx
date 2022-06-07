@@ -13,6 +13,12 @@ const GlobalStyle = createGlobalStyle`
     --color-button-caught-active: ${({ theme }) => theme.caughtbuttonactive};
     --color-button-donated: ${({ theme }) => theme.donatedbutton};
     --color-button-donated-active: ${({ theme }) => theme.donatedbuttonactive};
+    --color-button-neighbor: ${({ theme }) => theme.neighborbutton};
+    --color-button-neighbor-active: ${({ theme }) =>
+      theme.neighborbuttonactive};
+    --color-button-favorite: ${({ theme }) => theme.favoritebutton};
+    --color-button-favorite-active: ${({ theme }) =>
+      theme.favoritebuttonactive};
 
 
     --color-headline: ${({ theme }) => theme.headline};
@@ -29,6 +35,14 @@ const GlobalStyle = createGlobalStyle`
         theme.donatedbuttonbg};
     --background-color-button-donated-active: ${({ theme }) =>
       theme.donatedbuttonbgactive};
+      --background-color-button-neighbor: ${({ theme }) =>
+        theme.neighborbuttonbg};
+    --background-color-button-neighbor-active: ${({ theme }) =>
+      theme.neighborbuttonbgactive};
+      --background-color-button-favorite: ${({ theme }) =>
+        theme.favoritebuttonbg};
+    --background-color-button-favorite-active: ${({ theme }) =>
+      theme.favoritebuttonbgactive};
 
     --background-color-header: ${({ theme }) => theme.headlinebg};
     --background-color-navigation: ${({ theme }) => theme.navigationbg};

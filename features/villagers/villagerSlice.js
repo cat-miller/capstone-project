@@ -17,6 +17,7 @@ export const villagerSlice = createSlice({
 });
 
 export const { toggleFavorites, toggleNeighbors } = villagerSlice.actions;
+
 export const selectVillagers = state => state.villagers;
 
 export default villagerSlice.reducer;

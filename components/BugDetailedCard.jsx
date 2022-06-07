@@ -1,7 +1,9 @@
 import StyledImage from '../components-styled/StyledImage';
 import StyledDetailedCard from '../components-styled/StyledDetailedCard';
+import StyledDetailWrapper from '../components-styled/StyledDetailWrapper';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
+import StyledCardDetails from '../components-styled/StyledCardDetails';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import Caught from '../public/caught.svg';
@@ -55,37 +57,39 @@ export default function BugDetailedCard({
         src={imageUri}
         alt=""
       />
-      <div>
-        <StyledSpan>&quot;{catchPhrase}!&quot;</StyledSpan>
-        <h2>{name.toUpperCase()}</h2>
-        <ul>
-          <li>Location: {location}</li>
-          <li>Rarity: {rarity}</li>
-          <li>Price: {price}</li>
-          <li>Price-Flick: {priceFlick}</li>
-        </ul>
-        <StyledButton onClick={handleClose}>close</StyledButton>
-      </div>
-      <StyledIconButtonWrapper>
-        <StyledIconButton
-          className="donated"
-          onClick={() => dispatch(toggleDonated(id))}
-          isActive={isActive.donated}
-        >
-          <StyledSvgWrapper>
-            <Donated />
-          </StyledSvgWrapper>
-        </StyledIconButton>
-        <StyledIconButton
-          className="caught"
-          onClick={() => dispatch(toggleCaught(id))}
-          isActive={isActive.caught}
-        >
-          <StyledSvgWrapper>
-            <Caught />
-          </StyledSvgWrapper>
-        </StyledIconButton>
-      </StyledIconButtonWrapper>
+      <StyledDetailWrapper>
+        <StyledCardDetails>
+          <StyledSpan>&quot;{catchPhrase}!&quot;</StyledSpan>
+          <h2>{name.toUpperCase()}</h2>
+          <ul>
+            <li>Location: {location}</li>
+            <li>Rarity: {rarity}</li>
+            <li>Price: {price}</li>
+            <li>Price-Flick: {priceFlick}</li>
+          </ul>
+          <StyledButton onClick={handleClose}>close</StyledButton>
+        </StyledCardDetails>
+        <StyledIconButtonWrapper>
+          <StyledIconButton
+            className="donated"
+            onClick={() => dispatch(toggleDonated(id))}
+            isActive={isActive.donated}
+          >
+            <StyledSvgWrapper>
+              <Donated />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+          <StyledIconButton
+            className="caught"
+            onClick={() => dispatch(toggleCaught(id))}
+            isActive={isActive.caught}
+          >
+            <StyledSvgWrapper>
+              <Caught />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+        </StyledIconButtonWrapper>
+      </StyledDetailWrapper>
     </StyledDetailedCard>
   );
 }
