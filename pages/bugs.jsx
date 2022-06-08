@@ -48,7 +48,7 @@ export default function BugsPage() {
               index={index}
               id={id}
               key={id}
-              name={name['name-EUen']}
+              name={name['name-EUen'].toUpperCase()}
               imageUri={imageUri}
               catchPhrase={catchPhrase}
               price={price}

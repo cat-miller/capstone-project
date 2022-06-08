@@ -49,7 +49,7 @@ export default function FishesPage() {
               index={index}
               key={id}
               id={id}
-              name={name['name-EUen']}
+              name={name['name-EUen'].toUpperCase()}
               imageUri={imageUri}
               catchPhrase={catchPhrase}
               shadow={shadow}

@@ -47,7 +47,7 @@ export default function SeaCreaturesPage() {
             <SeaCreatureCard
               index={index}
               key={id}
-              name={name['name-EUen']}
+              name={name['name-EUen'].toUpperCase()}
               imageUri={imageUri}
               catchPhrase={catchPhrase}
               shadow={shadow}

@@ -1,7 +1,7 @@
 import StyledImage from '../components-styled/StyledImage';
 import StyledDetailedCard from '../components-styled/StyledDetailedCard';
 import StyledCardDetails from '../components-styled/StyledCardDetails';
-import StyledDetailWrapper from '../components-styled/StyledDetailWrapper';
+import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
 import StyledIconButton from '../components-styled/StyledIconButton';
@@ -58,10 +58,10 @@ export default function FishDetailedCard({
         src={imageUri}
         alt=""
       />
-      <StyledDetailWrapper>
+      <StyledDetailFlexWrapper>
         <StyledCardDetails>
           <StyledSpan>&quot;{catchPhrase}!&quot;</StyledSpan>
-          <h2>{name.toUpperCase()}</h2>
+          <h2>{name}</h2>
           <ul>
             <li>Location: {location}</li>
             <li>Shadow: {shadow}</li>
@@ -91,7 +91,7 @@ export default function FishDetailedCard({
             </StyledSvgWrapper>
           </StyledIconButton>
         </StyledIconButtonWrapper>
-      </StyledDetailWrapper>
+      </StyledDetailFlexWrapper>
     </StyledDetailedCard>
   );
 }

@@ -3,7 +3,7 @@ import StyledCard from '../components-styled/StyledCard';
 import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import VillagerDetailedCard from './VillagerDetailedCard';
-import StyledDetailWrapper from '../components-styled/StyledDetailWrapper';
+import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 import StyledCardDetails from '../components-styled/StyledCardDetails';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
@@ -84,9 +84,9 @@ export default function VillagerCard({
         src={imageUri}
         alt=""
       />
-      <StyledDetailWrapper>
+      <StyledDetailFlexWrapper>
         <StyledCardDetails>
-          <h2>{name.toUpperCase()}</h2>
+          <h2>{name}</h2>
           <ul>
             <li>{personality}</li>
             <li>{gender}</li>
@@ -114,7 +114,7 @@ export default function VillagerCard({
           </StyledIconButtonWrapper>
           {showDetailedCard && detailedCard()}
         </StyledCardDetails>
-      </StyledDetailWrapper>
+      </StyledDetailFlexWrapper>
     </StyledCard>
   );
 }

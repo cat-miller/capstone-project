@@ -82,7 +82,7 @@ export default function SeaCreatureCard({
         alt=""
       />
       <StyledCardDetails>
-        <h2>{name.toUpperCase()}</h2>
+        <h2>{name}</h2>
         <ul>
           <li>{speed}</li>
           <li>{shadow} shadow</li>

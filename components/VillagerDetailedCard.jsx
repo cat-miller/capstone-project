@@ -2,7 +2,7 @@ import StyledImage from '../components-styled/StyledImage';
 import StyledDetailedCard from '../components-styled/StyledDetailedCard';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
-import StyledDetailWrapper from '../components-styled/StyledDetailWrapper';
+import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 import StyledCardDetails from '../components-styled/StyledCardDetails';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
@@ -56,12 +56,12 @@ export default function VillagerDetailedCard({
         src={imageUri}
         alt=""
       />
-      <StyledDetailWrapper>
+      <StyledDetailFlexWrapper>
         <StyledCardDetails>
           <StyledSpan color={bubbleColor} backgroundColor={textColor}>
             &quot;{catchPhrase}!&quot;
           </StyledSpan>
-          <h2>{name.toUpperCase()}</h2>
+          <h2>{name}</h2>
           <ul>
             <li>Personality: {personality}</li>
             <li>Gender: {gender}</li>
@@ -90,7 +90,7 @@ export default function VillagerDetailedCard({
             </StyledSvgWrapper>
           </StyledIconButton>
         </StyledIconButtonWrapper>
-      </StyledDetailWrapper>
+      </StyledDetailFlexWrapper>
     </StyledDetailedCard>
   );
 }

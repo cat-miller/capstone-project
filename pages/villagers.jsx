@@ -49,7 +49,7 @@ export default function VillagersPage() {
               index={index}
               key={id}
               id={id}
-              name={name['name-EUen']}
+              name={name['name-EUen'].toUpperCase()}
               personality={personality}
               species={species}
               gender={gender}

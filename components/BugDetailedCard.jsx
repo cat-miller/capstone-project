@@ -1,6 +1,6 @@
 import StyledImage from '../components-styled/StyledImage';
 import StyledDetailedCard from '../components-styled/StyledDetailedCard';
-import StyledDetailWrapper from '../components-styled/StyledDetailWrapper';
+import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
 import StyledCardDetails from '../components-styled/StyledCardDetails';
@@ -57,10 +57,10 @@ export default function BugDetailedCard({
         src={imageUri}
         alt=""
       />
-      <StyledDetailWrapper>
+      <StyledDetailFlexWrapper>
         <StyledCardDetails>
           <StyledSpan>&quot;{catchPhrase}!&quot;</StyledSpan>
-          <h2>{name.toUpperCase()}</h2>
+          <h2>{name}</h2>
           <ul>
             <li>Location: {location}</li>
             <li>Rarity: {rarity}</li>
@@ -89,7 +89,7 @@ export default function BugDetailedCard({
             </StyledSvgWrapper>
           </StyledIconButton>
         </StyledIconButtonWrapper>
-      </StyledDetailWrapper>
+      </StyledDetailFlexWrapper>
     </StyledDetailedCard>
   );
 }

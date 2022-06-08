@@ -5,75 +5,86 @@ const StyledIconButton = styled.button`
   padding: 0.3rem 0.4rem;
 
   &.caught {
-    background-color: ${({ isActive }) =>
-      isActive
-        ? 'var(--background-color-button-caught-active)'
-        : 'var(--background-color-button-caught)'};
-    border: 2px solid
-      ${({ isActive }) =>
-        isActive
-          ? 'var(--color-button-caught-active)'
-          : 'var(--color-button-caught)'};
     justify-self: end;
     align-self: end;
-    fill: ${({ isActive }) =>
-      isActive
-        ? 'var(--color-button-caught-active)'
-        : 'var(--color-button-caught)'};
+
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-caught-active);
+        border: 2px solid var(--color-button-caught-active);
+        fill: var(--color-button-caught-active);
+        `;
+      } else {
+        return `
+        background-color: var(--background-color-button-caught);
+        border: 2px solid var(--color-button-caught);
+        fill: var(--color-button-caught);
+        `;
+      }
+    }}
   }
 
   &.donated {
-    background-color: ${({ isActive }) =>
-      isActive
-        ? 'var(--background-color-button-donated-active)'
-        : 'var(--background-color-button-donated)'};
-    border: 2px solid
-      ${({ isActive }) =>
-        isActive
-          ? 'var(--color-button-donated-active)'
-          : 'var(--color-button-donated)'};
     justify-self: end;
     align-self: end;
-    fill: ${({ isActive }) =>
-      isActive
-        ? 'var(--color-button-donated-active)'
-        : 'var(--color-button-donated)'};
+
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-donated-active);
+        border: 2px solid var(--color-button-donated-active);
+        fill: var(--color-button-donated-active);
+        `;
+      } else {
+        return `
+        background-color: var(--background-color-button-donated);
+        border: 2px solid var(--color-button-donated);
+        fill: var(--color-button-donated);
+        `;
+      }
+    }}
   }
 
   &.neighbor {
-    background-color: ${({ isActive }) =>
-      isActive
-        ? 'var(--background-color-button-neighbor-active)'
-        : 'var(--background-color-button-neighbor)'};
-    border: 2px solid
-      ${({ isActive }) =>
-        isActive
-          ? 'var(--color-button-neighbor-active)'
-          : 'var(--color-button-neighbor)'};
     justify-self: end;
     align-self: end;
-    fill: ${({ isActive }) =>
-      isActive
-        ? 'var(--color-button-neighbor-active)'
-        : 'var(--color-button-neighbor)'};
+
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-neighbor-active);
+        border: 2px solid var(--color-button-neighbor-active);
+        fill: var(--color-button-neighbor-active);
+        `;
+      } else {
+        return `
+        background-color: var(--background-color-button-neighbor);
+        border: 2px solid var(--color-button-neighbor);
+        fill: var(--color-button-neighbor);
+        `;
+      }
+    }}
   }
 
   &.favorite {
-    background-color: ${({ isActive }) =>
-      isActive
-        ? 'var(--background-color-button-favorite-active)'
-        : 'var(--background-color-button-favorite)'};
-    border: 2px solid
-      ${({ isActive }) =>
-        isActive
-          ? 'var(--color-button-favorite-active)'
-          : 'var(--color-button-favorite)'};
     justify-self: end;
     align-self: end;
-    fill: ${({ isActive }) =>
-      isActive
-        ? 'var(--color-button-favorite-active)'
-        : 'var(--color-button-favorite)'};
+
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-favorite-active);
+        border: 2px solid var(--color-button-favorite-active);
+        fill: var(--color-button-favorite-active);`;
+      } else {
+        return `
+        background-color: var(--background-color-button-favorite);
+        border: 2px solid var(--color-button-favorite);
+        fill: var(--color-button-favorite);
+        `;
+      }
+    }}
   }
 `;
 

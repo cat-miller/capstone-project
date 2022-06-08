@@ -3,7 +3,7 @@ import StyledDetailedCard from '../components-styled/StyledDetailedCard';
 import StyledSpan from '../components-styled/StyledSpan';
 import StyledButton from '../components-styled/StyledButton';
 import StyledCardDetails from '../components-styled/StyledCardDetails';
-import StyledDetailWrapper from '../components-styled/StyledDetailWrapper';
+import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 import StyledIconButton from '../components-styled/StyledIconButton';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import Caught from '../public/caught.svg';
@@ -57,9 +57,9 @@ export default function SeaCreatureDetailedCard({
         alt=""
       />
       <StyledSpan>&quot;{catchPhrase}!&quot;</StyledSpan>
-      <StyledDetailWrapper>
+      <StyledDetailFlexWrapper>
         <StyledCardDetails>
-          <h2>{name.toUpperCase()}</h2>
+          <h2>{name}</h2>
           <ul>
             <li>Shadow: {shadow}</li>
             <li>Speed: {speed}</li>
@@ -87,7 +87,7 @@ export default function SeaCreatureDetailedCard({
             </StyledSvgWrapper>
           </StyledIconButton>
         </StyledIconButtonWrapper>
-      </StyledDetailWrapper>
+      </StyledDetailFlexWrapper>
     </StyledDetailedCard>
   );
 }
