@@ -13,7 +13,7 @@ import {
   selectVillagers,
   toggleFavorites,
   toggleNeighbors,
-} from '../features/villagers/VillagerSlice';
+} from '../features/villagers/villagerSlice';
 import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 
 export default function VillagerDetailedCard({
