@@ -8,6 +8,10 @@ export default function parseSeaCreatures(data) {
     shadow: seaCreature.shadow,
     price: seaCreature.price,
     speed: seaCreature.speed,
-    availability: seaCreature.availability,
+    northernMonths: seaCreature.availability['month-northern'],
+    southernMonths: seaCreature.availability['month-southern'],
+    time: seaCreature.availability['time'],
+    isAllDay: seaCreature.availability['isAllDay'],
+    isAllYear: seaCreature.availability['isAllYear'],
   }));
 }
