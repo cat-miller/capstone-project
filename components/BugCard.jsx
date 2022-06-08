@@ -4,8 +4,20 @@ import { useState } from 'react';
 import StyledOverlay from '../components-styled/StyledOverlay';
 import BugDetailedCard from './BugDetailedCard';
 import StyledCardDetails from '../components-styled/StyledCardDetails';
+import StyledIconButton from '../components-styled/StyledIconButton';
+import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
+import Caught from '../public/caught.svg';
+import Donated from '../public/donated.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectBugs,
+  toggleCaught,
+  toggleDonated,
+} from '../features/bugs/bugSlice';
 
 export default function BugCard({
+  id,
   name,
   imageUri,
   index,
@@ -17,6 +29,22 @@ export default function BugCard({
 }) {
   const hue = index + 100;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
+  const { caught, donated } = useSelector(selectBugs);
+  const isActive = {
+    caught: caught.includes(id),
+    donated: donated.includes(id),
+  };
+  const dispatch = useDispatch();
+
+  const handleCaughtClick = e => {
+    e.stopPropagation();
+    dispatch(toggleCaught(id));
+  };
+
+  const handleDonatedClick = e => {
+    e.stopPropagation();
+    dispatch(toggleDonated(id));
+  };
 
   function detailedCard() {
     return (
@@ -31,6 +59,7 @@ export default function BugCard({
           location={location}
           hue={hue}
           onClick={setShowDetailedCard}
+          id={id}
         />
       </StyledOverlay>
     );
@@ -55,11 +84,31 @@ export default function BugCard({
         alt=""
       />
       <StyledCardDetails>
-        <h2>{name.toUpperCase()}</h2>
+        <h2>{name}</h2>
         <ul>
           <li>{rarity}</li>
           <li>{location}</li>
         </ul>
+        <StyledIconButtonWrapper>
+          <StyledIconButton
+            className="donated"
+            onClick={handleDonatedClick}
+            isActive={isActive.donated}
+          >
+            <StyledSvgWrapper>
+              <Donated />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+          <StyledIconButton
+            className="caught"
+            onClick={handleCaughtClick}
+            isActive={isActive.caught}
+          >
+            <StyledSvgWrapper>
+              <Caught />
+            </StyledSvgWrapper>
+          </StyledIconButton>
+        </StyledIconButtonWrapper>
         {showDetailedCard && detailedCard()}
       </StyledCardDetails>
     </StyledCard>

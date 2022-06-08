@@ -5,10 +5,14 @@ import BugCard from '../components/BugCard';
 import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
+import { useSelector } from 'react-redux';
+import { selectBugs } from '../features/bugs/bugSlice';
+import StyledButton from '../components-styled/StyledButton';
 
 export default function BugsPage() {
   const { data } = useFetch('https://acnhapi.com/v1/bugs');
   const [bugs, setBugs] = useState([]);
+  const { caught, donated } = useSelector(selectBugs);
 
   useEffect(() => {
     if (!data) return;
@@ -17,7 +21,15 @@ export default function BugsPage() {
 
   return (
     <StyledPageWrapper>
-      <StyledHeader>Bugs</StyledHeader>
+      <StyledHeader>
+        <StyledButton className="donated">
+          {donated.length}/{bugs.length}
+        </StyledButton>
+        Bugs
+        <StyledButton className="caught">
+          {caught.length}/{bugs.length}
+        </StyledButton>
+      </StyledHeader>
       <StyledCardsWrapper>
         {bugs?.map(
           (
@@ -34,8 +46,9 @@ export default function BugsPage() {
           ) => (
             <BugCard
               index={index}
+              id={id}
               key={id}
-              name={name['name-EUen']}
+              name={name['name-EUen'].toUpperCase()}
               imageUri={imageUri}
               catchPhrase={catchPhrase}
               price={price}
