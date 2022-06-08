@@ -1,23 +1,23 @@
 import useFetch from '../hooks/useFetch';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import BugCard from '../components/BugCard';
 import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
-import { useSelector } from 'react-redux';
-import { selectBugs } from '../features/bugs/bugSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectBugs, setBugs } from '../features/bugs/bugSlice';
 import StyledButton from '../components-styled/StyledButton';
 
 export default function BugsPage() {
   const { data } = useFetch('https://acnhapi.com/v1/bugs');
-  const [bugs, setBugs] = useState([]);
-  const { caught, donated } = useSelector(selectBugs);
+  const { caught, donated, data: bugs } = useSelector(selectBugs);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!data) return;
-    setBugs(Object.values(data));
-  }, [data]);
+    dispatch(setBugs(Object.values(data)));
+  }, [data, dispatch]);
 
   return (
     <StyledPageWrapper>

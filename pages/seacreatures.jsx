@@ -1,23 +1,31 @@
 import useFetch from '../hooks/useFetch';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import SeaCreatureCard from '../components/SeaCreatureCard';
 import StyledPageWrapper from '../components-styled/StyledPageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 import StyledButton from '../components-styled/StyledButton';
-import { useSelector } from 'react-redux';
-import { selectSeaCreatures } from '../features/seaCreatures/seaCreatureSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectSeaCreatures,
+  setSeaCreatures,
+} from '../features/seaCreatures/seaCreatureSlice';
 
 export default function SeaCreaturesPage() {
   const { data } = useFetch('https://acnhapi.com/v1/sea');
-  const [seaCreatures, setSeaCreatures] = useState([]);
-  const { caught, donated } = useSelector(selectSeaCreatures);
+
+  const {
+    caught,
+    donated,
+    data: seaCreatures,
+  } = useSelector(selectSeaCreatures);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!data) return;
-    setSeaCreatures(Object.values(data));
-  }, [data]);
+    dispatch(setSeaCreatures(Object.values(data)));
+  }, [data, dispatch]);
 
   return (
     <StyledPageWrapper>
