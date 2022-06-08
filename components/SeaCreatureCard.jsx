@@ -16,16 +16,8 @@ import {
 } from '../features/seaCreatures/seaCreatureSlice';
 import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 
-export default function SeaCreatureCard({
-  name,
-  imageUri,
-  index,
-  catchPhrase,
-  price,
-  speed,
-  shadow,
-  id,
-}) {
+export default function SeaCreatureCard({ seaCreature, index }) {
+  const { name, imageUri, speed, shadow, id } = seaCreature;
   const hue = index + 250;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
   const { caught, donated } = useSelector(selectSeaCreatures);
@@ -49,12 +41,7 @@ export default function SeaCreatureCard({
     return (
       <StyledOverlay>
         <SeaCreatureDetailedCard
-          name={name}
-          imageUri={imageUri}
-          catchPhrase={catchPhrase}
-          speed={speed}
-          shadow={shadow}
-          price={price}
+          seaCreature={seaCreature}
           hue={hue}
           onClick={setShowDetailedCard}
           id={id}

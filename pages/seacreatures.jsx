@@ -11,6 +11,7 @@ import {
   selectSeaCreatures,
   setSeaCreatures,
 } from '../features/seaCreatures/seaCreatureSlice';
+import parseSeaCreatures from '../services/parseSeaCreatures';
 
 export default function SeaCreaturesPage() {
   const { data } = useFetch('https://acnhapi.com/v1/sea');
@@ -24,7 +25,7 @@ export default function SeaCreaturesPage() {
 
   useEffect(() => {
     if (!data) return;
-    dispatch(setSeaCreatures(Object.values(data)));
+    dispatch(setSeaCreatures(parseSeaCreatures(data)));
   }, [data, dispatch]);
 
   return (
@@ -39,32 +40,13 @@ export default function SeaCreaturesPage() {
         </StyledButton>
       </StyledHeader>
       <StyledCardsWrapper>
-        {seaCreatures?.map(
-          (
-            {
-              id,
-              name,
-              image_uri: imageUri,
-              'catch-phrase': catchPhrase,
-              shadow,
-              price,
-              speed,
-            },
-            index
-          ) => (
-            <SeaCreatureCard
-              index={index}
-              key={id}
-              name={name['name-EUen'].toUpperCase()}
-              imageUri={imageUri}
-              catchPhrase={catchPhrase}
-              shadow={shadow}
-              price={price}
-              speed={speed}
-              id={id}
-            />
-          )
-        )}
+        {seaCreatures?.map((seaCreature, index) => (
+          <SeaCreatureCard
+            index={index}
+            key={seaCreature.id}
+            seaCreature={seaCreature}
+          />
+        ))}
       </StyledCardsWrapper>
       <Navigation />
     </StyledPageWrapper>

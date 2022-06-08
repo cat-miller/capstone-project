@@ -16,17 +16,17 @@ import {
   toggleDonated,
 } from '../features/bugs/bugSlice';
 
-export default function BugCard({
-  id,
-  name,
-  imageUri,
-  index,
-  catchPhrase,
-  location,
-  rarity,
-  price,
-  priceFlick,
-}) {
+export default function BugCard({ bug, index }) {
+  const {
+    id,
+    name,
+    imageUri,
+    catchPhrase,
+    location,
+    rarity,
+    price,
+    priceFlick,
+  } = bug;
   const hue = index + 100;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
   const { caught, donated } = useSelector(selectBugs);
@@ -50,13 +50,7 @@ export default function BugCard({
     return (
       <StyledOverlay>
         <BugDetailedCard
-          name={name}
-          imageUri={imageUri}
-          catchPhrase={catchPhrase}
-          price={price}
-          priceFlick={priceFlick}
-          rarity={rarity}
-          location={location}
+          bug={bug}
           hue={hue}
           onClick={setShowDetailedCard}
           id={id}

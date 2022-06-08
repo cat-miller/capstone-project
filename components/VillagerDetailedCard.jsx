@@ -16,20 +16,19 @@ import {
 } from '../features/villagers/villagerSlice';
 import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 
-export default function VillagerDetailedCard({
-  name,
-  personality,
-  species,
-  gender,
-  imageUri,
-  hue,
-  birthday,
-  catchPhrase,
-  bubbleColor,
-  textColor,
-  onClick,
-  id,
-}) {
+export default function VillagerDetailedCard({ hue, onClick, villager }) {
+  const {
+    id,
+    name,
+    personality,
+    species,
+    gender,
+    imageUri,
+    birthday,
+    catchPhrase,
+    bubbleColor,
+    textColor,
+  } = villager;
   const dispatch = useDispatch();
   const { favorites, neighbors } = useSelector(selectVillagers);
   const isActive = {

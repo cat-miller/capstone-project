@@ -11,6 +11,7 @@ import {
   setVillagers,
 } from '../features/villagers/villagerSlice';
 import StyledButton from '../components-styled/StyledButton';
+import parseVillagers from '../services/parseVillagers';
 
 export default function VillagersPage() {
   const { data } = useFetch('https://acnhapi.com/v1/villagers');
@@ -24,7 +25,7 @@ export default function VillagersPage() {
 
   useEffect(() => {
     if (!data) return;
-    dispatch(setVillagers(Object.values(data)));
+    dispatch(setVillagers(parseVillagers(data)));
   }, [data, dispatch]);
 
   return (
@@ -37,38 +38,9 @@ export default function VillagersPage() {
         <StyledButton className="neighbor">{neighbors.length}/10</StyledButton>
       </StyledHeader>
       <StyledCardsWrapper>
-        {villagers?.map(
-          (
-            {
-              id,
-              name,
-              personality,
-              species,
-              gender,
-              image_uri: imageUri,
-              birthday,
-              'catch-phrase': catchPhrase,
-              'bubble-color': bubbleColor,
-              'text-color': textColor,
-            },
-            index
-          ) => (
-            <VillagerCard
-              index={index}
-              key={id}
-              id={id}
-              name={name['name-EUen'].toUpperCase()}
-              personality={personality}
-              species={species}
-              gender={gender}
-              imageUri={imageUri}
-              birthday={birthday}
-              catchPhrase={catchPhrase}
-              bubbleColor={bubbleColor}
-              textColor={textColor}
-            />
-          )
-        )}
+        {villagers?.map((villager, index) => (
+          <VillagerCard index={index} key={villager.id} villager={villager} />
+        ))}
       </StyledCardsWrapper>
       <Navigation />
     </StyledPageWrapper>

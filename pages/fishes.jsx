@@ -8,6 +8,7 @@ import StyledHeader from '../components-styled/StyledHeader';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFishes, setFishes } from '../features/fishes/fishSlice';
 import StyledButton from '../components-styled/StyledButton';
+import parseFishes from '../services/parseFishes';
 
 export default function FishesPage() {
   const { data } = useFetch('https://acnhapi.com/v1/fish');
@@ -17,7 +18,7 @@ export default function FishesPage() {
 
   useEffect(() => {
     if (!data) return;
-    dispatch(setFishes(Object.values(data)));
+    dispatch(setFishes(parseFishes(Object.values(data))));
   }, [data, dispatch]);
 
   return (
@@ -32,35 +33,9 @@ export default function FishesPage() {
         </StyledButton>
       </StyledHeader>
       <StyledCardsWrapper>
-        {fishes?.map(
-          (
-            {
-              id,
-              name,
-              image_uri: imageUri,
-              'catch-phrase': catchPhrase,
-              shadow,
-              price,
-              availability,
-              'price-cj': priceCJ,
-            },
-            index
-          ) => (
-            <FishCard
-              index={index}
-              key={id}
-              id={id}
-              name={name['name-EUen'].toUpperCase()}
-              imageUri={imageUri}
-              catchPhrase={catchPhrase}
-              shadow={shadow}
-              price={price}
-              priceCJ={priceCJ}
-              location={availability['location']}
-              rarity={availability['rarity']}
-            />
-          )
-        )}
+        {fishes?.map((fish, index) => (
+          <FishCard index={index} key={fish.id} fish={fish} />
+        ))}
       </StyledCardsWrapper>
       <Navigation />
     </StyledPageWrapper>

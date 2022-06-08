@@ -16,19 +16,18 @@ import {
   toggleDonated,
 } from '../features/fishes/fishSlice';
 
-export default function FishDetailedCard({
-  name,
-  imageUri,
-  hue,
-  catchPhrase,
-  shadow,
-  price,
-  priceCJ,
-  location,
-  rarity,
-  onClick,
-  id,
-}) {
+export default function FishDetailedCard({ hue, onClick, fish }) {
+  const {
+    name,
+    imageUri,
+    catchPhrase,
+    shadow,
+    price,
+    priceCJ,
+    location,
+    rarity,
+    id,
+  } = fish;
   const dispatch = useDispatch();
   const { caught, donated } = useSelector(selectFishes);
   const isActive = {
