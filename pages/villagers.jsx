@@ -2,7 +2,7 @@ import useFetch from '../hooks/useFetch';
 import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import VillagerCard from '../components/VillagerCard';
-import StyledPageWrapper from '../components-styled/StyledPageWrapper';
+import PageWrapper from '../components/PageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 import { useSelector, useDispatch } from 'react-redux';
@@ -29,7 +29,7 @@ export default function VillagersPage() {
   }, [data, dispatch]);
 
   return (
-    <StyledPageWrapper>
+    <PageWrapper>
       <StyledHeader>
         <StyledButton className="favorite">
           {favorites.length}/{villagers.length}
@@ -42,7 +42,6 @@ export default function VillagersPage() {
           <VillagerCard index={index} key={villager.id} villager={villager} />
         ))}
       </StyledCardsWrapper>
-      <Navigation />
-    </StyledPageWrapper>
+    </PageWrapper>
   );
 }

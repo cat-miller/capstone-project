@@ -2,8 +2,7 @@ import useFetch from '../hooks/useFetch';
 import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import BugCard from '../components/BugCard';
-import StyledPageWrapper from '../components-styled/StyledPageWrapper';
-import Navigation from '../components/Navigation';
+import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectBugs, setBugs } from '../features/bugs/bugSlice';
@@ -21,7 +20,7 @@ export default function BugsPage() {
   }, [data, dispatch]);
 
   return (
-    <StyledPageWrapper>
+    <PageWrapper>
       <StyledHeader>
         <StyledButton className="donated">
           {donated.length}/{bugs.length}
@@ -36,7 +35,6 @@ export default function BugsPage() {
           <BugCard index={index} key={bug.id} bug={bug} />
         ))}
       </StyledCardsWrapper>
-      <Navigation />
-    </StyledPageWrapper>
+    </PageWrapper>
   );
 }

@@ -2,7 +2,7 @@ import useFetch from '../hooks/useFetch';
 import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import SeaCreatureCard from '../components/SeaCreatureCard';
-import StyledPageWrapper from '../components-styled/StyledPageWrapper';
+import PageWrapper from '../components/PageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 import StyledButton from '../components-styled/StyledButton';
@@ -29,7 +29,7 @@ export default function SeaCreaturesPage() {
   }, [data, dispatch]);
 
   return (
-    <StyledPageWrapper>
+    <PageWrapper>
       <StyledHeader>
         <StyledButton className="donated">
           {donated.length}/{seaCreatures.length}
@@ -48,7 +48,6 @@ export default function SeaCreaturesPage() {
           />
         ))}
       </StyledCardsWrapper>
-      <Navigation />
-    </StyledPageWrapper>
+    </PageWrapper>
   );
 }

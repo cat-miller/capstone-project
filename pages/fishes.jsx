@@ -2,7 +2,7 @@ import useFetch from '../hooks/useFetch';
 import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import FishCard from '../components/FishCard';
-import StyledPageWrapper from '../components-styled/StyledPageWrapper';
+import PageWrapper from '../components/PageWrapper';
 import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 import { useSelector, useDispatch } from 'react-redux';
@@ -22,7 +22,7 @@ export default function FishesPage() {
   }, [data, dispatch]);
 
   return (
-    <StyledPageWrapper>
+    <PageWrapper>
       <StyledHeader>
         <StyledButton className="donated">
           {donated.length}/{fishes.length}
@@ -37,7 +37,6 @@ export default function FishesPage() {
           <FishCard index={index} key={fish.id} fish={fish} />
         ))}
       </StyledCardsWrapper>
-      <Navigation />
-    </StyledPageWrapper>
+    </PageWrapper>
   );
 }
