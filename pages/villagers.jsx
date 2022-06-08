@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import VillagerCard from '../components/VillagerCard';
 import PageWrapper from '../components/PageWrapper';
-import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 import { useSelector, useDispatch } from 'react-redux';
 import {

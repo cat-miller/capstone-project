@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import SeaCreatureCard from '../components/SeaCreatureCard';
 import PageWrapper from '../components/PageWrapper';
-import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 import StyledButton from '../components-styled/StyledButton';
 import { useSelector, useDispatch } from 'react-redux';

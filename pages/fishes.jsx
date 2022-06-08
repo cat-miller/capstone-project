@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import FishCard from '../components/FishCard';
 import PageWrapper from '../components/PageWrapper';
-import Navigation from '../components/Navigation';
 import StyledHeader from '../components-styled/StyledHeader';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFishes, setFishes } from '../features/fishes/fishSlice';
