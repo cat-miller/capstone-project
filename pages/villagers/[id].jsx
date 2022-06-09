@@ -18,19 +18,27 @@ import {
   toggleNeighbors,
 } from '../../features/villagers/villagerSlice';
 import StyledOverlay from '../../components-styled/StyledOverlay';
+import { useEffect } from 'react';
 
 export default function VillagerDetailPage() {
   const hue = 313;
   const router = useRouter();
   const { id } = router.query;
+
   const {
     favorites,
     neighbors,
     data: villagers,
   } = useSelector(selectVillagers);
   const dispatch = useDispatch();
-  console.log(villagers.includes(id));
-  const villager = villagers.find(villager => villager.id === parseInt(id));
+  const villager =
+    villagers.find(villager => villager.id === parseInt(id)) || {};
+  useEffect(() => {
+    if (villagers.length < 1) {
+      router.push('/villagers');
+    }
+  }, [router, villagers]);
+
   const {
     name,
     personality,
