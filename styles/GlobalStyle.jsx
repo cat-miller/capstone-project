@@ -94,6 +94,12 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 700;
     font-size: 0.9rem;
   }
+
+  h3 {
+    font-weight: 700;
+    font-size: 1rem;
+    color:var(--color);
+  }
   
 `;
 

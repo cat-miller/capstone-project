@@ -41,6 +41,8 @@ const StyledButton = styled.button`
 
   &.themebutton {
     height: 2rem;
+    width: 7.5rem;
+    justify-self: center;
     background-color: var(--background-color-button-theme);
     color: var(--color-button-theme);
     border: 2px solid var(--color-button-theme);

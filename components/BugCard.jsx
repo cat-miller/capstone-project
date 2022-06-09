@@ -17,16 +17,7 @@ import {
 } from '../features/bugs/bugSlice';
 
 export default function BugCard({ bug, index }) {
-  const {
-    id,
-    name,
-    imageUri,
-    catchPhrase,
-    location,
-    rarity,
-    price,
-    priceFlick,
-  } = bug;
+  const { id, name, imageUri, location, rarity } = bug;
   const hue = index + 100;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
   const { caught, donated } = useSelector(selectBugs);
