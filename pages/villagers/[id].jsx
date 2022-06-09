@@ -21,7 +21,6 @@ import StyledOverlay from '../../components-styled/StyledOverlay';
 import { useEffect } from 'react';
 
 export default function VillagerDetailPage() {
-  const hue = 313;
   const router = useRouter();
   const { id } = router.query;
 
@@ -33,6 +32,7 @@ export default function VillagerDetailPage() {
   const dispatch = useDispatch();
   const villager =
     villagers.find(villager => villager.id === parseInt(id)) || {};
+
   useEffect(() => {
     if (villagers.length < 1) {
       router.push('/villagers');
@@ -50,10 +50,11 @@ export default function VillagerDetailPage() {
     bubbleColor,
     textColor,
   } = villager;
-
+  const index = villagers.findIndex(villager => villager.id == parseInt(id));
+  const hue = (index % 360) * 18;
   const isActive = {
-    favorites: favorites.includes(parseInt(id)),
-    neighbors: neighbors.includes(parseInt(id)),
+    favorites: favorites.some(favorite => favorite.id === parseInt(id)),
+    neighbors: neighbors.some(neighbor => neighbor.id === parseInt(id)),
   };
 
   return (
@@ -91,7 +92,7 @@ export default function VillagerDetailPage() {
           <StyledIconButtonWrapper>
             <StyledIconButton
               className="favorite"
-              onClick={() => dispatch(toggleFavorites(id))}
+              onClick={() => dispatch(toggleFavorites({ id, hue }))}
               isActive={isActive.favorites}
             >
               <StyledSvgWrapper>
@@ -100,7 +101,7 @@ export default function VillagerDetailPage() {
             </StyledIconButton>
             <StyledIconButton
               className="neighbor"
-              onClick={() => dispatch(toggleNeighbors(id))}
+              onClick={() => dispatch(toggleNeighbors({ id, hue }))}
               isActive={isActive.neighbors}
             >
               <StyledSvgWrapper>
