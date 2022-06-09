@@ -7,7 +7,7 @@ import StyledHeader from '../components-styled/StyledHeader';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectBugs, setBugs } from '../features/bugs/bugSlice';
 import StyledButton from '../components-styled/StyledButton';
-import parseBugs from '../services/ParseBugs';
+import parseBugs from '../services/parseBugs';
 
 export default function BugsPage() {
   const { data } = useFetch('https://acnhapi.com/v1/bugs');

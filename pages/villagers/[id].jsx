@@ -11,6 +11,7 @@ import StyledSvgWrapper from '../../components-styled/StyledSvgWrapper';
 import Favorite from '../../public/favorite.svg';
 import Neighbor from '../../public/neighbor.svg';
 import { useSelector, useDispatch } from 'react-redux';
+import Link from 'next/link';
 import {
   selectVillagers,
   toggleFavorites,
@@ -18,7 +19,7 @@ import {
 } from '../../features/villagers/villagerSlice';
 import StyledOverlay from '../../components-styled/StyledOverlay';
 
-const VillagerDetailPage = () => {
+export default function VillagerDetailPage() {
   const hue = 313;
   const router = useRouter();
   const { id } = router.query;
@@ -43,8 +44,8 @@ const VillagerDetailPage = () => {
   } = villager;
 
   const isActive = {
-    favorites: favorites.includes(id),
-    neighbors: neighbors.includes(id),
+    favorites: favorites.includes(parseInt(id)),
+    neighbors: neighbors.includes(parseInt(id)),
   };
 
   return (
@@ -57,6 +58,9 @@ const VillagerDetailPage = () => {
           boxShadow: `0px 4px 15px hsla(${hue}, 100%, 73%, 0.53)`,
         }}
       >
+        <Link passHref href="/">
+          <StyledButton>Back</StyledButton>
+        </Link>
         <StyledImage
           style={{ border: `2px solid hsl(${hue}, 100%, 80%)` }}
           src={imageUri}
@@ -67,6 +71,7 @@ const VillagerDetailPage = () => {
             <StyledSpan color={bubbleColor} backgroundColor={textColor}>
               &quot;{catchPhrase}!&quot;
             </StyledSpan>
+
             <h2>{name}</h2>
             <ul>
               <li>Personality: {personality}</li>
@@ -99,5 +104,4 @@ const VillagerDetailPage = () => {
       </StyledDetailedCard>
     </StyledOverlay>
   );
-};
-export default VillagerDetailPage;
+}
