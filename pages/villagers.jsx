@@ -1,31 +1,17 @@
-import useFetch from '../hooks/useFetch';
-import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import VillagerCard from '../components/VillagerCard';
 import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectVillagers,
-  setVillagers,
-} from '../features/villagers/villagerSlice';
+import { useSelector } from 'react-redux';
+import { selectVillagers } from '../features/villagers/villagerSlice';
 import StyledButton from '../components-styled/StyledButton';
-import parseVillagers from '../services/parseVillagers';
 
 export default function VillagersPage() {
-  const { data } = useFetch('https://acnhapi.com/v1/villagers');
-
   const {
     favorites,
     neighbors,
     data: villagers,
   } = useSelector(selectVillagers);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!data) return;
-    dispatch(setVillagers(parseVillagers(data)));
-  }, [data, dispatch]);
 
   return (
     <PageWrapper>

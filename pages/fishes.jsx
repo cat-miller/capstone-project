@@ -1,24 +1,13 @@
-import useFetch from '../hooks/useFetch';
-import { useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import FishCard from '../components/FishCard';
 import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectFishes, setFishes } from '../features/fishes/fishSlice';
+import { useSelector } from 'react-redux';
+import { selectFishes } from '../features/fishes/fishSlice';
 import StyledButton from '../components-styled/StyledButton';
-import parseFishes from '../services/parseFishes';
 
 export default function FishesPage() {
-  const { data } = useFetch('https://acnhapi.com/v1/fish');
-
   const { caught, donated, data: fishes } = useSelector(selectFishes);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!data) return;
-    dispatch(setFishes(parseFishes(Object.values(data))));
-  }, [data, dispatch]);
 
   return (
     <PageWrapper>

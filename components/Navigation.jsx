@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Link from 'next/link';
 import StyledNavigation from '../components-styled/StyledNavigation';
 import { useRouter } from 'next/router';
@@ -8,9 +9,16 @@ import Passport from '../public/passport.svg';
 import Seacreatures from '../public/seacreatures.svg';
 import Villagers from '../public/villagers.svg';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import { useDispatch } from 'react-redux';
+import fetchDataThunk from '../features/thunk/fetchDataThunk';
 
 export default function Navigation() {
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchDataThunk());
+  }, [dispatch]);
 
   return (
     <StyledNavigation>
