@@ -88,12 +88,18 @@ export default function Home({ toggleTheme }) {
                 const favorite = villagers.find(villager => villager.id === id);
                 if (!favorite) return;
                 return (
-                  <StyledIcon
-                    className="villager"
-                    src={favorite.iconUri}
-                    alt=""
+                  <Link
                     key={favorite.id}
-                  />
+                    passHref
+                    href={`/villagers/${favorite.id}`}
+                  >
+                    <StyledIcon
+                      className="villager"
+                      src={favorite.iconUri}
+                      alt=""
+                      key={favorite.id}
+                    />
+                  </Link>
                 );
               })}
 
