@@ -62,9 +62,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     background-color: var(--background-color);
-    
-
-
     font-family: 'Roboto';
   }
 
@@ -99,6 +96,11 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 700;
     font-size: 1rem;
     color:var(--color);
+  }
+
+  p {
+    color: var(--color);
+    text-align: center;
   }
   
 `;

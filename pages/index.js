@@ -51,42 +51,65 @@ export default function Home({ toggleTheme }) {
         </StyledIconList>
         <h3>NEIGHBORS</h3>
         <StyledIconList className="villager">
-          {neighbors?.slice(0, 10).map(id => {
-            const neighbor = villagers.find(villager => villager.id === id);
-            if (!neighbor) return;
-            return (
-              <Link
-                key={neighbor.id}
-                passHref
-                href={`/villagers/${neighbor.id}`}
-              >
-                <StyledIcon
-                  className="villager"
-                  src={neighbor.iconUri}
-                  alt=""
+          {neighbors.length ? (
+            neighbors?.slice(0, 10).map(id => {
+              const neighbor = villagers.find(villager => villager.id === id);
+              if (!neighbor) return;
+              return (
+                <Link
                   key={neighbor.id}
-                />
-              </Link>
-            );
-          })}
+                  passHref
+                  href={`/villagers/${neighbor.id}`}
+                >
+                  <StyledIcon
+                    className="villager"
+                    src={neighbor.iconUri}
+                    alt=""
+                    key={neighbor.id}
+                  />
+                </Link>
+              );
+            })
+          ) : (
+            <p>
+              You haven&apos;t chosen any neighbors yet. Go to and{' '}
+              <Link passHref href="/villagers">
+                villagers
+              </Link>{' '}
+              and choose some.
+            </p>
+          )}
         </StyledIconList>
         <h3>FAVORITES</h3>
         <StyledIconList className="villager">
-          {favorites?.slice(0, 9).map(id => {
-            const favorite = villagers.find(villager => villager.id === id);
-            if (!favorite) return;
-            return (
-              <StyledIcon
-                className="villager"
-                src={favorite.iconUri}
-                alt=""
-                key={favorite.id}
-              />
-            );
-          })}
-          <Link passHref href="/villagers">
-            <StyledLink className="villager">...</StyledLink>
-          </Link>
+          {favorites.length ? (
+            <>
+              {favorites?.slice(0, 9).map(id => {
+                const favorite = villagers.find(villager => villager.id === id);
+                if (!favorite) return;
+                return (
+                  <StyledIcon
+                    className="villager"
+                    src={favorite.iconUri}
+                    alt=""
+                    key={favorite.id}
+                  />
+                );
+              })}
+
+              <Link passHref href="/villagers">
+                <StyledLink className="villager">...</StyledLink>
+              </Link>
+            </>
+          ) : (
+            <p>
+              You haven&apos;t chosen any neighbors yet. Go to and{' '}
+              <Link passHref href="/villagers">
+                villagers
+              </Link>{' '}
+              and choose some.
+            </p>
+          )}
         </StyledIconList>
         <h3>SEA CREATURES</h3>
         <StyledIconList className="seaCreature">
