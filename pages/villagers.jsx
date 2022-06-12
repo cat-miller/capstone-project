@@ -1,26 +1,20 @@
-import useFetch from '../hooks/useFetch';
-import { useState, useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import VillagerCard from '../components/VillagerCard';
-import StyledPageWrapper from '../components-styled/StyledPageWrapper';
-import Navigation from '../components/Navigation';
+import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
 import { useSelector } from 'react-redux';
 import { selectVillagers } from '../features/villagers/villagerSlice';
 import StyledButton from '../components-styled/StyledButton';
 
 export default function VillagersPage() {
-  const { data } = useFetch('https://acnhapi.com/v1/villagers');
-  const [villagers, setVillagers] = useState([]);
-  const { favorites, neighbors } = useSelector(selectVillagers);
-
-  useEffect(() => {
-    if (!data) return;
-    setVillagers(Object.values(data));
-  }, [data]);
+  const {
+    favorites,
+    neighbors,
+    data: villagers,
+  } = useSelector(selectVillagers);
 
   return (
-    <StyledPageWrapper>
+    <PageWrapper>
       <StyledHeader>
         <StyledButton className="favorite">
           {favorites.length}/{villagers.length}
@@ -29,40 +23,10 @@ export default function VillagersPage() {
         <StyledButton className="neighbor">{neighbors.length}/10</StyledButton>
       </StyledHeader>
       <StyledCardsWrapper>
-        {villagers?.map(
-          (
-            {
-              id,
-              name,
-              personality,
-              species,
-              gender,
-              image_uri: imageUri,
-              birthday,
-              'catch-phrase': catchPhrase,
-              'bubble-color': bubbleColor,
-              'text-color': textColor,
-            },
-            index
-          ) => (
-            <VillagerCard
-              index={index}
-              key={id}
-              id={id}
-              name={name['name-EUen'].toUpperCase()}
-              personality={personality}
-              species={species}
-              gender={gender}
-              imageUri={imageUri}
-              birthday={birthday}
-              catchPhrase={catchPhrase}
-              bubbleColor={bubbleColor}
-              textColor={textColor}
-            />
-          )
-        )}
+        {villagers?.map((villager, index) => (
+          <VillagerCard index={index} key={villager.id} villager={villager} />
+        ))}
       </StyledCardsWrapper>
-      <Navigation />
-    </StyledPageWrapper>
+    </PageWrapper>
   );
 }

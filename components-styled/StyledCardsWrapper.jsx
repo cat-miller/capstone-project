@@ -5,6 +5,10 @@ const StyledCardsWrapper = styled.div`
   display: grid;
   gap: 1.5rem;
   overflow-y: auto;
+
+  &.slug {
+    align-items: center;
+  }
 `;
 
 export default StyledCardsWrapper;

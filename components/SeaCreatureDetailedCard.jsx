@@ -16,17 +16,8 @@ import {
 } from '../features/seaCreatures/seaCreatureSlice';
 import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 
-export default function SeaCreatureDetailedCard({
-  name,
-  imageUri,
-  hue,
-  catchPhrase,
-  price,
-  shadow,
-  speed,
-  onClick,
-  id,
-}) {
+export default function SeaCreatureDetailedCard({ hue, onClick, seaCreature }) {
+  const { name, imageUri, catchPhrase, price, shadow, speed, id } = seaCreature;
   const dispatch = useDispatch();
   const { caught, donated } = useSelector(selectSeaCreatures);
   const isActive = {

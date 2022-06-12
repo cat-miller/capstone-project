@@ -17,18 +17,8 @@ import {
   toggleDonated,
 } from '../features/fishes/fishSlice';
 
-export default function FishCard({
-  id,
-  name,
-  imageUri,
-  index,
-  catchPhrase,
-  shadow,
-  price,
-  location,
-  rarity,
-  priceCJ,
-}) {
+export default function FishCard({ fish, index }) {
+  const { id, name, imageUri, location, rarity } = fish;
   const hue = index + 200;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
   const { caught, donated } = useSelector(selectFishes);
@@ -51,19 +41,7 @@ export default function FishCard({
   function detailedCard() {
     return (
       <StyledOverlay>
-        <FishDetailedCard
-          name={name}
-          imageUri={imageUri}
-          catchPhrase={catchPhrase}
-          shadow={shadow}
-          price={price}
-          priceCJ={priceCJ}
-          rarity={rarity}
-          location={location}
-          hue={hue}
-          onClick={setShowDetailedCard}
-          id={id}
-        />
+        <FishDetailedCard fish={fish} hue={hue} onClick={setShowDetailedCard} />
       </StyledOverlay>
     );
   }

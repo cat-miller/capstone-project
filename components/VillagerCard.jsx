@@ -17,19 +17,8 @@ import {
   toggleNeighbors,
 } from '../features/villagers/villagerSlice';
 
-export default function VillagerCard({
-  id,
-  name,
-  personality,
-  species,
-  gender,
-  imageUri,
-  index,
-  birthday,
-  catchPhrase,
-  bubbleColor,
-  textColor,
-}) {
+export default function VillagerCard({ villager, index }) {
+  const { id, name, personality, species, gender, imageUri } = villager;
   const hue = (index % 360) * 18;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
   const { favorites, neighbors } = useSelector(selectVillagers);
@@ -53,18 +42,9 @@ export default function VillagerCard({
     return (
       <StyledOverlay>
         <VillagerDetailedCard
-          name={name}
-          personality={personality}
-          species={species}
-          gender={gender}
-          imageUri={imageUri}
           hue={hue}
-          birthday={birthday}
-          catchPhrase={catchPhrase}
-          bubbleColor={bubbleColor}
-          textColor={textColor}
+          villager={villager}
           onClick={setShowDetailedCard}
-          id={id}
         />
       </StyledOverlay>
     );

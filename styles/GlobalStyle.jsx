@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --color: #9c37b3;
+    --color-a: #6F47FF;
     --color-button: ${({ theme }) => theme.button};
     --color-button-theme: ${({ theme }) => theme.themebutton};
     --color-button-caught: ${({ theme }) => theme.caughtbutton};
@@ -26,21 +27,20 @@ const GlobalStyle = createGlobalStyle`
     --color-navigation-icon: ${({ theme }) => theme.navigationicons};
 
     --background-color: ${({ theme }) => theme.bodybg};
-    --background-color-button:  ${({ theme }) => theme.buttonbg};
+    --background-color-button: ${({ theme }) => theme.buttonbg};
     --background-color-button-theme: ${({ theme }) => theme.themebuttonbg};
     --background-color-button-caught: ${({ theme }) => theme.caughtbuttonbg};
     --background-color-button-caught-active: ${({ theme }) =>
       theme.caughtbuttonbgactive};
-      --background-color-button-donated: ${({ theme }) =>
-        theme.donatedbuttonbg};
+    --background-color-button-donated: ${({ theme }) => theme.donatedbuttonbg};
     --background-color-button-donated-active: ${({ theme }) =>
       theme.donatedbuttonbgactive};
-      --background-color-button-neighbor: ${({ theme }) =>
-        theme.neighborbuttonbg};
+    --background-color-button-neighbor: ${({ theme }) =>
+      theme.neighborbuttonbg};
     --background-color-button-neighbor-active: ${({ theme }) =>
       theme.neighborbuttonbgactive};
-      --background-color-button-favorite: ${({ theme }) =>
-        theme.favoritebuttonbg};
+    --background-color-button-favorite: ${({ theme }) =>
+      theme.favoritebuttonbg};
     --background-color-button-favorite-active: ${({ theme }) =>
       theme.favoritebuttonbgactive};
 
@@ -56,16 +56,13 @@ const GlobalStyle = createGlobalStyle`
     --border-radius-inner: 20px;
 
   }
-  
+
   body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: var(--background-color);
-    
-
-
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -78,8 +75,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.5rem;
   }
 
-  
-
   ul {
     padding-left: 0;
     list-style: none;
@@ -87,14 +82,29 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 0.5px;
     font-weight: 400;
     font-size: 0.85rem;
-
   }
 
   h2 {
     font-weight: 700;
     font-size: 0.9rem;
   }
-  
+
+  h3 {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color);
+  }
+
+  p {
+    color: var(--color);
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-a);
+  }
+
 `;
 
 export default GlobalStyle;

@@ -1,26 +1,16 @@
-import useFetch from '../hooks/useFetch';
-import { useState, useEffect } from 'react';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import BugCard from '../components/BugCard';
-import StyledPageWrapper from '../components-styled/StyledPageWrapper';
-import Navigation from '../components/Navigation';
+import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
 import { useSelector } from 'react-redux';
 import { selectBugs } from '../features/bugs/bugSlice';
 import StyledButton from '../components-styled/StyledButton';
 
 export default function BugsPage() {
-  const { data } = useFetch('https://acnhapi.com/v1/bugs');
-  const [bugs, setBugs] = useState([]);
-  const { caught, donated } = useSelector(selectBugs);
-
-  useEffect(() => {
-    if (!data) return;
-    setBugs(Object.values(data));
-  }, [data]);
+  const { caught, donated, data: bugs } = useSelector(selectBugs);
 
   return (
-    <StyledPageWrapper>
+    <PageWrapper>
       <StyledHeader>
         <StyledButton className="donated">
           {donated.length}/{bugs.length}
@@ -31,35 +21,10 @@ export default function BugsPage() {
         </StyledButton>
       </StyledHeader>
       <StyledCardsWrapper>
-        {bugs?.map(
-          (
-            {
-              id,
-              name,
-              image_uri: imageUri,
-              'catch-phrase': catchPhrase,
-              availability,
-              price,
-              'price-flick': priceFlick,
-            },
-            index
-          ) => (
-            <BugCard
-              index={index}
-              id={id}
-              key={id}
-              name={name['name-EUen'].toUpperCase()}
-              imageUri={imageUri}
-              catchPhrase={catchPhrase}
-              price={price}
-              priceFlick={priceFlick}
-              location={availability['location']}
-              rarity={availability['rarity']}
-            />
-          )
-        )}
+        {bugs?.map((bug, index) => (
+          <BugCard index={index} key={bug.id} bug={bug} />
+        ))}
       </StyledCardsWrapper>
-      <Navigation />
-    </StyledPageWrapper>
+    </PageWrapper>
   );
 }

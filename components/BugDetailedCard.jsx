@@ -16,18 +16,17 @@ import {
   toggleDonated,
 } from '../features/bugs/bugSlice';
 
-export default function BugDetailedCard({
-  name,
-  imageUri,
-  hue,
-  catchPhrase,
-  price,
-  priceFlick,
-  location,
-  rarity,
-  onClick,
-  id,
-}) {
+export default function BugDetailedCard({ hue, onClick, bug }) {
+  const {
+    name,
+    imageUri,
+    catchPhrase,
+    price,
+    priceFlick,
+    location,
+    rarity,
+    id,
+  } = bug;
   const dispatch = useDispatch();
   const { caught, donated } = useSelector(selectBugs);
   const isActive = {
