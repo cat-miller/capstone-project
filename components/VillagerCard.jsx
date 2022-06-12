@@ -45,7 +45,6 @@ export default function VillagerCard({ villager, index }) {
           hue={hue}
           villager={villager}
           onClick={setShowDetailedCard}
-          id={id}
         />
       </StyledOverlay>
     );

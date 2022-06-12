@@ -25,7 +25,9 @@ import StyledCardsWrapper from '../../components-styled/StyledCardsWrapper';
 
 export default function VillagerDetailPage() {
   const router = useRouter();
-  const { id } = router.query;
+  const { id: idString } = router.query;
+  const id = parseInt(idString);
+  console.log(id);
 
   const {
     favorites,
@@ -33,8 +35,7 @@ export default function VillagerDetailPage() {
     data: villagers,
   } = useSelector(selectVillagers);
   const dispatch = useDispatch();
-  const villager =
-    villagers.find(villager => villager.id === parseInt(id)) || {};
+  const villager = villagers.find(villager => villager.id === id) || {};
 
   useEffect(() => {
     if (villagers.length < 1) {
@@ -53,11 +54,11 @@ export default function VillagerDetailPage() {
     bubbleColor,
     textColor,
   } = villager;
-  const index = villagers.findIndex(villager => villager.id == parseInt(id));
+  const index = villagers.findIndex(villager => villager.id === id);
   const hue = (index % 360) * 18;
   const isActive = {
-    favorites: favorites.some(favorite => favorite.id === parseInt(id)),
-    neighbors: neighbors.some(neighbor => neighbor.id === parseInt(id)),
+    favorites: favorites.includes(id),
+    neighbors: neighbors.includes(id),
   };
 
   return (
@@ -103,7 +104,7 @@ export default function VillagerDetailPage() {
             <StyledIconButtonWrapper>
               <StyledIconButton
                 className="favorite"
-                onClick={() => dispatch(toggleFavorites({ id, hue }))}
+                onClick={() => dispatch(toggleFavorites(id))}
                 isActive={isActive.favorites}
               >
                 <StyledSvgWrapper>
@@ -112,7 +113,7 @@ export default function VillagerDetailPage() {
               </StyledIconButton>
               <StyledIconButton
                 className="neighbor"
-                onClick={() => dispatch(toggleNeighbors({ id, hue }))}
+                onClick={() => dispatch(toggleNeighbors(id))}
                 isActive={isActive.neighbors}
               >
                 <StyledSvgWrapper>

@@ -44,7 +44,6 @@ export default function SeaCreatureCard({ seaCreature, index }) {
           seaCreature={seaCreature}
           hue={hue}
           onClick={setShowDetailedCard}
-          id={id}
         />
       </StyledOverlay>
     );

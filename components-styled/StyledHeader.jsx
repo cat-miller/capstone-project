@@ -7,5 +7,6 @@ const StyledHeader = styled.h1`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
 `;
 export default StyledHeader;

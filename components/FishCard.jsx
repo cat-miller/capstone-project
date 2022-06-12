@@ -41,12 +41,7 @@ export default function FishCard({ fish, index }) {
   function detailedCard() {
     return (
       <StyledOverlay>
-        <FishDetailedCard
-          fish={fish}
-          hue={hue}
-          onClick={setShowDetailedCard}
-          id={id}
-        />
+        <FishDetailedCard fish={fish} hue={hue} onClick={setShowDetailedCard} />
       </StyledOverlay>
     );
   }

@@ -40,12 +40,7 @@ export default function BugCard({ bug, index }) {
   function detailedCard() {
     return (
       <StyledOverlay>
-        <BugDetailedCard
-          bug={bug}
-          hue={hue}
-          onClick={setShowDetailedCard}
-          id={id}
-        />
+        <BugDetailedCard bug={bug} hue={hue} onClick={setShowDetailedCard} />
       </StyledOverlay>
     );
   }
