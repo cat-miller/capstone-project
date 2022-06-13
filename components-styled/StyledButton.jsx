@@ -28,15 +28,38 @@ const StyledButton = styled.button`
   }
 
   &.favorite {
-    background-color: var(--background-color-button-favorite);
-    color: var(--color-button-favorite);
-    border: 2px solid var(--color-button-favorite);
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-favorite-active);
+        border: 2px solid var(--color-button-favorite-active);
+        color: var(--color-button-favorite-active);`;
+      } else {
+        return `
+        background-color: var(--background-color-button-favorite);
+        border: 2px solid var(--color-button-favorite);
+        color: var(--color-button-favorite);
+        `;
+      }
+    }}
   }
 
   &.neighbor {
-    background-color: var(--background-color-button-neighbor);
-    color: var(--color-button-neighbor);
-    border: 2px solid var(--color-button-neighbor);
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-neighbor-active);
+        border: 2px solid var(--color-button-neighbor-active);
+        color: var(--color-button-neighbor-active);
+        `;
+      } else {
+        return `
+        background-color: var(--background-color-button-neighbor);
+        border: 2px solid var(--color-button-neighbor);
+        color: var(--color-button-neighbor);
+        `;
+      }
+    }}
   }
 
   &.themebutton {
