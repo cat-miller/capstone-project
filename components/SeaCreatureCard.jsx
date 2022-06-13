@@ -16,11 +16,16 @@ import {
 } from '../features/seaCreatures/seaCreatureSlice';
 import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 
-export default function SeaCreatureCard({ seaCreature, index }) {
+export default function SeaCreatureCard({ seaCreature }) {
   const { name, imageUri, speed, shadow, id } = seaCreature;
+  const {
+    caught,
+    donated,
+    data: seaCreatures,
+  } = useSelector(selectSeaCreatures);
+  const index = seaCreatures.findIndex(seaCreature => seaCreature.id === id);
   const hue = index + 250;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
-  const { caught, donated } = useSelector(selectSeaCreatures);
   const isActive = {
     caught: caught.includes(id),
     donated: donated.includes(id),

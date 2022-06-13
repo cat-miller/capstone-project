@@ -16,27 +16,74 @@ const StyledButton = styled.button`
   }
 
   &.caught {
-    background-color: var(--background-color-button-caught);
-    color: var(--color-button-caught);
-    border: 2px solid var(--color-button-caught);
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-caught-active);
+        border: 2px solid var(--color-button-caught-active);
+        color: var(--color-button-caught-active);
+        `;
+      } else {
+        return `
+        background-color: var(--background-color-button-caught);
+        border: 2px solid var(--color-button-caught);
+        color: var(--color-button-caught);
+        `;
+      }
+    }}
   }
 
   &.donated {
-    background-color: var(--background-color-button-donated);
-    color: var(--color-button-donated);
-    border: 2px solid var(--color-button-donated);
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-donated-active);
+        border: 2px solid var(--color-button-donated-active);
+        color: var(--color-button-donated-active);
+        `;
+      } else {
+        return `
+        background-color: var(--background-color-button-donated);
+        border: 2px solid var(--color-button-donated);
+        color: var(--color-button-donated);
+        `;
+      }
+    }}
   }
 
   &.favorite {
-    background-color: var(--background-color-button-favorite);
-    color: var(--color-button-favorite);
-    border: 2px solid var(--color-button-favorite);
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-favorite-active);
+        border: 2px solid var(--color-button-favorite-active);
+        color: var(--color-button-favorite-active);`;
+      } else {
+        return `
+        background-color: var(--background-color-button-favorite);
+        border: 2px solid var(--color-button-favorite);
+        color: var(--color-button-favorite);
+        `;
+      }
+    }}
   }
 
   &.neighbor {
-    background-color: var(--background-color-button-neighbor);
-    color: var(--color-button-neighbor);
-    border: 2px solid var(--color-button-neighbor);
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-neighbor-active);
+        border: 2px solid var(--color-button-neighbor-active);
+        color: var(--color-button-neighbor-active);
+        `;
+      } else {
+        return `
+        background-color: var(--background-color-button-neighbor);
+        border: 2px solid var(--color-button-neighbor);
+        color: var(--color-button-neighbor);
+        `;
+      }
+    }}
   }
 
   &.themebutton {

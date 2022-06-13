@@ -17,11 +17,16 @@ import {
   toggleNeighbors,
 } from '../features/villagers/villagerSlice';
 
-export default function VillagerCard({ villager, index }) {
+export default function VillagerCard({ villager }) {
   const { id, name, personality, species, gender, imageUri } = villager;
+  const {
+    favorites,
+    neighbors,
+    data: villagers,
+  } = useSelector(selectVillagers);
+  const index = villagers.findIndex(villager => villager.id === id);
   const hue = (index % 360) * 18;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
-  const { favorites, neighbors } = useSelector(selectVillagers);
   const isActive = {
     favorites: favorites.includes(id),
     neighbors: neighbors.includes(id),
