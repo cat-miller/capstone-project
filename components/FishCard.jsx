@@ -17,11 +17,12 @@ import {
   toggleDonated,
 } from '../features/fishes/fishSlice';
 
-export default function FishCard({ fish, index }) {
+export default function FishCard({ fish }) {
   const { id, name, imageUri, location, rarity } = fish;
+  const { caught, donated, data: fishes } = useSelector(selectFishes);
+  const index = fishes.findIndex(fish => fish.id === id);
   const hue = index + 200;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
-  const { caught, donated } = useSelector(selectFishes);
   const isActive = {
     caught: caught.includes(id),
     donated: donated.includes(id),

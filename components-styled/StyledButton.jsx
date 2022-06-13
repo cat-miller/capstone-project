@@ -16,15 +16,39 @@ const StyledButton = styled.button`
   }
 
   &.caught {
-    background-color: var(--background-color-button-caught);
-    color: var(--color-button-caught);
-    border: 2px solid var(--color-button-caught);
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-caught-active);
+        border: 2px solid var(--color-button-caught-active);
+        color: var(--color-button-caught-active);
+        `;
+      } else {
+        return `
+        background-color: var(--background-color-button-caught);
+        border: 2px solid var(--color-button-caught);
+        color: var(--color-button-caught);
+        `;
+      }
+    }}
   }
 
   &.donated {
-    background-color: var(--background-color-button-donated);
-    color: var(--color-button-donated);
-    border: 2px solid var(--color-button-donated);
+    ${({ isActive }) => {
+      if (isActive) {
+        return `
+        background-color: var(--background-color-button-donated-active);
+        border: 2px solid var(--color-button-donated-active);
+        color: var(--color-button-donated-active);
+        `;
+      } else {
+        return `
+        background-color: var(--background-color-button-donated);
+        border: 2px solid var(--color-button-donated);
+        color: var(--color-button-donated);
+        `;
+      }
+    }}
   }
 
   &.favorite {

@@ -18,39 +18,36 @@ export default function VillagersPage() {
   const [villagersToShow, setVillagersToShow] = useState([]);
 
   useEffect(() => {
-    setVillagersToShow(villagers);
-  }, [villagers]);
+    switch (true) {
+      case showNeighbors:
+        setVillagersToShow(
+          neighbors.map(neighborID =>
+            villagers.find(({ id }) => id === neighborID)
+          )
+        );
+        break;
 
-  const dispatch = useDispatch();
+      case showFavorites:
+        setVillagersToShow(
+          favorites.map(favoriteID =>
+            villagers.find(({ id }) => id === favoriteID)
+          )
+        );
+        break;
+
+      default:
+        setVillagersToShow(villagers);
+    }
+  }, [villagers, favorites, neighbors, showNeighbors, showFavorites]);
 
   function toggleNeighborCards() {
-    if (!showNeighbors) {
-      setShowFavorites(false);
-      setShowNeighbors(true);
-      setVillagersToShow(
-        neighbors.map(neighborID =>
-          villagers.find(({ id }) => id === neighborID)
-        )
-      );
-    } else {
-      setShowNeighbors(false);
-      setVillagersToShow(villagers);
-    }
+    setShowFavorites(false);
+    setShowNeighbors(!showNeighbors);
   }
 
   function toggleFavoriteCards() {
-    if (!showFavorites) {
-      setShowNeighbors(false);
-      setShowFavorites(true);
-      setVillagersToShow(
-        favorites.map(favoriteID =>
-          villagers.find(({ id }) => id === favoriteID)
-        )
-      );
-    } else {
-      setShowFavorites(false);
-      setVillagersToShow(villagers);
-    }
+    setShowNeighbors(false);
+    setShowFavorites(!showFavorites);
   }
 
   return (

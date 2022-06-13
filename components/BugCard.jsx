@@ -16,11 +16,12 @@ import {
   toggleDonated,
 } from '../features/bugs/bugSlice';
 
-export default function BugCard({ bug, index }) {
+export default function BugCard({ bug }) {
   const { id, name, imageUri, location, rarity } = bug;
+  const { caught, donated, data: bugs } = useSelector(selectBugs);
+  const index = bugs.findIndex(bug => bug.id === id);
   const hue = index + 100;
   const [showDetailedCard, setShowDetailedCard] = useState(false);
-  const { caught, donated } = useSelector(selectBugs);
   const isActive = {
     caught: caught.includes(id),
     donated: donated.includes(id),
