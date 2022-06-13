@@ -2,7 +2,7 @@ import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import VillagerCard from '../components/VillagerCard';
 import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectVillagers } from '../features/villagers/villagerSlice';
 import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
