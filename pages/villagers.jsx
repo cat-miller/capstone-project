@@ -119,72 +119,68 @@ export default function VillagersPage() {
           </StyledButton>
         </StyledDetailFlexWrapper>
         <StyledDetailFlexWrapper>
-          <div>
-            <StyledButton onClick={sortName} className="sort">
-              {isAsc ? 'A - Z' : 'Z - A'}
-            </StyledButton>
-          </div>
-          <div className="selectBox">
-            <StyledSelection
-              onChange={selectSpecies}
-              name="species"
-              id="species-select"
-            >
-              <option value="all">Select species</option>
-              <option value="Alligator">Alligator</option>
-              <option value="Anteater">Anteater</option>
-              <option value="Bear">Bear</option>
-              <option value="Bird">Bird</option>
-              <option value="Bull">Bull</option>
-              <option value="Cat">Cat</option>
-              <option value="Chicken">Chicken</option>
-              <option value="Cow">Cow</option>
-              <option value="Cub">Cub</option>
-              <option value="Deer">Deer</option>
-              <option value="Dog">Dog</option>
-              <option value="Duck">Duck</option>
-              <option value="Eagle">Eagle</option>
-              <option value="Elephant">Elephant</option>
-              <option value="Frog">Frog</option>
-              <option value="Goat">Goat</option>
-              <option value="Gorilla">Gorilla</option>
-              <option value="Hamster">Hamster</option>
-              <option value="Hippo">Hippo</option>
-              <option value="Horse">Horse</option>
-              <option value="Kangaroo">Kangaroo</option>
-              <option value="Koala">Koala</option>
-              <option value="Lion">Lion</option>
-              <option value="Monkey">Monkey</option>
-              <option value="Mouse">Mouse</option>
-              <option value="Octopus">Octopus</option>
-              <option value="Ostrich">Ostrich</option>
-              <option value="Penguin">Penguin</option>
-              <option value="Pig">BePigar</option>
-              <option value="Rabbit">Rabbit</option>
-              <option value="Rhino">Rhino</option>
-              <option value="Sheep">Sheep</option>
-              <option value="Squirrel">Squirrel</option>
-              <option value="Tiger">Tiger</option>
-              <option value="Wolf">Wolf</option>
-            </StyledSelection>
-          </div>
-          <div>
-            <StyledSelection
-              onChange={selectPersonality}
-              name="personality"
-              id="personality-select"
-            >
-              <option value="all">Select personality</option>
-              <option value="Cranky">cranky</option>
-              <option value="Jock">jock</option>
-              <option value="Lazy">cranky</option>
-              <option value="Normal">normal</option>
-              <option value="Peppy">peppy</option>
-              <option value="Smug">smug</option>
-              <option value="Snooty">snooty</option>
-              <option value="Uchi">cranky</option>
-            </StyledSelection>
-          </div>
+          <StyledButton onClick={sortName} className="sort">
+            {isAsc ? 'A - Z' : 'Z - A'}
+          </StyledButton>
+
+          <StyledSelection
+            onChange={selectSpecies}
+            name="species"
+            id="species-select"
+          >
+            <option value="all">Select species</option>
+            <option value="Alligator">Alligator</option>
+            <option value="Anteater">Anteater</option>
+            <option value="Bear">Bear</option>
+            <option value="Bird">Bird</option>
+            <option value="Bull">Bull</option>
+            <option value="Cat">Cat</option>
+            <option value="Chicken">Chicken</option>
+            <option value="Cow">Cow</option>
+            <option value="Cub">Cub</option>
+            <option value="Deer">Deer</option>
+            <option value="Dog">Dog</option>
+            <option value="Duck">Duck</option>
+            <option value="Eagle">Eagle</option>
+            <option value="Elephant">Elephant</option>
+            <option value="Frog">Frog</option>
+            <option value="Goat">Goat</option>
+            <option value="Gorilla">Gorilla</option>
+            <option value="Hamster">Hamster</option>
+            <option value="Hippo">Hippo</option>
+            <option value="Horse">Horse</option>
+            <option value="Kangaroo">Kangaroo</option>
+            <option value="Koala">Koala</option>
+            <option value="Lion">Lion</option>
+            <option value="Monkey">Monkey</option>
+            <option value="Mouse">Mouse</option>
+            <option value="Octopus">Octopus</option>
+            <option value="Ostrich">Ostrich</option>
+            <option value="Penguin">Penguin</option>
+            <option value="Pig">BePigar</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="Rhino">Rhino</option>
+            <option value="Sheep">Sheep</option>
+            <option value="Squirrel">Squirrel</option>
+            <option value="Tiger">Tiger</option>
+            <option value="Wolf">Wolf</option>
+          </StyledSelection>
+
+          <StyledSelection
+            onChange={selectPersonality}
+            name="personality"
+            id="personality-select"
+          >
+            <option value="all">Select personality</option>
+            <option value="Cranky">cranky</option>
+            <option value="Jock">jock</option>
+            <option value="Lazy">cranky</option>
+            <option value="Normal">normal</option>
+            <option value="Peppy">peppy</option>
+            <option value="Smug">smug</option>
+            <option value="Snooty">snooty</option>
+            <option value="Uchi">cranky</option>
+          </StyledSelection>
         </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
