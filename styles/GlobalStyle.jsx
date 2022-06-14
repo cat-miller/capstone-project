@@ -106,6 +106,11 @@ const GlobalStyle = createGlobalStyle`
     color: var(--color-a);
   }
 
+  .selectBox {
+    position: relative;
+    display: inline-block;
+  }
+
 `;
 
 export default GlobalStyle;
