@@ -6,6 +6,7 @@ import StyledButton from '../components-styled/StyledButton';
 import { useSelector } from 'react-redux';
 import { selectSeaCreatures } from '../features/seaCreatures/seaCreatureSlice';
 import { useEffect, useState } from 'react';
+import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 
 export default function SeaCreaturesPage() {
   const {
@@ -52,21 +53,23 @@ export default function SeaCreaturesPage() {
   return (
     <PageWrapper>
       <StyledHeader>
-        <StyledButton
-          className="donated"
-          isActive={showDonated}
-          onClick={toggleDonatedCards}
-        >
-          {donated.length}/{seaCreatures.length}
-        </StyledButton>
-        Sea Creatures
-        <StyledButton
-          className="caught"
-          isActive={showCaught}
-          onClick={toggleCaughtCards}
-        >
-          {caught.length}/{seaCreatures.length}
-        </StyledButton>
+        <StyledDetailFlexWrapper>
+          <StyledButton
+            className="donated"
+            isActive={showDonated}
+            onClick={toggleDonatedCards}
+          >
+            {donated.length}/{seaCreatures.length}
+          </StyledButton>
+          <h1>Sea Creatures</h1>
+          <StyledButton
+            className="caught"
+            isActive={showCaught}
+            onClick={toggleCaughtCards}
+          >
+            {caught.length}/{seaCreatures.length}
+          </StyledButton>
+        </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
         {crittersToShow?.map(seaCreature => (

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectFishes } from '../features/fishes/fishSlice';
 import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
+import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 
 export default function FishesPage() {
   const { caught, donated, data: fishes } = useSelector(selectFishes);
@@ -46,21 +47,23 @@ export default function FishesPage() {
   return (
     <PageWrapper>
       <StyledHeader>
-        <StyledButton
-          className="donated"
-          isActive={showDonated}
-          onClick={toggleDonatedCards}
-        >
-          {donated.length}/{fishes.length}
-        </StyledButton>
-        Fishes
-        <StyledButton
-          className="caught"
-          isActive={showCaught}
-          onClick={toggleCaughtCards}
-        >
-          {caught.length}/{fishes.length}
-        </StyledButton>
+        <StyledDetailFlexWrapper>
+          <StyledButton
+            className="donated"
+            isActive={showDonated}
+            onClick={toggleDonatedCards}
+          >
+            {donated.length}/{fishes.length}
+          </StyledButton>
+          <h1>Fishes</h1>
+          <StyledButton
+            className="caught"
+            isActive={showCaught}
+            onClick={toggleCaughtCards}
+          >
+            {caught.length}/{fishes.length}
+          </StyledButton>
+        </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
         {crittersToShow?.map(fish => (

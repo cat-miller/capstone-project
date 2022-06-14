@@ -94,6 +94,12 @@ const StyledButton = styled.button`
     color: var(--color-button-theme);
     border: 2px solid var(--color-button-theme);
   }
+
+  &.sort {
+    background-color: var(--background-color-button-theme);
+    color: var(--color-button-theme);
+    border: 2px solid var(--color-button-theme);
+  }
 `;
 
 export default StyledButton;

@@ -73,6 +73,7 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-weight: 300;
     font-size: 1.5rem;
+    text-align: center;
   }
 
   ul {

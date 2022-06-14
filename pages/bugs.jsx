@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectBugs } from '../features/bugs/bugSlice';
 import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
+import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 
 export default function BugsPage() {
   const { caught, donated, data: bugs } = useSelector(selectBugs);
@@ -45,21 +46,23 @@ export default function BugsPage() {
   return (
     <PageWrapper>
       <StyledHeader>
-        <StyledButton
-          className="donated"
-          isActive={showDonated}
-          onClick={toggleDonatedCards}
-        >
-          {donated.length}/{bugs.length}
-        </StyledButton>
-        Bugs
-        <StyledButton
-          className="caught"
-          isActive={showCaught}
-          onClick={toggleCaughtCards}
-        >
-          {caught.length}/{bugs.length}
-        </StyledButton>
+        <StyledDetailFlexWrapper>
+          <StyledButton
+            className="donated"
+            isActive={showDonated}
+            onClick={toggleDonatedCards}
+          >
+            {donated.length}/{bugs.length}
+          </StyledButton>
+          <h1>Bugs</h1>
+          <StyledButton
+            className="caught"
+            isActive={showCaught}
+            onClick={toggleCaughtCards}
+          >
+            {caught.length}/{bugs.length}
+          </StyledButton>
+        </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
         {crittersToShow?.map(bug => (

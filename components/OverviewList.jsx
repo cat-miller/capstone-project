@@ -38,7 +38,7 @@ function OverviewList({ origin, bookmarks, target, title }) {
           </>
         ) : (
           <p>
-            You haven&apos;t chosen any {title} yet. Go to and{' '}
+            You haven&apos;t chosen any {title} yet. Go to{' '}
             <Link passHref href={`/${target}`}>
               {target}
             </Link>{' '}
