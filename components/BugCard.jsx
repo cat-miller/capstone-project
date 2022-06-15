@@ -17,7 +17,7 @@ import {
 } from '../features/bugs/bugSlice';
 
 export default function BugCard({ bug }) {
-  const { id, name, imageUri, location, rarity } = bug;
+  const { id, name, imageUri, location, price } = bug;
   const { caught, donated, data: bugs } = useSelector(selectBugs);
   const index = bugs.findIndex(bug => bug.id === id);
   const hue = index + 100;
@@ -67,8 +67,8 @@ export default function BugCard({ bug }) {
       <StyledCardDetails>
         <h2>{name}</h2>
         <ul>
-          <li>{rarity}</li>
           <li>{location}</li>
+          <li>{price}.-</li>
         </ul>
         <StyledIconButtonWrapper>
           <StyledIconButton

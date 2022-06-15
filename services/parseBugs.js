@@ -12,6 +12,9 @@ export default function parseBugs(data) {
     time: bug.availability['time'],
     northernMonths: bug.availability['month-northern'],
     southernMonths: bug.availability['month-southern'],
+    northernMonthsArray: bug.availability['month-array-northern'],
+    southernMonthsArray: bug.availability['month-array-southern'],
+    timeArray: bug.availability['time-array'],
     isAllDay: bug.availability['isAllDay'],
     isAllYear: bug.availability['isAllYear'],
   }));

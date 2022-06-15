@@ -132,7 +132,7 @@ export default function FishesPage() {
           </StyledButton>
 
           <StyledButton onClick={setAvailability} className="sort">
-            {filter.isAvailable ? 'Just available shown' : 'All shown'}
+            {filter.isAvailable ? 'Show all' : 'What is available now?'}
           </StyledButton>
         </StyledDetailFlexWrapper>
       </StyledHeader>

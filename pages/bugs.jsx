@@ -7,6 +7,7 @@ import { selectBugs } from '../features/bugs/bugSlice';
 import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
+import addFilter from '../services/addFilter';
 
 export default function BugsPage() {
   const { caught, donated, data: bugs } = useSelector(selectBugs);
@@ -128,12 +129,12 @@ export default function BugsPage() {
           </StyledButton>
 
           <StyledButton onClick={setAvailability} className="sort">
-            {filter.isAvailable ? 'Just available shown' : 'All shown'}
+            {filter.isAvailable ? 'Show all' : 'What is available now?'}
           </StyledButton>
         </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {crittersToShow?.map(bug => (
+        {addFilter(crittersToShow, filter)?.map(bug => (
           <BugCard key={bug.id} bug={bug} />
         ))}
       </StyledCardsWrapper>
