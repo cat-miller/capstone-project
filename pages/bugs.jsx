@@ -14,7 +14,7 @@ export default function BugsPage() {
   const [showDonated, setShowDonated] = useState(false);
   const [crittersToShow, setCrittersToShow] = useState([]);
   const [isAsc, setIsAsc] = useState(true);
-  const [filter, setFilter] = useState({ personality: null, species: null });
+  const [filter, setFilter] = useState({ isAvailable: false });
 
   useEffect(() => {
     switch (true) {
@@ -94,6 +94,9 @@ export default function BugsPage() {
     );
     setIsAsc(!isAsc);
   };
+  const setAvailability = e => {
+    return setFilter({ ...filter, isAvailable: !filter.isAvailable });
+  };
 
   return (
     <PageWrapper>
@@ -122,6 +125,10 @@ export default function BugsPage() {
 
           <StyledButton onClick={sortPrice} className="sort">
             {isAsc ? 'Price asc' : ' Price des'}
+          </StyledButton>
+
+          <StyledButton onClick={setAvailability} className="sort">
+            {filter.isAvailable ? 'Just available shown' : 'All shown'}
           </StyledButton>
         </StyledDetailFlexWrapper>
       </StyledHeader>

@@ -7,6 +7,7 @@ import { selectFishes } from '../features/fishes/fishSlice';
 import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
+import addFilter from '../services/addFilter';
 
 export default function FishesPage() {
   const { caught, donated, data: fishes } = useSelector(selectFishes);
@@ -15,7 +16,8 @@ export default function FishesPage() {
   const [showDonated, setShowDonated] = useState(false);
   const [crittersToShow, setCrittersToShow] = useState([]);
   const [isAsc, setIsAsc] = useState(true);
-  const [filter, setFilter] = useState({ personality: null, species: null });
+  // const [isAvailable, setIsAvailable] = useState(false);
+  const [filter, setFilter] = useState({ isAvailable: false });
 
   useEffect(() => {
     switch (true) {
@@ -96,6 +98,10 @@ export default function FishesPage() {
     setIsAsc(!isAsc);
   };
 
+  const setAvailability = e => {
+    return setFilter({ ...filter, isAvailable: !filter.isAvailable });
+  };
+
   return (
     <PageWrapper>
       <StyledHeader>
@@ -124,10 +130,14 @@ export default function FishesPage() {
           <StyledButton onClick={sortPrice} className="sort">
             {isAsc ? 'Price asc' : ' Price des'}
           </StyledButton>
+
+          <StyledButton onClick={setAvailability} className="sort">
+            {filter.isAvailable ? 'Just available shown' : 'All shown'}
+          </StyledButton>
         </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {crittersToShow?.map(fish => (
+        {addFilter(crittersToShow, filter)?.map(fish => (
           <FishCard key={fish.id} fish={fish} />
         ))}
       </StyledCardsWrapper>

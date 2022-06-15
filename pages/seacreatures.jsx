@@ -22,7 +22,7 @@ export default function SeaCreaturesPage() {
   const [showDonated, setShowDonated] = useState(false);
   const [crittersToShow, setCrittersToShow] = useState([]);
   const [isAsc, setIsAsc] = useState(true);
-  const [filter, setFilter] = useState({ personality: null, species: null });
+  const [filter, setFilter] = useState({ shadow: null });
 
   useEffect(() => {
     switch (true) {
@@ -106,11 +106,12 @@ export default function SeaCreaturesPage() {
   };
 
   const selectShadows = e => {
-    const shadows = e.target.value;
-    if (shadows === 'all') {
-      return setFilter({ ...filter, shadows: null });
+    const shadow = e.target.value;
+    if (shadow === 'all') {
+      return setFilter({ ...filter, shadow: null });
     }
-    setFilter({ ...filter, shadows });
+
+    setFilter({ ...filter, shadow });
   };
 
   return (
@@ -156,11 +157,9 @@ export default function SeaCreaturesPage() {
         </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {addFilter(
-          crittersToShow?.map(seaCreature => (
-            <SeaCreatureCard key={seaCreature.id} seaCreature={seaCreature} />
-          ))
-        )}
+        {addFilter(crittersToShow, filter)?.map(seaCreature => (
+          <SeaCreatureCard key={seaCreature.id} seaCreature={seaCreature} />
+        ))}
       </StyledCardsWrapper>
     </PageWrapper>
   );
