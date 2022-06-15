@@ -7,6 +7,9 @@ import { useSelector } from 'react-redux';
 import { selectSeaCreatures } from '../features/seaCreatures/seaCreatureSlice';
 import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
+import StyledSelection from '../components-styled/StyledSelection';
+import addFilter from '../services/addFilter';
+import { shadows } from '../constants/shadows';
 
 export default function SeaCreaturesPage() {
   const {
@@ -18,6 +21,8 @@ export default function SeaCreaturesPage() {
   const [showCaught, setShowCaught] = useState(false);
   const [showDonated, setShowDonated] = useState(false);
   const [crittersToShow, setCrittersToShow] = useState([]);
+  const [isAsc, setIsAsc] = useState(true);
+  const [filter, setFilter] = useState({ personality: null, species: null });
 
   useEffect(() => {
     switch (true) {
@@ -50,6 +55,64 @@ export default function SeaCreaturesPage() {
     setShowDonated(!showDonated);
   }
 
+  const sortName = () => {
+    setCrittersToShow(
+      [...crittersToShow].sort((critterA, critterB) => {
+        const nameA = critterA.name.toUpperCase();
+        const nameB = critterB.name.toUpperCase();
+        if (isAsc) {
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+        } else {
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1;
+          }
+        }
+      })
+    );
+    setIsAsc(!isAsc);
+  };
+
+  const sortPrice = () => {
+    setCrittersToShow(
+      [...crittersToShow].sort((critterA, critterB) => {
+        const priceA = parseInt(critterA.price);
+        const priceB = parseInt(critterB.price);
+        if (isAsc) {
+          if (priceA < priceB) {
+            return -1;
+          }
+          if (priceA > priceB) {
+            return 1;
+          }
+        } else {
+          if (priceA > priceB) {
+            return -1;
+          }
+          if (priceA < priceB) {
+            return 1;
+          }
+        }
+      })
+    );
+    setIsAsc(!isAsc);
+  };
+
+  const selectShadows = e => {
+    const shadows = e.target.value;
+    if (shadows === 'all') {
+      return setFilter({ ...filter, shadows: null });
+    }
+    setFilter({ ...filter, shadows });
+  };
+
   return (
     <PageWrapper>
       <StyledHeader>
@@ -70,11 +133,34 @@ export default function SeaCreaturesPage() {
             {caught.length}/{seaCreatures.length}
           </StyledButton>
         </StyledDetailFlexWrapper>
+        <StyledDetailFlexWrapper>
+          <StyledButton onClick={sortName} className="sort">
+            {isAsc ? 'A - Z' : 'Z - A'}
+          </StyledButton>
+
+          <StyledButton onClick={sortPrice} className="sort">
+            {isAsc ? 'Price asc' : ' Price des'}
+          </StyledButton>
+
+          <StyledSelection
+            onChange={selectShadows}
+            name="shadow"
+            id="shadow-select"
+          >
+            {shadows.map(shadow => (
+              <option key={shadow.value} value={shadow.value}>
+                {shadow.label}
+              </option>
+            ))}
+          </StyledSelection>
+        </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {crittersToShow?.map(seaCreature => (
-          <SeaCreatureCard key={seaCreature.id} seaCreature={seaCreature} />
-        ))}
+        {addFilter(
+          crittersToShow?.map(seaCreature => (
+            <SeaCreatureCard key={seaCreature.id} seaCreature={seaCreature} />
+          ))
+        )}
       </StyledCardsWrapper>
     </PageWrapper>
   );

@@ -1,5 +1,5 @@
 export const lightTheme = {
-  headline: 'hsl(103, 100%, 30%)',
+  headline: 'hsl(153, 100%, 35%)',
   headlinebg: 'hsl(197, 100%, 97%)',
   navigationtext: 'hsl(0, 0%, 100%)',
   navigationbg: 'hsl(334, 100%, 70%)',
@@ -27,6 +27,8 @@ export const lightTheme = {
   favoritebuttonactive: 'hsl(333, 100%, 65%)',
   favoritebuttonbg: 'hsl(343, 100%, 95%)',
   favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
+  sortbutton: 'hsl(193, 100%, 45%)',
+  sortbuttonbg: 'hsl(193, 100%, 95%)',
 };
 
 export const darkTheme = {

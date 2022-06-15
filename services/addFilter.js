@@ -1,7 +1,11 @@
 export default function addFilter(array, filter) {
-  const filterSpecies = el => el.species === filter.species || !filter.species;
+  const filterSpecies = el => !filter?.species || el.species === filter.species;
   const filterPersonality = el =>
-    el.personality === filter.personality || !filter.personality;
+    !filter?.personality || el.personality === filter.personality;
+  const filterShadow = el => !filter?.shadow || el.shadow === filter.shadow;
 
-  return array.filter(filterPersonality).filter(filterSpecies);
+  return array
+    .filter(filterPersonality)
+    .filter(filterSpecies)
+    .filter(filterShadow);
 }

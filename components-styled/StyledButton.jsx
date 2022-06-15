@@ -96,9 +96,9 @@ const StyledButton = styled.button`
   }
 
   &.sort {
-    background-color: var(--background-color-button-theme);
-    color: var(--color-button-theme);
-    border: 2px solid var(--color-button-theme);
+    background-color: var(--background-color-button-sort);
+    color: var(--color-button-sort);
+    border: 2px solid var(--color-button-sort);
   }
 `;
 

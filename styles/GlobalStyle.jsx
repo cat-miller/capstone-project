@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     --color-a: #6F47FF;
     --color-button: ${({ theme }) => theme.button};
     --color-button-theme: ${({ theme }) => theme.themebutton};
+    --color-button-sort: ${({ theme }) => theme.sortbutton};
     --color-button-caught: ${({ theme }) => theme.caughtbutton};
     --color-button-caught-active: ${({ theme }) => theme.caughtbuttonactive};
     --color-button-donated: ${({ theme }) => theme.donatedbutton};
@@ -29,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
     --background-color: ${({ theme }) => theme.bodybg};
     --background-color-button: ${({ theme }) => theme.buttonbg};
     --background-color-button-theme: ${({ theme }) => theme.themebuttonbg};
+    --background-color-button-sort: ${({ theme }) => theme.sortbuttonbg};
     --background-color-button-caught: ${({ theme }) => theme.caughtbuttonbg};
     --background-color-button-caught-active: ${({ theme }) =>
       theme.caughtbuttonbgactive};
@@ -43,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
       theme.favoritebuttonbg};
     --background-color-button-favorite-active: ${({ theme }) =>
       theme.favoritebuttonbgactive};
+
 
     --background-color-header: ${({ theme }) => theme.headlinebg};
     --background-color-navigation: ${({ theme }) => theme.navigationbg};
@@ -106,7 +109,7 @@ const GlobalStyle = createGlobalStyle`
     color: var(--color-a);
   }
 
-  
+
 
 `;
 
