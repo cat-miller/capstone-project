@@ -11,6 +11,7 @@ import StyledSelection from '../components-styled/StyledSelection';
 import addFilter from '../services/addFilter';
 import { species } from '../constants/species';
 import { personalities } from '../constants/personalities';
+import { sortName } from '../services/sorting';
 
 export default function VillagersPage() {
   const {
@@ -21,7 +22,7 @@ export default function VillagersPage() {
   const [showNeighbors, setShowNeighbors] = useState(false);
   const [showFavorites, setShowFavorites] = useState(false);
   const [villagersToShow, setVillagersToShow] = useState([]);
-  const [isAsc, setIsAsc] = useState(true);
+  const [isAscAlph, setIsAscAlph] = useState(true);
   const [filter, setFilter] = useState({ personality: null, species: null });
 
   useEffect(() => {
@@ -57,45 +58,27 @@ export default function VillagersPage() {
     setShowFavorites(!showFavorites);
   }
 
-  const sortName = () => {
+  const sortByName = () => {
     setVillagersToShow(
-      [...villagersToShow].sort((villagerA, villagerB) => {
-        const nameA = villagerA.name.toUpperCase();
-        const nameB = villagerB.name.toUpperCase();
-        if (isAsc) {
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-        } else {
-          if (nameA > nameB) {
-            return -1;
-          }
-          if (nameA < nameB) {
-            return 1;
-          }
-        }
-      })
+      [...villagersToShow].sort((villagerA, villagerB) =>
+        sortName(villagerA.name, villagerB.name, isAscAlph)
+      )
     );
-    setIsAsc(!isAsc);
+    setIsAscAlph(!isAscAlph);
   };
 
-  const selectPersonality = e => {
-    const personality = e.target.value;
-    if (personality === 'all') {
-      return setFilter({ ...filter, personality: null });
-    }
-    setFilter({ ...filter, personality });
+  const selectPersonality = event => {
+    const personality = event.target.value;
+    personality === 'all'
+      ? setFilter({ ...filter, personality: null })
+      : setFilter({ ...filter, personality });
   };
 
-  const selectSpecies = e => {
-    const species = e.target.value;
-    if (species === 'all') {
-      return setFilter({ ...filter, species: null });
-    }
-    setFilter({ ...filter, species });
+  const selectSpecies = event => {
+    const species = event.target.value;
+    species === 'all'
+      ? setFilter({ ...filter, species: null })
+      : setFilter({ ...filter, species });
   };
 
   return (
@@ -119,8 +102,8 @@ export default function VillagersPage() {
           </StyledButton>
         </StyledDetailFlexWrapper>
         <StyledDetailFlexWrapper>
-          <StyledButton onClick={sortName} className="sort">
-            {isAsc ? 'A - Z' : 'Z - A'}
+          <StyledButton onClick={sortByName} className="sort">
+            {isAscAlph ? 'A - Z' : 'Z - A'}
           </StyledButton>
 
           <StyledSelection

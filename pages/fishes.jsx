@@ -8,6 +8,7 @@ import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 import addFilter from '../services/addFilter';
+import { sortByNumbers, sortName } from '../services/sorting';
 
 export default function FishesPage() {
   const { caught, donated, data: fishes } = useSelector(selectFishes);
@@ -15,7 +16,8 @@ export default function FishesPage() {
   const [showCaught, setShowCaught] = useState(false);
   const [showDonated, setShowDonated] = useState(false);
   const [crittersToShow, setCrittersToShow] = useState([]);
-  const [isAsc, setIsAsc] = useState(true);
+  const [isAscAlph, setIsAscAlph] = useState(true);
+  const [isAscPr, setIsAscPr] = useState(true);
   // const [isAvailable, setIsAvailable] = useState(false);
   const [filter, setFilter] = useState({ isAvailable: false });
 
@@ -48,57 +50,29 @@ export default function FishesPage() {
     setShowDonated(!showDonated);
   }
 
-  const sortName = () => {
+  const sortByName = () => {
     setCrittersToShow(
-      [...crittersToShow].sort((critterA, critterB) => {
-        const nameA = critterA.name.toUpperCase();
-        const nameB = critterB.name.toUpperCase();
-        if (isAsc) {
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-        } else {
-          if (nameA > nameB) {
-            return -1;
-          }
-          if (nameA < nameB) {
-            return 1;
-          }
-        }
-      })
+      [...crittersToShow].sort((critterA, critterB) =>
+        sortName(critterA.name, critterB.name, isAscAlph)
+      )
     );
-    setIsAsc(!isAsc);
+    setIsAscAlph(!isAscAlph);
   };
 
   const sortPrice = () => {
     setCrittersToShow(
-      [...crittersToShow].sort((critterA, critterB) => {
-        const priceA = parseInt(critterA.price);
-        const priceB = parseInt(critterB.price);
-        if (isAsc) {
-          if (priceA < priceB) {
-            return -1;
-          }
-          if (priceA > priceB) {
-            return 1;
-          }
-        } else {
-          if (priceA > priceB) {
-            return -1;
-          }
-          if (priceA < priceB) {
-            return 1;
-          }
-        }
-      })
+      [...crittersToShow].sort((critterA, critterB) =>
+        sortByNumbers(
+          parseInt(critterA.price),
+          parseInt(critterB.price),
+          isAscPr
+        )
+      )
     );
-    setIsAsc(!isAsc);
+    setIsAscPr(!isAscPr);
   };
 
-  const setAvailability = e => {
+  const setAvailability = () => {
     return setFilter({ ...filter, isAvailable: !filter.isAvailable });
   };
 
@@ -123,12 +97,12 @@ export default function FishesPage() {
           </StyledButton>
         </StyledDetailFlexWrapper>
         <StyledDetailFlexWrapper>
-          <StyledButton onClick={sortName} className="sort">
-            {isAsc ? 'A - Z' : 'Z - A'}
+          <StyledButton onClick={sortByName} className="sort">
+            {isAscAlph ? 'A - Z' : 'Z - A'}
           </StyledButton>
 
           <StyledButton onClick={sortPrice} className="sort">
-            {isAsc ? 'Price asc' : ' Price des'}
+            {isAscPr ? 'Price asc' : ' Price des'}
           </StyledButton>
 
           <StyledButton onClick={setAvailability} className="sort">

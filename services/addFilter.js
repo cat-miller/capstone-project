@@ -1,14 +1,14 @@
-export default function addFilter(array, filter) {
+export default function addFilter(array, filter = {}) {
   const date = new Date();
   const time = date.getHours();
   const month = date.getMonth() + 1;
 
-  const filterSpecies = el => !filter?.species || el.species === filter.species;
+  const filterSpecies = el => !filter.species || el.species === filter.species;
   const filterPersonality = el =>
-    !filter?.personality || el.personality === filter.personality;
-  const filterShadow = el => !filter?.shadow || el.shadow === filter.shadow;
+    !filter.personality || el.personality === filter.personality;
+  const filterShadow = el => !filter.shadow || el.shadow === filter.shadow;
   const availability = el =>
-    !filter?.isAvailable ||
+    !filter.isAvailable ||
     ((el.northernMonthsArray.includes(month) || el.isAllYear) &&
       (el.timeArray.includes(time) || el.isAllDay));
 

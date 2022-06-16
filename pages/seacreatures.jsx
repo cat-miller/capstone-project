@@ -10,6 +10,7 @@ import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrappe
 import StyledSelection from '../components-styled/StyledSelection';
 import addFilter from '../services/addFilter';
 import { shadows } from '../constants/shadows';
+import { sortByNumbers, sortName } from '../services/sorting';
 
 export default function SeaCreaturesPage() {
   const {
@@ -21,7 +22,8 @@ export default function SeaCreaturesPage() {
   const [showCaught, setShowCaught] = useState(false);
   const [showDonated, setShowDonated] = useState(false);
   const [crittersToShow, setCrittersToShow] = useState([]);
-  const [isAsc, setIsAsc] = useState(true);
+  const [isAscAlph, setIsAscAlph] = useState(true);
+  const [isAscPr, setIsAscPr] = useState(true);
   const [filter, setFilter] = useState({ shadow: null });
 
   useEffect(() => {
@@ -55,63 +57,33 @@ export default function SeaCreaturesPage() {
     setShowDonated(!showDonated);
   }
 
-  const sortName = () => {
+  const sortByName = () => {
     setCrittersToShow(
-      [...crittersToShow].sort((critterA, critterB) => {
-        const nameA = critterA.name.toUpperCase();
-        const nameB = critterB.name.toUpperCase();
-        if (isAsc) {
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-        } else {
-          if (nameA > nameB) {
-            return -1;
-          }
-          if (nameA < nameB) {
-            return 1;
-          }
-        }
-      })
+      [...crittersToShow].sort((critterA, critterB) =>
+        sortName(critterA.name, critterB.name, isAscAlph)
+      )
     );
-    setIsAsc(!isAsc);
+    setIsAscAlph(!isAscAlph);
   };
 
   const sortPrice = () => {
     setCrittersToShow(
-      [...crittersToShow].sort((critterA, critterB) => {
-        const priceA = parseInt(critterA.price);
-        const priceB = parseInt(critterB.price);
-        if (isAsc) {
-          if (priceA < priceB) {
-            return -1;
-          }
-          if (priceA > priceB) {
-            return 1;
-          }
-        } else {
-          if (priceA > priceB) {
-            return -1;
-          }
-          if (priceA < priceB) {
-            return 1;
-          }
-        }
-      })
+      [...crittersToShow].sort((critterA, critterB) =>
+        sortByNumbers(
+          parseInt(critterA.price),
+          parseInt(critterB.price),
+          isAscPr
+        )
+      )
     );
-    setIsAsc(!isAsc);
+    setIsAscPr(!isAscPr);
   };
 
-  const selectShadows = e => {
-    const shadow = e.target.value;
-    if (shadow === 'all') {
-      return setFilter({ ...filter, shadow: null });
-    }
-
-    setFilter({ ...filter, shadow });
+  const selectShadows = event => {
+    const shadow = event.target.value;
+    shadow === 'all'
+      ? setFilter({ ...filter, shadow: null })
+      : setFilter({ ...filter, shadow });
   };
 
   return (
@@ -135,12 +107,12 @@ export default function SeaCreaturesPage() {
           </StyledButton>
         </StyledDetailFlexWrapper>
         <StyledDetailFlexWrapper>
-          <StyledButton onClick={sortName} className="sort">
-            {isAsc ? 'A - Z' : 'Z - A'}
+          <StyledButton onClick={sortByName} className="sort">
+            {isAscAlph ? 'A - Z' : 'Z - A'}
           </StyledButton>
 
           <StyledButton onClick={sortPrice} className="sort">
-            {isAsc ? 'Price asc' : ' Price des'}
+            {isAscPr ? 'Price asc' : ' Price des'}
           </StyledButton>
 
           <StyledSelection
