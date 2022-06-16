@@ -13,6 +13,9 @@ export default function parseFishes(data) {
     time: fish.availability['time'],
     northernMonths: fish.availability['month-northern'],
     southernMonths: fish.availability['month-southern'],
+    northernMonthsArray: fish.availability['month-array-northern'],
+    southernMonthsArray: fish.availability['month-array-southern'],
+    timeArray: fish.availability['time-array'],
     isAllDay: fish.availability['isAllDay'],
     isAllYear: fish.availability['isAllYear'],
   }));

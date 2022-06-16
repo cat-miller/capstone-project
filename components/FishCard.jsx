@@ -18,7 +18,7 @@ import {
 } from '../features/fishes/fishSlice';
 
 export default function FishCard({ fish }) {
-  const { id, name, imageUri, location, rarity } = fish;
+  const { id, name, imageUri, location, price } = fish;
   const { caught, donated, data: fishes } = useSelector(selectFishes);
   const index = fishes.findIndex(fish => fish.id === id);
   const hue = index + 200;
@@ -68,8 +68,8 @@ export default function FishCard({ fish }) {
         <StyledCardDetails>
           <h2>{name}</h2>
           <ul>
-            <li>{rarity}</li>
             <li>{location}</li>
+            <li>{price}.-</li>
           </ul>
         </StyledCardDetails>
         <StyledIconButtonWrapper>

@@ -6,12 +6,18 @@ import { useSelector } from 'react-redux';
 import { selectBugs } from '../features/bugs/bugSlice';
 import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
+import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
+import addFilter from '../services/addFilter';
+import { sortByNumbers, sortName } from '../services/sorting';
 
 export default function BugsPage() {
   const { caught, donated, data: bugs } = useSelector(selectBugs);
   const [showCaught, setShowCaught] = useState(false);
   const [showDonated, setShowDonated] = useState(false);
   const [crittersToShow, setCrittersToShow] = useState([]);
+  const [isAscAlph, setIsAscAlph] = useState(true);
+  const [isAscPr, setIsAscPr] = useState(true);
+  const [filter, setFilter] = useState({ isAvailable: false });
 
   useEffect(() => {
     switch (true) {
@@ -42,27 +48,67 @@ export default function BugsPage() {
     setShowDonated(!showDonated);
   }
 
+  const sortByName = () => {
+    setCrittersToShow(
+      [...crittersToShow].sort((critterA, critterB) =>
+        sortName(critterA.name, critterB.name, isAscAlph)
+      )
+    );
+    setIsAscAlph(!isAscAlph);
+  };
+
+  const sortPrice = () => {
+    setCrittersToShow(
+      [...crittersToShow].sort((critterA, critterB) =>
+        sortByNumbers(
+          parseInt(critterA.price),
+          parseInt(critterB.price),
+          isAscPr
+        )
+      )
+    );
+    setIsAscPr(!isAscPr);
+  };
+  const setAvailability = () => {
+    return setFilter({ ...filter, isAvailable: !filter.isAvailable });
+  };
+
   return (
     <PageWrapper>
       <StyledHeader>
-        <StyledButton
-          className="donated"
-          isActive={showDonated}
-          onClick={toggleDonatedCards}
-        >
-          {donated.length}/{bugs.length}
-        </StyledButton>
-        Bugs
-        <StyledButton
-          className="caught"
-          isActive={showCaught}
-          onClick={toggleCaughtCards}
-        >
-          {caught.length}/{bugs.length}
-        </StyledButton>
+        <StyledDetailFlexWrapper>
+          <StyledButton
+            className="donated"
+            isActive={showDonated}
+            onClick={toggleDonatedCards}
+          >
+            {donated.length}/{bugs.length}
+          </StyledButton>
+          <h1>Bugs</h1>
+          <StyledButton
+            className="caught"
+            isActive={showCaught}
+            onClick={toggleCaughtCards}
+          >
+            {caught.length}/{bugs.length}
+          </StyledButton>
+        </StyledDetailFlexWrapper>
+        <StyledDetailFlexWrapper>
+          <StyledButton onClick={sortByName} className="sort">
+            {isAscAlph ? 'A - Z' : 'Z - A'}
+          </StyledButton>
+
+          <StyledButton onClick={sortPrice} className="sort">
+            {isAscPr ? 'Price asc' : ' Price des'}
+          </StyledButton>
+
+          <StyledButton onClick={setAvailability} className="sort">
+            {filter.isAvailable ? 'Show all' : 'What is available now?'}
+          </StyledButton>
+        </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {crittersToShow?.map(bug => (
+        {addFilter(crittersToShow, filter)?.map(bug => (
           <BugCard key={bug.id} bug={bug} />
         ))}
       </StyledCardsWrapper>

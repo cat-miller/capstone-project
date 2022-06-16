@@ -25,7 +25,9 @@ export default function Home({ toggleTheme }) {
 
   return (
     <PageWrapper>
-      <StyledHeader>ANIMAL CROSSING JOURNAL</StyledHeader>
+      <StyledHeader>
+        <h1>ANIMAL CROSSING JOURNAL</h1>
+      </StyledHeader>
 
       <StyledCardsWrapper>
         <StyledButton className="themebutton" onClick={toggleTheme}>

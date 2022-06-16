@@ -17,7 +17,7 @@ import {
 import StyledIconButtonWrapper from '../components-styled/StyledIconButtonwrapper';
 
 export default function SeaCreatureCard({ seaCreature }) {
-  const { name, imageUri, speed, shadow, id } = seaCreature;
+  const { name, imageUri, price, shadow, id } = seaCreature;
   const {
     caught,
     donated,
@@ -75,8 +75,8 @@ export default function SeaCreatureCard({ seaCreature }) {
       <StyledCardDetails>
         <h2>{name}</h2>
         <ul>
-          <li>{speed}</li>
           <li>{shadow} shadow</li>
+          <li>{price}.-</li>
         </ul>
         <StyledIconButtonWrapper>
           <StyledIconButton

@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-const StyledHeader = styled.h1`
+const StyledHeader = styled.div`
   color: var(--color-headline);
   background-color: var(--background-color-header);
   width: 100%;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
   align-items: center;
-  text-align: center;
+  height: 100%;
 `;
 export default StyledHeader;
