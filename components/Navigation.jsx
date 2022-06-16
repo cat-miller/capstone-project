@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Bugs from '../public/bugs.svg';
 import Fishes from '../public/fishes.svg';
 import Passport from '../public/passport.svg';
-import Seacreatures from '../public/seacreatures.svg';
+import SeaCreatures from '../public/seacreatures.svg';
 import Villagers from '../public/villagers.svg';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import { useDispatch } from 'react-redux';
@@ -33,7 +33,7 @@ export default function Navigation() {
       <Link passHref href="/seacreatures">
         <StyledActiveWrapper isActive={router.pathname === '/seacreatures'}>
           <StyledSvgWrapper>
-            <Seacreatures />
+            <SeaCreatures />
           </StyledSvgWrapper>
         </StyledActiveWrapper>
       </Link>

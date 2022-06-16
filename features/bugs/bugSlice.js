@@ -7,6 +7,7 @@ const initialState = {
   data: [],
   caught: [],
   donated: [],
+  view: { showCaught: false, showDonated: false },
 };
 
 export const bugSlice = createSlice({
