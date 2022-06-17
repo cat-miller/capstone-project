@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledShowMore = styled.div`
+const StyledShowMore = styled.a`
   width: 35px;
   height: 35px;
   border-radius: 50%;

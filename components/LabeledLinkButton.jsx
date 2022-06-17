@@ -6,12 +6,11 @@ export default function LabeledLinkButton({
   label,
   target,
   children,
-  onClick,
-  className,
+  ...remainingProps
 }) {
   return (
     <Link passHref href={`/${target}`}>
-      <StyledShowMore onClick={onClick} className={`${className}`}>
+      <StyledShowMore {...remainingProps}>
         <StyledSvgWrapper>
           {children}
           {label}
