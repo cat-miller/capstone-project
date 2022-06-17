@@ -9,6 +9,9 @@ import { selectBugs } from '../features/bugs/bugSlice';
 import { selectFishes } from '../features/fishes/fishSlice';
 import OverviewList from '../components/OverviewList';
 import OverviewListCreatures from '../components/OverviewListCreatures';
+import LabeledOverviewList from '../components/LabeledOverviewList';
+import ProgressMuseumOverview from '../components/ProgressMuseumOverview';
+import ProgressCaughtOverview from '../components/ProgressCaughtOverview';
 
 export default function Home({ toggleTheme }) {
   const {
@@ -33,7 +36,12 @@ export default function Home({ toggleTheme }) {
         <StyledButton className="themebutton" onClick={toggleTheme}>
           Switch Theme
         </StyledButton>
-
+        <LabeledOverviewList className="museum" title="PROGRESS MUSEUM">
+          <ProgressMuseumOverview />
+        </LabeledOverviewList>
+        <LabeledOverviewList className="collection" title="PROGRESS COLLECTION">
+          <ProgressCaughtOverview />
+        </LabeledOverviewList>
         <OverviewList
           origin={villagers}
           bookmarks={neighbors}

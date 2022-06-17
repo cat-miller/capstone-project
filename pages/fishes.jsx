@@ -2,8 +2,8 @@ import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import FishCard from '../components/FishCard';
 import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
-import { useSelector } from 'react-redux';
-import { selectFishes } from '../features/fishes/fishSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectFishes, setView } from '../features/fishes/fishSlice';
 import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
@@ -11,10 +11,14 @@ import addFilter from '../services/addFilter';
 import { sortByNumbers, sortName } from '../services/sorting';
 
 export default function FishesPage() {
-  const { caught, donated, data: fishes } = useSelector(selectFishes);
+  const dispatch = useDispatch();
+  const {
+    caught,
+    donated,
+    data: fishes,
+    view: { showDonated, showCaught },
+  } = useSelector(selectFishes);
 
-  const [showCaught, setShowCaught] = useState(false);
-  const [showDonated, setShowDonated] = useState(false);
   const [crittersToShow, setCrittersToShow] = useState([]);
   const [isAscAlph, setIsAscAlph] = useState(true);
   const [isAscPr, setIsAscPr] = useState(true);
@@ -41,13 +45,11 @@ export default function FishesPage() {
   }, [fishes, donated, caught, showDonated, showCaught]);
 
   function toggleCaughtCards() {
-    setShowDonated(false);
-    setShowCaught(!showCaught);
+    dispatch(setView({ showDonated: false, showCaught: !showCaught }));
   }
 
   function toggleDonatedCards() {
-    setShowCaught(false);
-    setShowDonated(!showDonated);
+    dispatch(setView({ showCaught: false, showDonated: !showDonated }));
   }
 
   const sortByName = () => {

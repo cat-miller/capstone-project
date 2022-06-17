@@ -27,7 +27,6 @@ export default function VillagerDetailPage() {
   const router = useRouter();
   const { id: idString } = router.query;
   const id = parseInt(idString);
-  console.log(id);
 
   const {
     favorites,
@@ -64,11 +63,7 @@ export default function VillagerDetailPage() {
   return (
     <PageWrapper>
       <StyledHeader>
-        <StyledButton className="favorite">
-          {favorites.length}/{villagers.length}
-        </StyledButton>
-        Villagers
-        <StyledButton className="neighbor">{neighbors.length}/10</StyledButton>
+        <h1>Villagers</h1>
       </StyledHeader>
       <StyledCardsWrapper className="slug">
         <StyledDetailedCard

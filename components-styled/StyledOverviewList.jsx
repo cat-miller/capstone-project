@@ -31,6 +31,20 @@ const StyledOverviewList = styled.div`
     border: 2px solid hsl(100, 100%, 80%);
     box-shadow: 0 4px 15px hsla(100, 100%, 73%, 0.53);
   }
+
+  &.museum {
+    justify-content: space-around;
+    background-color: hsl(343, 100%, 95%);
+    border: 2px solid hsl(343, 100%, 80%);
+    box-shadow: 0 4px 15px hsla(343, 100%, 73%, 0.53);
+  }
+
+  &.collection {
+    justify-content: space-around;
+    background-color: hsl(153, 100%, 95%);
+    border: 2px solid hsl(153, 100%, 45%);
+    box-shadow: 0 4px 15px hsla(153, 100%, 73%, 0.53);
+  }
 `;
 
 export default StyledOverviewList;

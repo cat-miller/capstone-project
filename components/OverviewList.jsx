@@ -2,12 +2,12 @@ import Link from 'next/link';
 import StyledOverviewImage from '../components-styled/StyledOverviewImage';
 import StyledShowMore from '../components-styled/StyledShowMore';
 import StyledOverviewList from '../components-styled/StyledOverviewList';
-import styled from 'styled-components';
+import StyledListWrapper from '../components-styled/StyledListWrapper';
 
 function OverviewList({ origin, bookmarks, target, title }) {
   const length = bookmarks.length === 10 ? 10 : 9;
   return (
-    <StyledWrapper>
+    <StyledListWrapper>
       <h3>{title.toUpperCase()}</h3>
       <StyledOverviewList className={target}>
         {bookmarks.length ? (
@@ -46,13 +46,8 @@ function OverviewList({ origin, bookmarks, target, title }) {
           </p>
         )}
       </StyledOverviewList>
-    </StyledWrapper>
+    </StyledListWrapper>
   );
 }
 
 export default OverviewList;
-
-const StyledWrapper = styled.div`
-  display: grid;
-  gap: 0.5rem;
-`;

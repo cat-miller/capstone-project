@@ -3,8 +3,11 @@ import SeaCreatureCard from '../components/SeaCreatureCard';
 import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
 import StyledButton from '../components-styled/StyledButton';
-import { useSelector } from 'react-redux';
-import { selectSeaCreatures } from '../features/seaCreatures/seaCreatureSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectSeaCreatures,
+  setView,
+} from '../features/seaCreatures/seaCreatureSlice';
 import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 import StyledSelection from '../components-styled/StyledSelection';
@@ -17,14 +20,14 @@ export default function SeaCreaturesPage() {
     caught,
     donated,
     data: seaCreatures,
+    view: { showDonated, showCaught },
   } = useSelector(selectSeaCreatures);
 
-  const [showCaught, setShowCaught] = useState(false);
-  const [showDonated, setShowDonated] = useState(false);
   const [crittersToShow, setCrittersToShow] = useState([]);
   const [isAscAlph, setIsAscAlph] = useState(true);
   const [isAscPr, setIsAscPr] = useState(true);
   const [filter, setFilter] = useState({ shadow: null });
+  const dispatch = useDispatch();
 
   useEffect(() => {
     switch (true) {
@@ -48,13 +51,11 @@ export default function SeaCreaturesPage() {
   }, [seaCreatures, donated, caught, showDonated, showCaught]);
 
   function toggleCaughtCards() {
-    setShowDonated(false);
-    setShowCaught(!showCaught);
+    dispatch(setView({ showDonated: false, showCaught: !showCaught }));
   }
 
   function toggleDonatedCards() {
-    setShowCaught(false);
-    setShowDonated(!showDonated);
+    dispatch(setView({ showCaught: false, showDonated: !showDonated }));
   }
 
   const sortByName = () => {

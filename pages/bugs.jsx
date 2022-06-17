@@ -2,8 +2,8 @@ import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import BugCard from '../components/BugCard';
 import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
-import { useSelector } from 'react-redux';
-import { selectBugs } from '../features/bugs/bugSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectBugs, setView } from '../features/bugs/bugSlice';
 import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
@@ -11,9 +11,14 @@ import addFilter from '../services/addFilter';
 import { sortByNumbers, sortName } from '../services/sorting';
 
 export default function BugsPage() {
-  const { caught, donated, data: bugs } = useSelector(selectBugs);
-  const [showCaught, setShowCaught] = useState(false);
-  const [showDonated, setShowDonated] = useState(false);
+  const dispatch = useDispatch();
+  const {
+    caught,
+    donated,
+    data: bugs,
+    view: { showDonated, showCaught },
+  } = useSelector(selectBugs);
+
   const [crittersToShow, setCrittersToShow] = useState([]);
   const [isAscAlph, setIsAscAlph] = useState(true);
   const [isAscPr, setIsAscPr] = useState(true);
@@ -39,13 +44,11 @@ export default function BugsPage() {
   }, [bugs, donated, caught, showDonated, showCaught]);
 
   function toggleCaughtCards() {
-    setShowDonated(false);
-    setShowCaught(!showCaught);
+    dispatch(setView({ showDonated: false, showCaught: !showCaught }));
   }
 
   function toggleDonatedCards() {
-    setShowCaught(false);
-    setShowDonated(!showDonated);
+    dispatch(setView({ showCaught: false, showDonated: !showDonated }));
   }
 
   const sortByName = () => {
