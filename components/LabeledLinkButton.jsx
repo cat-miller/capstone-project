@@ -2,19 +2,19 @@ import StyledShowMore from '../components-styled/StyledShowMore';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import Link from 'next/link';
 
-export default function IconButton({
-  origin,
+export default function LabeledLinkButton({
+  label,
   target,
-  bookmark,
   children,
   onClick,
+  className,
 }) {
   return (
-    <Link onClick={onClick} passHref href={`/${target}`}>
-      <StyledShowMore className={`${target} bookmark`}>
+    <Link passHref href={`/${target}`}>
+      <StyledShowMore onClick={onClick} className={`${className}`}>
         <StyledSvgWrapper>
           {children}
-          {bookmark.length}/{origin.length}
+          {label}
         </StyledSvgWrapper>
       </StyledShowMore>
     </Link>

@@ -32,11 +32,18 @@ const StyledOverviewList = styled.div`
     box-shadow: 0 4px 15px hsla(100, 100%, 73%, 0.53);
   }
 
-  &.donated {
+  &.museum {
     justify-content: space-around;
-    background-color: hsl(250, 100%, 95%);
-    border: 2px solid hsl(250, 100%, 80%);
-    box-shadow: 0 4px 15px hsla(250, 100%, 73%, 0.53);
+    background-color: hsl(343, 100%, 95%);
+    border: 2px solid hsl(343, 100%, 80%);
+    box-shadow: 0 4px 15px hsla(343, 100%, 73%, 0.53);
+  }
+
+  &.collection {
+    justify-content: space-around;
+    background-color: hsl(153, 100%, 95%);
+    border: 2px solid hsl(153, 100%, 45%);
+    box-shadow: 0 4px 15px hsla(153, 100%, 73%, 0.53);
   }
 `;
 

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import setDataReducer from '../reducers/setDataReducer';
 import toggleCaughtReducer from '../reducers/toggleCaughtReducer';
 import toggleDonatedReducer from '../reducers/toggleDonatedReducer';
+import setViewReducer from '../reducers/setViewReducer';
 
 const initialState = {
   data: [],
@@ -17,10 +18,12 @@ export const bugSlice = createSlice({
     setBugs: setDataReducer,
     toggleCaught: toggleCaughtReducer,
     toggleDonated: toggleDonatedReducer,
+    setView: setViewReducer,
   },
 });
 
-export const { toggleCaught, toggleDonated, setBugs } = bugSlice.actions;
+export const { toggleCaught, toggleDonated, setBugs, setView } =
+  bugSlice.actions;
 export const selectBugs = state => state.bugs;
 
 export default bugSlice.reducer;

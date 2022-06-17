@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import StyledIconButton from './StyledIconButton';
+import StyledShowMore from './StyledShowMore';
 
 const StyledSvgWrapper = styled.div`
   height: auto;
@@ -9,6 +10,10 @@ const StyledSvgWrapper = styled.div`
   ${StyledIconButton} & {
     width: 24px;
     fill: inherit;
+  }
+
+  ${StyledShowMore} & {
+    fill: white;
   }
 `;
 

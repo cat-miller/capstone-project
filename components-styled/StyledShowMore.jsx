@@ -37,16 +37,21 @@ const StyledShowMore = styled.div`
     height: 65px;
   }
 
-  &.caught {
-    background-color: hsl(200, 100%, 88%);
-    border: 2px solid hsl(200, 100%, 80%);
+  &.museum {
+    background-color: hsl(333, 100%, 80%);
+    border: 2px solid hsl(333, 100%, 75%);
+  }
+
+  &.collection {
+    background-color: hsl(163, 90%, 68%);
+    border: 2px solid hsl(163, 100%, 45%);
   }
 
   &.themes {
     width: 35px;
     height: 35px;
-    background-color: hsl(200, 100%, 88%);
-    border: 2px solid hsl(200, 100%, 80%);
+    background-color: hsl(163, 100%, 88%);
+    border: 2px solid hsl(163, 100%, 80%);
   }
 `;
 export default StyledShowMore;
