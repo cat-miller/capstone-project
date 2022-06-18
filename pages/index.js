@@ -12,6 +12,8 @@ import OverviewListCreatures from '../components/OverviewListCreatures';
 import LabeledOverviewList from '../components/LabeledOverviewList';
 import ProgressMuseumOverview from '../components/ProgressMuseumOverview';
 import ProgressCaughtOverview from '../components/ProgressCaughtOverview';
+import ThemeButtonList from '../components/ThemeButtonList';
+import PassportForm from '../components/PassportForm';
 
 export default function Home({ toggleTheme }) {
   const {
@@ -33,9 +35,15 @@ export default function Home({ toggleTheme }) {
       </StyledHeader>
 
       <StyledCardsWrapper>
+        <LabeledOverviewList className="themes" title="PASSPORT">
+          <PassportForm />
+        </LabeledOverviewList>
         <StyledButton className="themebutton" onClick={toggleTheme}>
           Switch Theme
         </StyledButton>
+        <LabeledOverviewList className="themes" title="THEMES">
+          <ThemeButtonList />
+        </LabeledOverviewList>
         <LabeledOverviewList className="museum" title="PROGRESS MUSEUM">
           <ProgressMuseumOverview />
         </LabeledOverviewList>

@@ -45,6 +45,13 @@ const StyledOverviewList = styled.div`
     border: 2px solid hsl(153, 100%, 45%);
     box-shadow: 0 4px 15px hsla(153, 100%, 73%, 0.53);
   }
+
+  &.themes {
+    justify-content: space-around;
+    background-color: hsl(273, 100%, 95%);
+    border: 2px solid hsl(273, 100%, 85%);
+    box-shadow: 0 4px 15px hsla(273, 100%, 73%, 0.53);
+  }
 `;
 
 export default StyledOverviewList;

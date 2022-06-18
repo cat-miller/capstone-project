@@ -48,10 +48,12 @@ const StyledShowMore = styled.a`
   }
 
   &.themes {
-    width: 35px;
-    height: 35px;
-    background-color: hsl(163, 100%, 88%);
-    border: 2px solid hsl(163, 100%, 80%);
+    width: 48px;
+    height: 48px;
+    background-color: hsl(273, 100%, 88%);
+    border: 2px solid hsl(273, 100%, 80%);
+    font-size: 0.6rem;
+    text-align: center;
   }
 `;
 export default StyledShowMore;
