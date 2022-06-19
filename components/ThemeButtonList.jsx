@@ -20,9 +20,11 @@ export default function ThemeButtonList() {
       {({ values, handleChange, handleSubmit }) => (
         <StyledRadioGroup>
           <label>
-            <StyledSvgWrapper>
-              <Winter />
-            </StyledSvgWrapper>
+            <StyledSvgDisplay isActive={values.theme === 'winter'}>
+              <StyledSvgWrapper>
+                <Winter />
+              </StyledSvgWrapper>
+            </StyledSvgDisplay>
             <StyledRadioButton
               onChange={event => {
                 handleChange(event);
@@ -35,9 +37,11 @@ export default function ThemeButtonList() {
             />
           </label>
           <label>
-            <StyledSvgWrapper>
-              <Spring />
-            </StyledSvgWrapper>
+            <StyledSvgDisplay isActive={values.theme === 'spring'}>
+              <StyledSvgWrapper>
+                <Spring />
+              </StyledSvgWrapper>
+            </StyledSvgDisplay>
             <StyledRadioButton
               onChange={event => {
                 handleChange(event);
@@ -50,9 +54,11 @@ export default function ThemeButtonList() {
             />
           </label>
           <label>
-            <StyledSvgWrapper>
-              <Summer />
-            </StyledSvgWrapper>
+            <StyledSvgDisplay isActive={values.theme === 'summer'}>
+              <StyledSvgWrapper>
+                <Summer />
+              </StyledSvgWrapper>
+            </StyledSvgDisplay>
             <StyledRadioButton
               onChange={event => {
                 handleChange(event);
@@ -65,9 +71,11 @@ export default function ThemeButtonList() {
             />
           </label>
           <label>
-            <StyledSvgWrapper>
-              <Fall />
-            </StyledSvgWrapper>
+            <StyledSvgDisplay isActive={values.theme === 'fall'}>
+              <StyledSvgWrapper>
+                <Fall />
+              </StyledSvgWrapper>
+            </StyledSvgDisplay>
             <StyledRadioButton
               onChange={event => {
                 handleChange(event);
@@ -87,10 +95,36 @@ export default function ThemeButtonList() {
 
 const StyledRadioGroup = styled(Form)`
   display: flex;
-  gap: 2.5rem;
+  gap: 1rem;
   align-items: center;
 `;
 
 const StyledRadioButton = styled(Field)`
   display: none;
+`;
+
+const StyledSvgDisplay = styled.div`
+  background-color: hsl(273, 100%, 88%);
+  border: 2px solid hsl(273, 100%, 85%);
+  border-radius: 999px;
+  height: 45px;
+  width: 45px;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${({ isActive }) => {
+    if (isActive) {
+      return `
+        background-color: hsl(273, 100%, 80%);
+        border: 2px solid hsl(273, 100%, 80%);
+        `;
+    } else {
+      return `
+        background-color: hsl(273, 100%, 88%);
+        border: 2px solid hsl(273, 100%, 85%);
+        `;
+    }
+  }}
 `;

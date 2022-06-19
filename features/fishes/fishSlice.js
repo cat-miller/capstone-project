@@ -3,11 +3,12 @@ import setDataReducer from '../reducers/setDataReducer';
 import toggleCaughtReducer from '../reducers/toggleCaughtReducer';
 import toggleDonatedReducer from '../reducers/toggleDonatedReducer';
 import setViewReducer from '../reducers/setViewReducer';
+import user from '../../user.json';
 
 const initialState = {
   data: [],
-  caught: [],
-  donated: [],
+  caught: user.fishes.caught,
+  donated: user.fishes.caught,
   view: { showCaught: false, showDonated: false },
 };
 

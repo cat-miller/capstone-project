@@ -3,11 +3,12 @@ import toggleFavoriteReducer from '../reducers/toggleFavoriteReducer';
 import toggleNeighborReducer from '../reducers/toggleNeighborReducer';
 import setDataReducer from '../reducers/setDataReducer';
 import setViewReducer from '../reducers/setViewReducer';
+import user from '../../user.json';
 
 const initialState = {
   data: [],
-  favorites: [],
-  neighbors: [],
+  favorites: user.villagers.favorites,
+  neighbors: user.villagers.neighbors,
   view: { showFavorites: false, showNeighbors: false },
 };
 

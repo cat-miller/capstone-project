@@ -61,12 +61,6 @@ export default function Home({ setTheme }) {
         <LabeledOverviewList className="themes" title="THEMES">
           <ThemeButtonList />
         </LabeledOverviewList>
-        <LabeledOverviewList className="museum" title="PROGRESS MUSEUM">
-          <ProgressMuseumOverview />
-        </LabeledOverviewList>
-        <LabeledOverviewList className="collection" title="PROGRESS COLLECTION">
-          <ProgressCaughtOverview />
-        </LabeledOverviewList>
         <OverviewList
           origin={villagers}
           bookmarks={neighbors}
@@ -79,6 +73,12 @@ export default function Home({ setTheme }) {
           target="villagers"
           title="favorites"
         />
+        <LabeledOverviewList className="museum" title="PROGRESS MUSEUM">
+          <ProgressMuseumOverview />
+        </LabeledOverviewList>
+        <LabeledOverviewList className="collection" title="PROGRESS COLLECTION">
+          <ProgressCaughtOverview />
+        </LabeledOverviewList>
       </StyledCardsWrapper>
     </PageWrapper>
   );
