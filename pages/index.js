@@ -62,13 +62,6 @@ export default function Home({ toggleTheme }) {
           target="villagers"
           title="favorites"
         />
-        <OverviewListCreatures
-          origin={seaCreatures}
-          target="seacreatures"
-          title="sea creatures"
-        />
-        <OverviewListCreatures origin={fishes} target="fishes" title="fishes" />
-        <OverviewListCreatures origin={bugs} target="bugs" title="bugs" />
       </StyledCardsWrapper>
     </PageWrapper>
   );

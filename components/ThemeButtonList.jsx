@@ -71,7 +71,5 @@ const StyledRadioGroup = styled(Form)`
 `;
 
 const StyledRadioButton = styled(Field)`
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  display: none;
 `;
