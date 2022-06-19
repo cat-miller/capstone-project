@@ -6,60 +6,81 @@ import Fall from '../public/fall.svg';
 import { Formik, Form, Field } from 'formik';
 import styled from 'styled-components';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
+import { useDispatch } from 'react-redux';
+import { setTheme } from '../features/passport/passportSlice';
 
 export default function ThemeButtonList() {
+  const dispatch = useDispatch();
+
   return (
     <Formik
-      initialValues={{ picked: '' }}
-      onSubmit={values => console.log(values)}
+      initialValues={{ theme: 'spring' }}
+      onSubmit={values => dispatch(setTheme(values.theme))}
     >
-      <StyledRadioGroup>
-        <label>
-          <StyledSvgWrapper>
-            <Winter />
-          </StyledSvgWrapper>
-          <StyledRadioButton
-            type="radio"
-            name="theme"
-            value="winter"
-            className="themes"
-          />
-        </label>
-        <label>
-          <StyledSvgWrapper>
-            <Spring />
-          </StyledSvgWrapper>
-          <StyledRadioButton
-            checked
-            name="theme"
-            type="radio"
-            value="spring"
-            className="themes"
-          />
-        </label>
-        <label>
-          <StyledSvgWrapper>
-            <Summer />
-          </StyledSvgWrapper>
-          <StyledRadioButton
-            name="theme"
-            type="radio"
-            value="summer"
-            className="themes"
-          />
-        </label>
-        <label>
-          <StyledSvgWrapper>
-            <Fall />
-          </StyledSvgWrapper>
-          <StyledRadioButton
-            name="theme"
-            type="radio"
-            value="fall"
-            className="themes"
-          />
-        </label>
-      </StyledRadioGroup>
+      {({ values, handleChange, handleSubmit }) => (
+        <StyledRadioGroup>
+          <label>
+            <StyledSvgWrapper>
+              <Winter />
+            </StyledSvgWrapper>
+            <StyledRadioButton
+              onChange={event => {
+                handleChange(event);
+                handleSubmit();
+              }}
+              type="radio"
+              name="theme"
+              value="winter"
+              className="themes"
+            />
+          </label>
+          <label>
+            <StyledSvgWrapper>
+              <Spring />
+            </StyledSvgWrapper>
+            <StyledRadioButton
+              onChange={event => {
+                handleChange(event);
+                handleSubmit();
+              }}
+              name="theme"
+              type="radio"
+              value="spring"
+              className="themes"
+            />
+          </label>
+          <label>
+            <StyledSvgWrapper>
+              <Summer />
+            </StyledSvgWrapper>
+            <StyledRadioButton
+              onChange={event => {
+                handleChange(event);
+                handleSubmit();
+              }}
+              name="theme"
+              type="radio"
+              value="summer"
+              className="themes"
+            />
+          </label>
+          <label>
+            <StyledSvgWrapper>
+              <Fall />
+            </StyledSvgWrapper>
+            <StyledRadioButton
+              onChange={event => {
+                handleChange(event);
+                handleSubmit();
+              }}
+              name="theme"
+              type="radio"
+              value="fall"
+              className="themes"
+            />
+          </label>
+        </StyledRadioGroup>
+      )}
     </Formik>
   );
 }

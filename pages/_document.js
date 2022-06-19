@@ -1,5 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { store } from '../app/store';
+import { Provider } from 'react-redux';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -26,6 +28,7 @@ export default class MyDocument extends Document {
       sheet.seal();
     }
   }
+
   render() {
     return (
       <Html lang="en">

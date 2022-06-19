@@ -1,4 +1,4 @@
-export const lightTheme = {
+export const springTheme = {
   headline: 'hsl(153, 100%, 35%)',
   headlinebg: 'hsl(197, 100%, 97%)',
   navigationtext: 'hsl(0, 0%, 100%)',
@@ -31,7 +31,7 @@ export const lightTheme = {
   sortbuttonbg: 'hsl(193, 100%, 95%)',
 };
 
-export const darkTheme = {
+export const fallTheme = {
   headline: 'hsl(23, 100%, 64%)',
   headlinebg: 'hsl(248, 65%, 12%)',
   navigationtext: 'hsl(29, 100%, 64%)',
@@ -62,13 +62,44 @@ export const darkTheme = {
   favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
 };
 
-export const cherryTheme = {
+export const summerTheme = {
   headline: 'hsl(334, 100%, 60%)',
   headlinebg: 'hsl(266, 100%, 97%)',
   navigationtext: 'hsl(0, 0%, 100%)',
   navigationbg: 'hsl(334, 100%, 69%)',
   navigationicons: 'hsl(293, 93%, 94%)',
   navigationactive: 'hsl(334, 100%, 60%)',
+  bodybg: 'hsl(266, 100%, 97%)',
+  overlaybg: 'hsla(0, 0%, 100%, 0.7)',
+  button: 'hsl(313, 100%, 65%)',
+  butonbg: 'hsl(313, 100%, 95%)',
+  themebutton: 'hsl(313, 100%, 65%)',
+  themebuttonbg: 'hsl(313, 100%, 95%)',
+  caughtbutton: 'hsl(283, 100%, 65%)',
+  caughtbuttonactive: 'hsl(263, 100%, 65%)',
+  caughtbuttonbg: 'hsl(283, 100%, 95%)',
+  caughtbuttonbgactive: 'hsl(263, 100%, 85%)',
+  donatedbutton: 'hsl(343, 100%, 65%)',
+  donatedbuttonactive: 'hsl(333, 100%, 65%)',
+  donatedbuttonbg: 'hsl(343, 100%, 95%)',
+  donatedbuttonbgactive: 'hsl(333, 100%, 88%)',
+  neighborbutton: 'hsl(153, 100%, 40%)',
+  neighborbuttonactive: 'hsl(163, 100%, 35%)',
+  neighborbuttonbg: 'hsl(153, 100%, 95%)',
+  neighborbuttonbgactive: 'hsl(163, 100%, 68%)',
+  favoritebutton: 'hsl(343, 100%, 65%)',
+  favoritebuttonactive: 'hsl(333, 100%, 65%)',
+  favoritebuttonbg: 'hsl(343, 100%, 95%)',
+  favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
+};
+
+export const winterTheme = {
+  headline: 'hsl(334, 100%, 60%)',
+  headlinebg: 'hsl(266, 100%, 97%)',
+  navigationtext: 'hsl(0, 0%, 100%)',
+  navigationbg: 'hsl(230, 100%, 69%)',
+  navigationicons: 'hsl(223, 93%, 94%)',
+  navigationactive: 'hsl(230, 100%, 60%)',
   bodybg: 'hsl(266, 100%, 97%)',
   overlaybg: 'hsla(0, 0%, 100%, 0.7)',
   button: 'hsl(313, 100%, 65%)',

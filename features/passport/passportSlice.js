@@ -5,7 +5,7 @@ import setThemeReducer from '../reducers/setThemeReducer';
 const initialState = {
   island: { user: '', name: '', fruit: 'Peach' },
   code: { switch: '', dreamId: '', creatorId: '' },
-  theme: {},
+  theme: '',
 };
 
 export const passportSlice = createSlice({
