@@ -10,8 +10,6 @@ const StyledShowMore = styled.a`
   align-items: center;
   color: var(--color);
 
-  //TODO pass hue instead of all those classes
-
   &.villagers {
     background-color: hsl(313, 100%, 88%);
     border: 2px solid hsl(313, 100%, 80%);
@@ -35,25 +33,18 @@ const StyledShowMore = styled.a`
   &.bookmark {
     width: 65px;
     height: 65px;
+    font-size: 0.9rem;
+    text-align: center;
   }
 
   &.museum {
-    background-color: hsl(333, 100%, 80%);
-    border: 2px solid hsl(333, 100%, 75%);
+    background-color: hsl(193, 100%, 80%);
+    border: 2px solid hsl(193, 100%, 75%);
   }
 
   &.collection {
     background-color: hsl(163, 90%, 68%);
     border: 2px solid hsl(163, 100%, 45%);
-  }
-
-  &.themes {
-    width: 48px;
-    height: 48px;
-    background-color: hsl(273, 100%, 88%);
-    border: 2px solid hsl(273, 100%, 80%);
-    font-size: 0.6rem;
-    text-align: center;
   }
 `;
 export default StyledShowMore;

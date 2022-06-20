@@ -55,29 +55,33 @@ export default function Home({ setTheme }) {
       </StyledHeader>
 
       <StyledCardsWrapper>
-        <LabeledOverviewList className="themes" title="PASSPORT">
+        <LabeledOverviewList className="passport" title="PASSPORT">
           <PassportForm />
         </LabeledOverviewList>
         <LabeledOverviewList className="themes" title="THEMES">
           <ThemeButtonList />
         </LabeledOverviewList>
-        <OverviewList
-          origin={villagers}
-          bookmarks={neighbors}
-          target="villagers"
-          title="neighbors"
-        />
+
         <OverviewList
           origin={villagers}
           bookmarks={favorites}
           target="villagers"
           title="favorites"
         />
-        <LabeledOverviewList className="museum" title="PROGRESS MUSEUM">
-          <ProgressMuseumOverview />
-        </LabeledOverviewList>
+        <OverviewList
+          origin={villagers}
+          bookmarks={neighbors}
+          target="villagers"
+          title="neighbors"
+        />
         <LabeledOverviewList className="collection" title="PROGRESS COLLECTION">
           <ProgressCaughtOverview />
+        </LabeledOverviewList>
+        <LabeledOverviewList
+          className="museum last-element"
+          title="PROGRESS MUSEUM"
+        >
+          <ProgressMuseumOverview />
         </LabeledOverviewList>
       </StyledCardsWrapper>
     </PageWrapper>

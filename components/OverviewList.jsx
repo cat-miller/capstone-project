@@ -13,7 +13,7 @@ function OverviewList({ origin, bookmarks, target, title }) {
   return (
     <StyledListWrapper>
       <h3>{title.toUpperCase()}</h3>
-      <StyledOverviewList className={target}>
+      <StyledOverviewList className={title}>
         {bookmarks.length ? (
           <>
             {bookmarks?.slice(0, length).map(id => {
@@ -26,7 +26,7 @@ function OverviewList({ origin, bookmarks, target, title }) {
                   href={`/${target}/${bookmark.id}`}
                 >
                   <StyledOverviewImage
-                    className={target}
+                    className={title}
                     src={bookmark.iconUri}
                     alt=""
                     key={bookmark.id}

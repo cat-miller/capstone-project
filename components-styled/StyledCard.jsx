@@ -11,6 +11,10 @@ const StyledCard = styled.section`
   padding: 0.6rem;
   position: relative;
 
+  &:last-child {
+    margin-bottom: 3rem;
+  }
+
   & img {
     align-self: center;
   }

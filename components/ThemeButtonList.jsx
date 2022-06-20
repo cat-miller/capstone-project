@@ -6,15 +6,16 @@ import Fall from '../public/fall.svg';
 import { Formik, Form, Field } from 'formik';
 import styled from 'styled-components';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
-import { useDispatch } from 'react-redux';
-import { setTheme } from '../features/passport/passportSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTheme, selectPassport } from '../features/passport/passportSlice';
 
 export default function ThemeButtonList() {
   const dispatch = useDispatch();
+  const { theme } = useSelector(selectPassport);
 
   return (
     <Formik
-      initialValues={{ theme: 'spring' }}
+      initialValues={{ theme }}
       onSubmit={values => dispatch(setTheme(values.theme))}
     >
       {({ values, handleChange, handleSubmit }) => (
@@ -104,26 +105,25 @@ const StyledRadioButton = styled(Field)`
 `;
 
 const StyledSvgDisplay = styled.div`
-  background-color: hsl(273, 100%, 88%);
-  border: 2px solid hsl(273, 100%, 85%);
   border-radius: 999px;
   height: 45px;
   width: 45px;
   padding: 0.4rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
   ${({ isActive }) => {
     if (isActive) {
       return `
-        background-color: hsl(273, 100%, 80%);
-        border: 2px solid hsl(273, 100%, 80%);
+        background-color: hsl(353, 100%, 80%);
+        border: 2px solid hsl(353, 100%, 80%);
         `;
     } else {
       return `
-        background-color: hsl(273, 100%, 88%);
-        border: 2px solid hsl(273, 100%, 85%);
+        background-color: hsl(353, 100%, 85%);
+        border: 2px solid hsl(353, 100%, 80%);
         `;
     }
   }}

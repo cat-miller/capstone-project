@@ -3,11 +3,9 @@ import StyledOverviewList from '../components-styled/StyledOverviewList';
 
 export default function LabeledOverviewList({ title, children, className }) {
   return (
-    <StyledListWrapper>
+    <StyledListWrapper className={className}>
       <h3>{title}</h3>
-      <StyledOverviewList className={`${className}`}>
-        {children}
-      </StyledOverviewList>
+      <StyledOverviewList className={className}>{children}</StyledOverviewList>
     </StyledListWrapper>
   );
 }

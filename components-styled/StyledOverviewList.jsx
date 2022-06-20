@@ -8,7 +8,13 @@ const StyledOverviewList = styled.div`
   padding: 0.6rem;
   border-radius: var(--border-radius);
 
-  &.villagers {
+  &.neighbors {
+    background-color: hsl(273, 100%, 95%);
+    border: 2px solid hsl(273, 100%, 80%);
+    box-shadow: 0 4px 15px hsla(273, 100%, 73%, 0.53);
+  }
+
+  &.favorites {
     background-color: hsl(334, 100%, 95%);
     border: 2px solid hsl(334, 100%, 80%);
     box-shadow: 0 4px 15px hsla(334, 100%, 73%, 0.53);
@@ -34,9 +40,9 @@ const StyledOverviewList = styled.div`
 
   &.museum {
     justify-content: space-around;
-    background-color: hsl(343, 100%, 95%);
-    border: 2px solid hsl(343, 100%, 80%);
-    box-shadow: 0 4px 15px hsla(343, 100%, 73%, 0.53);
+    background-color: hsl(193, 100%, 95%);
+    border: 2px solid hsl(193, 100%, 80%);
+    box-shadow: 0 4px 15px hsla(193, 100%, 73%, 0.53);
   }
 
   &.collection {
@@ -48,7 +54,14 @@ const StyledOverviewList = styled.div`
 
   &.themes {
     justify-content: space-around;
-    background-color: hsl(273, 100%, 95%);
+    background-color: hsl(353, 100%, 95%);
+    border: 2px solid hsl(353, 100%, 80%);
+    box-shadow: 0 4px 15px hsla(353, 100%, 73%, 0.53);
+  }
+
+  &.passport {
+    justify-content: space-around;
+    background-color: hsl(137, 60%, 95%);
     border: 2px solid hsl(273, 100%, 85%);
     box-shadow: 0 4px 15px hsla(273, 100%, 73%, 0.53);
   }

@@ -6,7 +6,12 @@ const StyledOverviewImage = styled.img`
   border-radius: 50%;
   padding: 0.4rem;
 
-  &.villagers {
+  &.neighbors {
+    background-color: hsl(273, 100%, 88%);
+    border: 2px solid hsl(273, 100%, 80%);
+  }
+
+  &.favorites {
     background-color: hsl(313, 100%, 88%);
     border: 2px solid hsl(313, 100%, 80%);
   }

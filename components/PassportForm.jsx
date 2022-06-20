@@ -5,10 +5,12 @@ import {
   selectPassport,
   setPassport,
 } from '../features/passport/passportSlice';
+import PalmTree from '../public/palm-tree.svg';
 
 export default function PassportForm() {
   const dispatch = useDispatch();
   const passport = useSelector(selectPassport);
+
   return (
     <Formik
       enableReinitialize
@@ -16,17 +18,23 @@ export default function PassportForm() {
       onSubmit={values => dispatch(setPassport(values))}
     >
       <StyledForm>
-        <StyledField
-          maxlength="10"
-          name="island.user"
-          placeholder=" USER NAME"
-        />
-        <StyledField
-          maxlength="10"
-          name="island.name"
-          placeholder=" ISLAND NAME"
-        />
         <StyledInputWrapper>
+          <StyledIcon>
+            <PalmTree />
+          </StyledIcon>
+          <StyledNameWrapper>
+            <StyledField
+              maxlength="10"
+              name="island.user"
+              placeholder=" USER NAME"
+            />
+            <StyledField
+              maxlength="10"
+              name="island.name"
+              placeholder=" ISLAND NAME"
+            />
+          </StyledNameWrapper>
+
           <StyledLabel>Fruit</StyledLabel>
           <Field as="select" name="island.fruit">
             <option value="Apple">APPLE</option>
@@ -67,6 +75,7 @@ const StyledForm = styled(Form)`
   display: grid;
   gap: 0.5rem;
   justify-items: end;
+  padding: 0.4rem 0;
 `;
 
 const StyledField = styled(Field)`
@@ -103,4 +112,22 @@ const StyledInputWrapper = styled.div`
     border-radius: 26px;
     padding: 0.1rem 0.4rem;
   }
+`;
+
+const StyledIcon = styled.div`
+  border: 2px solid hsl(153, 100%, 55%);
+  border-radius: 50px;
+  background-color: hsl(153, 100%, 88%);
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+`;
+
+const StyledNameWrapper = styled.div`
+  display: grid;
+  gap: 0.9rem;
 `;

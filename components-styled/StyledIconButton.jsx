@@ -2,7 +2,12 @@ import styled from 'styled-components';
 
 const StyledIconButton = styled.button`
   border-radius: 999px;
-  padding: 0.3rem 0.4rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //padding: 0.4rem;
 
   &.caught {
     justify-self: end;
