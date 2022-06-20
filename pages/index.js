@@ -61,18 +61,17 @@ export default function Home({ setTheme }) {
         <LabeledOverviewList className="themes" title="THEMES">
           <ThemeButtonList />
         </LabeledOverviewList>
-
-        <OverviewList
-          origin={villagers}
-          bookmarks={favorites}
-          target="villagers"
-          title="favorites"
-        />
         <OverviewList
           origin={villagers}
           bookmarks={neighbors}
           target="villagers"
           title="neighbors"
+        />
+        <OverviewList
+          origin={villagers}
+          bookmarks={favorites}
+          target="villagers"
+          title="favorites"
         />
         <LabeledOverviewList className="collection" title="PROGRESS COLLECTION">
           <ProgressCaughtOverview />

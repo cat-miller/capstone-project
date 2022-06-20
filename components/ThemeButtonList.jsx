@@ -96,7 +96,7 @@ export default function ThemeButtonList() {
 
 const StyledRadioGroup = styled(Form)`
   display: flex;
-  gap: 1rem;
+  gap: 1.3rem;
   align-items: center;
 `;
 
@@ -106,8 +106,8 @@ const StyledRadioButton = styled(Field)`
 
 const StyledSvgDisplay = styled.div`
   border-radius: 999px;
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   padding: 0.4rem;
   display: flex;
   flex-wrap: wrap;
@@ -117,13 +117,13 @@ const StyledSvgDisplay = styled.div`
   ${({ isActive }) => {
     if (isActive) {
       return `
-        background-color: hsl(353, 100%, 80%);
-        border: 2px solid hsl(353, 100%, 80%);
+        background-color: hsl(278, 100%, 80%);
+        border: 2px solid hsl(278, 100%, 80%);
         `;
     } else {
       return `
-        background-color: hsl(353, 100%, 85%);
-        border: 2px solid hsl(353, 100%, 80%);
+        background-color: hsl(283, 100%, 85%);
+        border: 2px solid hsl(283, 100%, 80%);
         `;
     }
   }}

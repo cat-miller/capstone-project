@@ -7,8 +7,8 @@ const StyledOverviewImage = styled.img`
   padding: 0.4rem;
 
   &.neighbors {
-    background-color: hsl(273, 100%, 88%);
-    border: 2px solid hsl(273, 100%, 80%);
+    background-color: hsl(263, 100%, 88%);
+    border: 2px solid hsl(263, 100%, 80%);
   }
 
   &.favorites {

@@ -9,33 +9,15 @@ const StyledOverviewList = styled.div`
   border-radius: var(--border-radius);
 
   &.neighbors {
-    background-color: hsl(273, 100%, 95%);
-    border: 2px solid hsl(273, 100%, 80%);
-    box-shadow: 0 4px 15px hsla(273, 100%, 73%, 0.53);
+    background-color: hsl(263, 100%, 95%);
+    border: 2px solid hsl(263, 100%, 80%);
+    box-shadow: 0 4px 15px hsla(263, 100%, 73%, 0.53);
   }
 
   &.favorites {
     background-color: hsl(334, 100%, 95%);
     border: 2px solid hsl(334, 100%, 80%);
     box-shadow: 0 4px 15px hsla(334, 100%, 73%, 0.53);
-  }
-
-  &.seacreatures {
-    background-color: hsl(250, 100%, 95%);
-    border: 2px solid hsl(250, 100%, 80%);
-    box-shadow: 0 4px 15px hsla(250, 100%, 73%, 0.53);
-  }
-
-  &.fishes {
-    background-color: hsl(200, 100%, 95%);
-    border: 2px solid hsl(200, 100%, 80%);
-    box-shadow: 0 4px 15px hsla(200, 100%, 73%, 0.53);
-  }
-
-  &.bugs {
-    background-color: hsl(100, 100%, 95%);
-    border: 2px solid hsl(100, 100%, 80%);
-    box-shadow: 0 4px 15px hsla(100, 100%, 73%, 0.53);
   }
 
   &.museum {
@@ -54,16 +36,16 @@ const StyledOverviewList = styled.div`
 
   &.themes {
     justify-content: space-around;
-    background-color: hsl(353, 100%, 95%);
-    border: 2px solid hsl(353, 100%, 80%);
-    box-shadow: 0 4px 15px hsla(353, 100%, 73%, 0.53);
+    background-color: hsl(278, 100%, 95%);
+    border: 2px solid hsl(278, 100%, 80%);
+    box-shadow: 0 4px 15px hsla(278, 100%, 73%, 0.53);
   }
 
   &.passport {
     justify-content: space-around;
     background-color: hsl(137, 60%, 95%);
-    border: 2px solid hsl(273, 100%, 85%);
-    box-shadow: 0 4px 15px hsla(273, 100%, 73%, 0.53);
+    border: 2px solid hsl(153, 70%, 50%);
+    box-shadow: 0 4px 15px hsla(153, 100%, 73%, 0.53);
   }
 `;
 

@@ -6,16 +6,21 @@ import {
   setPassport,
 } from '../features/passport/passportSlice';
 import PalmTree from '../public/palm-tree.svg';
+import { useState } from 'react';
 
 export default function PassportForm() {
   const dispatch = useDispatch();
   const passport = useSelector(selectPassport);
-
+  const [isEdit, setIsEdit] = useState(false);
+  console.log(passport.code.creatorId.toString(10));
   return (
     <Formik
       enableReinitialize
       initialValues={passport}
-      onSubmit={values => dispatch(setPassport(values))}
+      onSubmit={values => {
+        setIsEdit(false);
+        dispatch(setPassport(values));
+      }}
     >
       <StyledForm>
         <StyledInputWrapper>
@@ -27,16 +32,19 @@ export default function PassportForm() {
               maxlength="10"
               name="island.user"
               placeholder=" USER NAME"
+              disabled={!isEdit}
             />
+
             <StyledField
               maxlength="10"
               name="island.name"
               placeholder=" ISLAND NAME"
+              disabled={!isEdit}
             />
           </StyledNameWrapper>
 
           <StyledLabel>Fruit</StyledLabel>
-          <Field as="select" name="island.fruit">
+          <Field as="select" name="island.fruit" disabled={!isEdit}>
             <option value="Apple">APPLE</option>
             <option value="Peach">PEACH</option>
             <option value="Cherry">CHERRY</option>
@@ -44,28 +52,73 @@ export default function PassportForm() {
             <option value="Pear">PEAR</option>
           </Field>
           <StyledLabel>Switch Code</StyledLabel>
-          <StyledField
-            maxlength="12"
-            type="number"
-            name="code.switch"
-            placeholder=" 0000 - 0000 - 0000"
-          />
+          {isEdit ? (
+            <StyledField
+              maxlength="12"
+              type="number"
+              name="code.switch"
+              placeholder="0000 - 0000 - 0000"
+            />
+          ) : (
+            <StyledField
+              disabled
+              placeholder="0000 - 0000 - 0000"
+              value={passport.code.switch
+                .toString(10)
+                .match(/\d{4}/g)
+                ?.join('-')}
+            />
+          )}
           <StyledLabel>Dream ID</StyledLabel>
-          <StyledField
-            maxlength="12"
-            type="number"
-            name="code.dreamId"
-            placeholder=" 0000 - 0000 - 0000"
-          />
+          {isEdit ? (
+            <StyledField
+              maxlength="12"
+              type="number"
+              name="code.dreamId"
+              placeholder="0000 - 0000 - 0000"
+            />
+          ) : (
+            <StyledField
+              disabled
+              placeholder="0000 - 0000 - 0000"
+              value={passport.code.dreamId
+                .toString(10)
+                .match(/\d{4}/g)
+                ?.join('-')}
+            />
+          )}
           <StyledLabel>Creator ID</StyledLabel>
-          <StyledField
-            maxlength="12"
-            type="number"
-            name="code.creatorId"
-            placeholder=" 0000 - 0000 - 0000"
-          />
+          {isEdit ? (
+            <StyledField
+              maxlength="12"
+              type="number"
+              name="code.creatorId"
+              placeholder="0000 - 0000 - 0000"
+            />
+          ) : (
+            <StyledField
+              disabled
+              placeholder="0000 - 0000 - 0000"
+              value={passport.code.creatorId
+                .toString(10)
+                .match(/\d{4}/g)
+                ?.join('-')}
+            />
+          )}
         </StyledInputWrapper>
-        <StyledSubmit type="submit">Submit</StyledSubmit>
+        {isEdit ? (
+          <StyledSubmit type="submit">Submit</StyledSubmit>
+        ) : (
+          <StyledSubmit
+            onClick={event => {
+              event.preventDefault();
+              setIsEdit(true);
+            }}
+            type="button"
+          >
+            Edit
+          </StyledSubmit>
+        )}
       </StyledForm>
     </Formik>
   );
@@ -79,27 +132,31 @@ const StyledForm = styled(Form)`
 `;
 
 const StyledField = styled(Field)`
-  border: 2px solid hsl(273, 100%, 80%);
+  border: 2px solid hsl(153, 70%, 50%);
   border-radius: 26px;
   padding: 0.1rem 0.4rem;
+  color: hsl(153, 70%, 35%);
+  letter-spacing: 1px;
 `;
 
 const StyledSubmit = styled.button`
-  border: 2px solid hsl(273, 100%, 80%);
+  border: 2px solid hsl(153, 70%, 50%);
   border-radius: 26px;
   color: white;
-  background-color: hsl(273, 100%, 80%);
+  background-color: hsl(153, 70%, 50%);
   justify-self: center;
+  letter-spacing: 1px;
 `;
 
 const StyledLabel = styled.label`
-  border: 2px solid hsl(273, 100%, 80%);
+  border: 2px solid hsl(153, 70%, 50%);
   border-radius: 26px;
   color: white;
-  background-color: hsl(273, 100%, 80%);
+  background-color: hsl(153, 70%, 50%);
   padding: 0.1rem 0.4rem;
   font-size: 0.8rem;
   text-align: center;
+  letter-spacing: 1px;
 `;
 
 const StyledInputWrapper = styled.div`
@@ -108,14 +165,15 @@ const StyledInputWrapper = styled.div`
   gap: 0.8rem;
 
   & > select {
-    border: 2px solid hsl(273, 100%, 80%);
+    border: 2px solid hsl(153, 70%, 50%);
     border-radius: 26px;
     padding: 0.1rem 0.4rem;
+    color: hsl(153, 70%, 35%);
   }
 `;
 
 const StyledIcon = styled.div`
-  border: 2px solid hsl(153, 100%, 55%);
+  border: 2px solid hsl(153, 70%, 50%);
   border-radius: 50px;
   background-color: hsl(153, 100%, 88%);
   height: 60px;
