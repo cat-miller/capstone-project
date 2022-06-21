@@ -16,7 +16,7 @@ const StyledOverviewList = styled.div`
 
   &.favorites {
     background-color: hsl(334, 100%, 95%);
-    border: 2px solid hsl(334, 100%, 80%);
+    border: 2px solid hsl(334, 100%, 75%);
     box-shadow: 0 4px 15px hsla(334, 100%, 73%, 0.53);
   }
 

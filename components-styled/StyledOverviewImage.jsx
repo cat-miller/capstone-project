@@ -12,8 +12,8 @@ const StyledOverviewImage = styled.img`
   }
 
   &.favorites {
-    background-color: hsl(313, 100%, 88%);
-    border: 2px solid hsl(313, 100%, 80%);
+    background-color: hsl(343, 100%, 88%);
+    border: 2px solid hsl(343, 100%, 75%);
   }
 
   &.seacreatures {

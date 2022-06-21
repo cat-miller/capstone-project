@@ -45,7 +45,7 @@ function OverviewList({ origin, bookmarks, target, title }) {
                       })
                     )
                   }
-                  className={target}
+                  className={title}
                 >
                   ...
                 </StyledShowMore>
