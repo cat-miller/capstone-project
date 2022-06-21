@@ -117,8 +117,8 @@ const StyledSvgDisplay = styled.div`
   ${({ isActive }) => {
     if (isActive) {
       return `
-        background-color: hsl(278, 100%, 80%);
-        border: 2px solid hsl(278, 100%, 80%);
+        background-color: hsl(283, 100%, 80%);
+        border: 2px solid hsl(283, 100%, 80%);
         `;
     } else {
       return `
