@@ -1,9 +1,7 @@
-import LabeledLinkButton from './LabeledLinkButton';
 import Winter from '../public/winter.svg';
 import Spring from '../public/spring.svg';
 import Summer from '../public/summer.svg';
 import Fall from '../public/fall.svg';
-import { Formik, Form, Field } from 'formik';
 import styled from 'styled-components';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,95 +12,42 @@ export default function ThemeButtonList() {
   const { theme } = useSelector(selectPassport);
 
   return (
-    <Formik
-      initialValues={{ theme }}
-      onSubmit={values => dispatch(setTheme(values.theme))}
-    >
-      {({ values, handleChange, handleSubmit }) => (
-        <StyledRadioGroup>
-          <label>
-            <StyledSvgDisplay isActive={values.theme === 'winter'}>
-              <StyledSvgWrapper>
-                <Winter />
-              </StyledSvgWrapper>
-            </StyledSvgDisplay>
-            <StyledRadioButton
-              onChange={event => {
-                handleChange(event);
-                handleSubmit();
-              }}
-              type="radio"
-              name="theme"
-              value="winter"
-              className="themes"
-            />
-          </label>
-          <label>
-            <StyledSvgDisplay isActive={values.theme === 'spring'}>
-              <StyledSvgWrapper>
-                <Spring />
-              </StyledSvgWrapper>
-            </StyledSvgDisplay>
-            <StyledRadioButton
-              onChange={event => {
-                handleChange(event);
-                handleSubmit();
-              }}
-              name="theme"
-              type="radio"
-              value="spring"
-              className="themes"
-            />
-          </label>
-          <label>
-            <StyledSvgDisplay isActive={values.theme === 'summer'}>
-              <StyledSvgWrapper>
-                <Summer />
-              </StyledSvgWrapper>
-            </StyledSvgDisplay>
-            <StyledRadioButton
-              onChange={event => {
-                handleChange(event);
-                handleSubmit();
-              }}
-              name="theme"
-              type="radio"
-              value="summer"
-              className="themes"
-            />
-          </label>
-          <label>
-            <StyledSvgDisplay isActive={values.theme === 'fall'}>
-              <StyledSvgWrapper>
-                <Fall />
-              </StyledSvgWrapper>
-            </StyledSvgDisplay>
-            <StyledRadioButton
-              onChange={event => {
-                handleChange(event);
-                handleSubmit();
-              }}
-              name="theme"
-              type="radio"
-              value="fall"
-              className="themes"
-            />
-          </label>
-        </StyledRadioGroup>
-      )}
-    </Formik>
+    <>
+      <StyledSvgDisplay
+        onClick={() => dispatch(setTheme('winter'))}
+        isActive={theme === 'winter'}
+      >
+        <StyledSvgWrapper>
+          <Winter />
+        </StyledSvgWrapper>
+      </StyledSvgDisplay>
+      <StyledSvgDisplay
+        onClick={() => dispatch(setTheme('spring'))}
+        isActive={theme === 'spring'}
+      >
+        <StyledSvgWrapper>
+          <Spring />
+        </StyledSvgWrapper>
+      </StyledSvgDisplay>
+      <StyledSvgDisplay
+        onClick={() => dispatch(setTheme('summer'))}
+        isActive={theme === 'summer'}
+      >
+        <StyledSvgWrapper>
+          <Summer />
+        </StyledSvgWrapper>
+      </StyledSvgDisplay>
+      <StyledSvgDisplay
+        onClick={() => dispatch(setTheme('fall'))}
+        isActive={theme === 'fall'}
+      >
+        <StyledSvgWrapper>
+          <Fall />
+        </StyledSvgWrapper>
+      </StyledSvgDisplay>
+    </>
   );
 }
-
-const StyledRadioGroup = styled(Form)`
-  display: flex;
-  gap: 1.3rem;
-  align-items: center;
-`;
-
-const StyledRadioButton = styled(Field)`
-  display: none;
-`;
 
 const StyledSvgDisplay = styled.div`
   border-radius: 999px;
