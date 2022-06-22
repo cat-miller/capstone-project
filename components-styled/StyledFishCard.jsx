@@ -9,6 +9,10 @@ const StyledFishCard = styled.section`
   border-radius: var(--border-radius);
   color: var(--color);
   padding: 0.7rem;
+
+  &:last-child {
+    margin-bottom: 3rem;
+  }
 `;
 
 export default StyledFishCard;

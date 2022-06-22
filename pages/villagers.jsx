@@ -2,8 +2,8 @@ import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import VillagerCard from '../components/VillagerCard';
 import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
-import { useSelector } from 'react-redux';
-import { selectVillagers } from '../features/villagers/villagerSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectVillagers, setView } from '../features/villagers/villagerSlice';
 import StyledButton from '../components-styled/StyledButton';
 import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
@@ -14,13 +14,14 @@ import { personalities } from '../constants/personalities';
 import { sortName } from '../services/sorting';
 
 export default function VillagersPage() {
+  const dispatch = useDispatch();
   const {
     favorites,
     neighbors,
     data: villagers,
+    view: { showFavorites, showNeighbors },
   } = useSelector(selectVillagers);
-  const [showNeighbors, setShowNeighbors] = useState(false);
-  const [showFavorites, setShowFavorites] = useState(false);
+
   const [villagersToShow, setVillagersToShow] = useState([]);
   const [isAscAlph, setIsAscAlph] = useState(true);
   const [filter, setFilter] = useState({ personality: null, species: null });
@@ -49,13 +50,11 @@ export default function VillagersPage() {
   }, [villagers, favorites, neighbors, showNeighbors, showFavorites]);
 
   function toggleNeighborCards() {
-    setShowFavorites(false);
-    setShowNeighbors(!showNeighbors);
+    dispatch(setView({ showFavorites: false, showNeighbors: !showNeighbors }));
   }
 
   function toggleFavoriteCards() {
-    setShowNeighbors(false);
-    setShowFavorites(!showFavorites);
+    dispatch(setView({ showNeighbors: false, showFavorites: !showFavorites }));
   }
 
   const sortByName = () => {

@@ -11,6 +11,10 @@ import Villagers from '../public/villagers.svg';
 import StyledSvgWrapper from '../components-styled/StyledSvgWrapper';
 import { useDispatch } from 'react-redux';
 import fetchDataThunk from '../features/thunk/fetchDataThunk';
+import { setView as setSeaCreatureView } from '../features/seaCreatures/seaCreatureSlice';
+import { setView as setBugView } from '../features/bugs/bugSlice';
+import { setView as setFishView } from '../features/fishes/fishSlice';
+import { setView as setVillagerView } from '../features/villagers/villagerSlice';
 
 export default function Navigation() {
   const router = useRouter();
@@ -25,14 +29,32 @@ export default function Navigation() {
       <StyledScrollShadow />
       <Link passHref href="/villagers">
         <StyledActiveWrapper isActive={router.pathname === '/villagers'}>
-          <StyledSvgWrapper>
+          <StyledSvgWrapper
+            onClick={() =>
+              dispatch(
+                setVillagerView({
+                  showFavorites: false,
+                  showNeighbors: false,
+                })
+              )
+            }
+          >
             <Villagers />
           </StyledSvgWrapper>
         </StyledActiveWrapper>
       </Link>
       <Link passHref href="/seacreatures">
         <StyledActiveWrapper isActive={router.pathname === '/seacreatures'}>
-          <StyledSvgWrapper>
+          <StyledSvgWrapper
+            onClick={() =>
+              dispatch(
+                setSeaCreatureView({
+                  showDonated: false,
+                  showCaught: false,
+                })
+              )
+            }
+          >
             <SeaCreatures />
           </StyledSvgWrapper>
         </StyledActiveWrapper>
@@ -46,14 +68,32 @@ export default function Navigation() {
       </Link>
       <Link passHref href="/fishes">
         <StyledActiveWrapper isActive={router.pathname === '/fishes'}>
-          <StyledSvgWrapper>
+          <StyledSvgWrapper
+            onClick={() =>
+              dispatch(
+                setFishView({
+                  showDonated: false,
+                  showCaught: false,
+                })
+              )
+            }
+          >
             <Fishes />
           </StyledSvgWrapper>
         </StyledActiveWrapper>
       </Link>
       <Link passHref href="/bugs">
         <StyledActiveWrapper isActive={router.pathname === '/bugs'}>
-          <StyledSvgWrapper>
+          <StyledSvgWrapper
+            onClick={() =>
+              dispatch(
+                setBugView({
+                  showDonated: false,
+                  showCaught: false,
+                })
+              )
+            }
+          >
             <Bugs />
           </StyledSvgWrapper>
         </StyledActiveWrapper>

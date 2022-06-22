@@ -1,6 +1,5 @@
 import PageWrapper from '../components/PageWrapper';
 import StyledHeader from '../components-styled/StyledHeader';
-import StyledButton from '../components-styled/StyledButton';
 import StyledCardsWrapper from '../components-styled/StyledCardsWrapper';
 import { useSelector } from 'react-redux';
 import { selectVillagers } from '../features/villagers/villagerSlice';
@@ -8,12 +7,22 @@ import { selectSeaCreatures } from '../features/seaCreatures/seaCreatureSlice';
 import { selectBugs } from '../features/bugs/bugSlice';
 import { selectFishes } from '../features/fishes/fishSlice';
 import OverviewList from '../components/OverviewList';
-import OverviewListCreatures from '../components/OverviewListCreatures';
 import LabeledOverviewList from '../components/LabeledOverviewList';
 import ProgressMuseumOverview from '../components/ProgressMuseumOverview';
 import ProgressCaughtOverview from '../components/ProgressCaughtOverview';
+import ThemeButtonList from '../components/ThemeButtonList';
+import PassportForm from '../components/PassportForm';
+import { useEffect } from 'react';
+import {
+  springTheme,
+  fallTheme,
+  summerTheme,
+  winterTheme,
+} from '../styles/ThemeConfig';
+import { selectPassport } from '../features/passport/passportSlice';
 
-export default function Home({ toggleTheme }) {
+export default function Home({ setTheme }) {
+  const { theme } = useSelector(selectPassport);
   const {
     favorites,
     neighbors,
@@ -26,6 +35,21 @@ export default function Home({ toggleTheme }) {
 
   const { data: fishes } = useSelector(selectFishes);
 
+  useEffect(() => {
+    switch (theme) {
+      case 'winter':
+        return setTheme(winterTheme);
+      case 'spring':
+        return setTheme(springTheme);
+      case 'summer':
+        return setTheme(summerTheme);
+      case 'fall':
+        return setTheme(fallTheme);
+      default:
+        return setTheme(springTheme);
+    }
+  }, [setTheme, theme]);
+
   return (
     <PageWrapper>
       <StyledHeader>
@@ -33,14 +57,11 @@ export default function Home({ toggleTheme }) {
       </StyledHeader>
 
       <StyledCardsWrapper>
-        <StyledButton className="themebutton" onClick={toggleTheme}>
-          Switch Theme
-        </StyledButton>
-        <LabeledOverviewList className="museum" title="PROGRESS MUSEUM">
-          <ProgressMuseumOverview />
+        <LabeledOverviewList className="passport" title="PASSPORT">
+          <PassportForm />
         </LabeledOverviewList>
-        <LabeledOverviewList className="collection" title="PROGRESS COLLECTION">
-          <ProgressCaughtOverview />
+        <LabeledOverviewList className="themes" title="THEMES">
+          <ThemeButtonList />
         </LabeledOverviewList>
         <OverviewList
           origin={villagers}
@@ -54,13 +75,15 @@ export default function Home({ toggleTheme }) {
           target="villagers"
           title="favorites"
         />
-        <OverviewListCreatures
-          origin={seaCreatures}
-          target="seacreatures"
-          title="sea creatures"
-        />
-        <OverviewListCreatures origin={fishes} target="fishes" title="fishes" />
-        <OverviewListCreatures origin={bugs} target="bugs" title="bugs" />
+        <LabeledOverviewList className="collection" title="PROGRESS COLLECTION">
+          <ProgressCaughtOverview />
+        </LabeledOverviewList>
+        <LabeledOverviewList
+          className="museum last-element"
+          title="PROGRESS MUSEUM"
+        >
+          <ProgressMuseumOverview />
+        </LabeledOverviewList>
       </StyledCardsWrapper>
     </PageWrapper>
   );

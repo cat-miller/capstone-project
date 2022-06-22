@@ -10,11 +10,14 @@ const StyledShowMore = styled.a`
   align-items: center;
   color: var(--color);
 
-  //TODO pass hue instead of all those classes
+  &.favorites {
+    background-color: hsl(343, 100%, 88%);
+    border: 2px solid hsl(343, 100%, 75%);
+  }
 
-  &.villagers {
-    background-color: hsl(313, 100%, 88%);
-    border: 2px solid hsl(313, 100%, 80%);
+  &.neighbors {
+    background-color: hsl(263, 100%, 88%);
+    border: 2px solid hsl(263, 100%, 80%);
   }
 
   &.seacreatures {
@@ -35,23 +38,18 @@ const StyledShowMore = styled.a`
   &.bookmark {
     width: 65px;
     height: 65px;
+    font-size: 0.9rem;
+    text-align: center;
   }
 
   &.museum {
-    background-color: hsl(333, 100%, 80%);
-    border: 2px solid hsl(333, 100%, 75%);
+    background-color: hsl(193, 100%, 80%);
+    border: 2px solid hsl(193, 100%, 75%);
   }
 
   &.collection {
     background-color: hsl(163, 90%, 68%);
     border: 2px solid hsl(163, 100%, 45%);
-  }
-
-  &.themes {
-    width: 35px;
-    height: 35px;
-    background-color: hsl(163, 100%, 88%);
-    border: 2px solid hsl(163, 100%, 80%);
   }
 `;
 export default StyledShowMore;

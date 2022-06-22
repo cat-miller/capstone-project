@@ -3,13 +3,17 @@ import StyledOverviewImage from '../components-styled/StyledOverviewImage';
 import StyledShowMore from '../components-styled/StyledShowMore';
 import StyledOverviewList from '../components-styled/StyledOverviewList';
 import StyledListWrapper from '../components-styled/StyledListWrapper';
+import { setView as setSeaCreatureView } from '../features/seaCreatures/seaCreatureSlice';
+import { useDispatch } from 'react-redux';
+import { setView as setVillagerView } from '../features/villagers/villagerSlice';
 
 function OverviewList({ origin, bookmarks, target, title }) {
+  const dispatch = useDispatch();
   const length = bookmarks.length === 10 ? 10 : 9;
   return (
     <StyledListWrapper>
       <h3>{title.toUpperCase()}</h3>
-      <StyledOverviewList className={target}>
+      <StyledOverviewList className={title}>
         {bookmarks.length ? (
           <>
             {bookmarks?.slice(0, length).map(id => {
@@ -22,7 +26,7 @@ function OverviewList({ origin, bookmarks, target, title }) {
                   href={`/${target}/${bookmark.id}`}
                 >
                   <StyledOverviewImage
-                    className={target}
+                    className={title}
                     src={bookmark.iconUri}
                     alt=""
                     key={bookmark.id}
@@ -32,7 +36,19 @@ function OverviewList({ origin, bookmarks, target, title }) {
             })}
             {length === 9 && (
               <Link passHref href={`/${target}`}>
-                <StyledShowMore className={target}>...</StyledShowMore>
+                <StyledShowMore
+                  onClick={() =>
+                    dispatch(
+                      setVillagerView({
+                        showFavorites: title === 'favorites',
+                        showNeighbors: title === 'neighbors',
+                      })
+                    )
+                  }
+                  className={title}
+                >
+                  ...
+                </StyledShowMore>
               </Link>
             )}
           </>
