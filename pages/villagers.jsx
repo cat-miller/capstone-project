@@ -24,7 +24,6 @@ export default function VillagersPage() {
   } = useSelector(selectVillagers);
 
   const [villagersToShow, setVillagersToShow] = useState([]);
-  const [isAscAlph, setIsAscAlph] = useState(true);
   const [filter, setFilter] = useState({ personality: null, species: null });
   const [sort, setSort] = useState({
     name: { isActive: false, isAsc: false },
@@ -65,10 +64,9 @@ export default function VillagersPage() {
   const sortByName = () => {
     setVillagersToShow(
       [...villagersToShow].sort((villagerA, villagerB) =>
-        sortName(villagerA.name, villagerB.name, isAscAlph)
+        sortName(villagerA.name, villagerB.name, sort.name.isAsc)
       )
     );
-    setIsAscAlph(!isAscAlph);
     setSort({
       ...sort,
       name: { isActive: true, isAsc: !sort.name.isAsc },
@@ -112,7 +110,7 @@ export default function VillagersPage() {
         </StyledDetailFlexWrapper>
         <StyledDetailFlexWrapper>
           <StyledButton onClick={sortByName} className="sort">
-            {isAscAlph ? 'A - Z' : 'Z - A'}
+            {sort.name.isAsc ? 'Z - A' : 'A - Z'}
           </StyledButton>
 
           <StyledSelection

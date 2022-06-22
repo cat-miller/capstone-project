@@ -21,8 +21,6 @@ export default function BugsPage() {
   } = useSelector(selectBugs);
 
   const [crittersToShow, setCrittersToShow] = useState([]);
-  const [isAscAlph, setIsAscAlph] = useState(true);
-  const [isAscPr, setIsAscPr] = useState(true);
   const [filter, setFilter] = useState({ isAvailable: false });
   const [sort, setSort] = useState({
     name: { isActive: false, isAsc: false },
@@ -59,10 +57,9 @@ export default function BugsPage() {
   const sortByName = () => {
     setCrittersToShow(
       [...crittersToShow].sort((critterA, critterB) =>
-        sortName(critterA.name, critterB.name, isAscAlph)
+        sortName(critterA.name, critterB.name, sort.name.isAsc)
       )
     );
-    setIsAscAlph(!isAscAlph);
     setSort({
       ...sort,
       name: { isActive: true, isAsc: !sort.name.isAsc },
@@ -76,11 +73,10 @@ export default function BugsPage() {
         sortByNumbers(
           parseInt(critterA.price),
           parseInt(critterB.price),
-          isAscPr
+          sort.price.isAsc
         )
       )
     );
-    setIsAscPr(!isAscPr);
     setSort({
       ...sort,
       name: { isActive: false },
@@ -113,11 +109,11 @@ export default function BugsPage() {
         </StyledDetailFlexWrapper>
         <StyledDetailFlexWrapper>
           <StyledButton onClick={sortByName} className="sort">
-            {isAscAlph ? 'A - Z' : 'Z - A'}
+            {sort.name.isAsc ? 'Z - A' : 'A - Z'}
           </StyledButton>
 
           <StyledButton onClick={sortPrice} className="sort">
-            {isAscPr ? 'Price asc' : ' Price des'}
+            {sort.price.isAsc ? 'Price des' : ' Price asc'}
           </StyledButton>
 
           <StyledButton onClick={setAvailability} className="sort">
