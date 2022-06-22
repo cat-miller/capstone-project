@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 import addFilter from '../services/addFilter';
 import { sortByNumbers, sortName } from '../services/sorting';
+import addSort from '../services/addSort';
 
 export default function BugsPage() {
   const dispatch = useDispatch();
@@ -20,9 +21,11 @@ export default function BugsPage() {
   } = useSelector(selectBugs);
 
   const [crittersToShow, setCrittersToShow] = useState([]);
-  const [isAscAlph, setIsAscAlph] = useState(true);
-  const [isAscPr, setIsAscPr] = useState(true);
   const [filter, setFilter] = useState({ isAvailable: false });
+  const [sort, setSort] = useState({
+    name: { isActive: false, isAsc: false },
+    price: { isActive: false, isAsc: false },
+  });
 
   useEffect(() => {
     switch (true) {
@@ -54,10 +57,14 @@ export default function BugsPage() {
   const sortByName = () => {
     setCrittersToShow(
       [...crittersToShow].sort((critterA, critterB) =>
-        sortName(critterA.name, critterB.name, isAscAlph)
+        sortName(critterA.name, critterB.name, sort.name.isAsc)
       )
     );
-    setIsAscAlph(!isAscAlph);
+    setSort({
+      ...sort,
+      name: { isActive: true, isAsc: !sort.name.isAsc },
+      price: { isActive: false },
+    });
   };
 
   const sortPrice = () => {
@@ -66,11 +73,15 @@ export default function BugsPage() {
         sortByNumbers(
           parseInt(critterA.price),
           parseInt(critterB.price),
-          isAscPr
+          sort.price.isAsc
         )
       )
     );
-    setIsAscPr(!isAscPr);
+    setSort({
+      ...sort,
+      name: { isActive: false },
+      price: { isActive: true, isAsc: !sort.price.isAsc },
+    });
   };
   const setAvailability = () => {
     return setFilter({ ...filter, isAvailable: !filter.isAvailable });
@@ -98,11 +109,11 @@ export default function BugsPage() {
         </StyledDetailFlexWrapper>
         <StyledDetailFlexWrapper>
           <StyledButton onClick={sortByName} className="sort">
-            {isAscAlph ? 'A - Z' : 'Z - A'}
+            {sort.name.isAsc ? 'Z - A' : 'A - Z'}
           </StyledButton>
 
           <StyledButton onClick={sortPrice} className="sort">
-            {isAscPr ? 'Price asc' : ' Price des'}
+            {sort.price.isAsc ? 'Price des' : ' Price asc'}
           </StyledButton>
 
           <StyledButton onClick={setAvailability} className="sort">
@@ -111,7 +122,7 @@ export default function BugsPage() {
         </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {addFilter(crittersToShow, filter)?.map(bug => (
+        {addSort(addFilter(crittersToShow, filter), sort)?.map(bug => (
           <BugCard key={bug.id} bug={bug} />
         ))}
       </StyledCardsWrapper>

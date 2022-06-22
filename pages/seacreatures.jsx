@@ -14,6 +14,7 @@ import StyledSelection from '../components-styled/StyledSelection';
 import addFilter from '../services/addFilter';
 import { shadows } from '../constants/shadows';
 import { sortByNumbers, sortName } from '../services/sorting';
+import addSort from '../services/addSort';
 
 export default function SeaCreaturesPage() {
   const {
@@ -24,9 +25,11 @@ export default function SeaCreaturesPage() {
   } = useSelector(selectSeaCreatures);
 
   const [crittersToShow, setCrittersToShow] = useState([]);
-  const [isAscAlph, setIsAscAlph] = useState(true);
-  const [isAscPr, setIsAscPr] = useState(true);
   const [filter, setFilter] = useState({ shadow: null });
+  const [sort, setSort] = useState({
+    name: { isActive: false, isAsc: false },
+    price: { isActive: false, isAsc: false },
+  });
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -61,10 +64,15 @@ export default function SeaCreaturesPage() {
   const sortByName = () => {
     setCrittersToShow(
       [...crittersToShow].sort((critterA, critterB) =>
-        sortName(critterA.name, critterB.name, isAscAlph)
+        sortName(critterA.name, critterB.name, sort.name.isAsc)
       )
     );
-    setIsAscAlph(!isAscAlph);
+
+    setSort({
+      ...sort,
+      name: { isActive: true, isAsc: !sort.name.isAsc },
+      price: { isActive: false },
+    });
   };
 
   const sortPrice = () => {
@@ -73,11 +81,16 @@ export default function SeaCreaturesPage() {
         sortByNumbers(
           parseInt(critterA.price),
           parseInt(critterB.price),
-          isAscPr
+          sort.price.isAsc
         )
       )
     );
-    setIsAscPr(!isAscPr);
+
+    setSort({
+      ...sort,
+      name: { isActive: false },
+      price: { isActive: true, isAsc: !sort.price.isAsc },
+    });
   };
 
   const selectShadows = event => {
@@ -109,11 +122,11 @@ export default function SeaCreaturesPage() {
         </StyledDetailFlexWrapper>
         <StyledDetailFlexWrapper>
           <StyledButton onClick={sortByName} className="sort">
-            {isAscAlph ? 'A - Z' : 'Z - A'}
+            {sort.name.isAsc ? 'Z - A' : 'A - Z'}
           </StyledButton>
 
           <StyledButton onClick={sortPrice} className="sort">
-            {isAscPr ? 'Price asc' : ' Price des'}
+            {sort.price.isAsc ? 'Price des' : ' Price asc'}
           </StyledButton>
 
           <StyledSelection
@@ -130,7 +143,7 @@ export default function SeaCreaturesPage() {
         </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {addFilter(crittersToShow, filter)?.map(seaCreature => (
+        {addSort(addFilter(crittersToShow, filter), sort)?.map(seaCreature => (
           <SeaCreatureCard key={seaCreature.id} seaCreature={seaCreature} />
         ))}
       </StyledCardsWrapper>
