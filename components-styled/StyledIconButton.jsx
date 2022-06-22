@@ -7,7 +7,6 @@ const StyledIconButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  //padding: 0.4rem;
 
   &.caught {
     justify-self: end;

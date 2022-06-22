@@ -7,12 +7,13 @@ import {
 } from '../features/passport/passportSlice';
 import PalmTree from '../public/palm-tree.svg';
 import { useState } from 'react';
+import normalizeCodeId from '../services/normalizeCodeId';
 
 export default function PassportForm() {
   const dispatch = useDispatch();
   const passport = useSelector(selectPassport);
   const [isEdit, setIsEdit] = useState(false);
-  console.log(passport.code.creatorId.toString(10));
+
   return (
     <Formik
       enableReinitialize
@@ -31,14 +32,14 @@ export default function PassportForm() {
             <StyledField
               maxlength="10"
               name="island.user"
-              placeholder=" USER NAME"
+              placeholder="USER NAME"
               disabled={!isEdit}
             />
 
             <StyledField
               maxlength="10"
               name="island.name"
-              placeholder=" ISLAND NAME"
+              placeholder="ISLAND NAME"
               disabled={!isEdit}
             />
           </StyledNameWrapper>
@@ -63,10 +64,7 @@ export default function PassportForm() {
             <StyledField
               disabled
               placeholder="0000 - 0000 - 0000"
-              value={passport.code.switch
-                .toString(10)
-                .match(/\d{4}/g)
-                ?.join('-')}
+              value={normalizeCodeId(passport.code.switch)}
             />
           )}
           <StyledLabel>Dream ID</StyledLabel>
@@ -81,10 +79,7 @@ export default function PassportForm() {
             <StyledField
               disabled
               placeholder="0000 - 0000 - 0000"
-              value={passport.code.dreamId
-                .toString(10)
-                .match(/\d{4}/g)
-                ?.join('-')}
+              value={normalizeCodeId(passport.code.dreamId)}
             />
           )}
           <StyledLabel>Creator ID</StyledLabel>
@@ -99,10 +94,7 @@ export default function PassportForm() {
             <StyledField
               disabled
               placeholder="0000 - 0000 - 0000"
-              value={passport.code.creatorId
-                .toString(10)
-                .match(/\d{4}/g)
-                ?.join('-')}
+              value={normalizeCodeId(passport.code.creatorId)}
             />
           )}
         </StyledInputWrapper>

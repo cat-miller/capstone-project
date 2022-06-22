@@ -45,6 +45,8 @@ export default function Home({ setTheme }) {
         return setTheme(summerTheme);
       case 'fall':
         return setTheme(fallTheme);
+      default:
+        return setTheme(springTheme);
     }
   }, [setTheme, theme]);
 
