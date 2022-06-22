@@ -26,6 +26,7 @@ export const springTheme = {
   favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
   sortbutton: 'hsl(313, 100%, 65%)',
   sortbuttonbg: 'hsl(313, 100%, 95%)',
+  schrollshadowbg: 'hsla(197, 100%, 97%, 0)',
 };
 
 export const summerTheme = {
@@ -56,6 +57,7 @@ export const summerTheme = {
   favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
   sortbutton: 'hsl(313, 100%, 65%)',
   sortbuttonbg: 'hsl(313, 100%, 95%)',
+  schrollshadowbg: 'hsla(369, 100%, 97%, 0)',
 };
 
 export const fallTheme = {
@@ -87,6 +89,7 @@ export const fallTheme = {
   favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
   sortbutton: 'hsl(19, 100%, 60%)',
   sortbuttonbg: 'hsl(19, 100%, 95%)',
+  schrollshadowbg: 'hsla(248, 65%, 12%, 0)',
 };
 
 export const winterTheme = {
@@ -117,4 +120,5 @@ export const winterTheme = {
   favoritebuttonbgactive: 'hsl(333, 100%, 88%)',
   sortbutton: 'hsl(203, 100%, 60%)',
   sortbuttonbg: 'hsl(203, 100%, 95%)',
+  schrollshadowbg: 'hsla(183, 100%, 97%, 0)',
 };
