@@ -12,6 +12,7 @@ import addFilter from '../services/addFilter';
 import { species } from '../constants/species';
 import { personalities } from '../constants/personalities';
 import { sortName } from '../services/sorting';
+import addSort from '../services/addSort';
 
 export default function VillagersPage() {
   const dispatch = useDispatch();
@@ -25,6 +26,10 @@ export default function VillagersPage() {
   const [villagersToShow, setVillagersToShow] = useState([]);
   const [isAscAlph, setIsAscAlph] = useState(true);
   const [filter, setFilter] = useState({ personality: null, species: null });
+  const [sort, setSort] = useState({
+    name: { isActive: false, isAsc: false },
+    price: { isActive: false, isAsc: false },
+  });
 
   useEffect(() => {
     switch (true) {
@@ -64,6 +69,11 @@ export default function VillagersPage() {
       )
     );
     setIsAscAlph(!isAscAlph);
+    setSort({
+      ...sort,
+      name: { isActive: true, isAsc: !sort.name.isAsc },
+      price: { isActive: false },
+    });
   };
 
   const selectPersonality = event => {
@@ -131,7 +141,7 @@ export default function VillagersPage() {
         </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {addFilter(villagersToShow, filter).map(villager => (
+        {addSort(addFilter(villagersToShow, filter), sort).map(villager => (
           <VillagerCard key={villager.id} villager={villager} />
         ))}
       </StyledCardsWrapper>

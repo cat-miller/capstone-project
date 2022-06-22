@@ -14,6 +14,7 @@ import StyledSelection from '../components-styled/StyledSelection';
 import addFilter from '../services/addFilter';
 import { shadows } from '../constants/shadows';
 import { sortByNumbers, sortName } from '../services/sorting';
+import addSort from '../services/addSort';
 
 export default function SeaCreaturesPage() {
   const {
@@ -27,6 +28,10 @@ export default function SeaCreaturesPage() {
   const [isAscAlph, setIsAscAlph] = useState(true);
   const [isAscPr, setIsAscPr] = useState(true);
   const [filter, setFilter] = useState({ shadow: null });
+  const [sort, setSort] = useState({
+    name: { isActive: false, isAsc: false },
+    price: { isActive: false, isAsc: false },
+  });
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -65,6 +70,11 @@ export default function SeaCreaturesPage() {
       )
     );
     setIsAscAlph(!isAscAlph);
+    setSort({
+      ...sort,
+      name: { isActive: true, isAsc: !sort.name.isAsc },
+      price: { isActive: false },
+    });
   };
 
   const sortPrice = () => {
@@ -78,6 +88,11 @@ export default function SeaCreaturesPage() {
       )
     );
     setIsAscPr(!isAscPr);
+    setSort({
+      ...sort,
+      name: { isActive: false },
+      price: { isActive: true, isAsc: !sort.price.isAsc },
+    });
   };
 
   const selectShadows = event => {
@@ -130,7 +145,7 @@ export default function SeaCreaturesPage() {
         </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {addFilter(crittersToShow, filter)?.map(seaCreature => (
+        {addSort(addFilter(crittersToShow, filter), sort)?.map(seaCreature => (
           <SeaCreatureCard key={seaCreature.id} seaCreature={seaCreature} />
         ))}
       </StyledCardsWrapper>

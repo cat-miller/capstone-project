@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import StyledDetailFlexWrapper from '../components-styled/StyledDetailFlexWrapper';
 import addFilter from '../services/addFilter';
 import { sortByNumbers, sortName } from '../services/sorting';
+import addSort from '../services/addSort';
 
 export default function FishesPage() {
   const dispatch = useDispatch();
@@ -22,8 +23,11 @@ export default function FishesPage() {
   const [crittersToShow, setCrittersToShow] = useState([]);
   const [isAscAlph, setIsAscAlph] = useState(true);
   const [isAscPr, setIsAscPr] = useState(true);
-  // const [isAvailable, setIsAvailable] = useState(false);
   const [filter, setFilter] = useState({ isAvailable: false });
+  const [sort, setSort] = useState({
+    name: { isActive: false, isAsc: false },
+    price: { isActive: false, isAsc: false },
+  });
 
   useEffect(() => {
     switch (true) {
@@ -59,6 +63,11 @@ export default function FishesPage() {
       )
     );
     setIsAscAlph(!isAscAlph);
+    setSort({
+      ...sort,
+      name: { isActive: true, isAsc: !sort.name.isAsc },
+      price: { isActive: false },
+    });
   };
 
   const sortPrice = () => {
@@ -72,6 +81,11 @@ export default function FishesPage() {
       )
     );
     setIsAscPr(!isAscPr);
+    setSort({
+      ...sort,
+      name: { isActive: false },
+      price: { isActive: true, isAsc: !sort.price.isAsc },
+    });
   };
 
   const setAvailability = () => {
@@ -113,7 +127,7 @@ export default function FishesPage() {
         </StyledDetailFlexWrapper>
       </StyledHeader>
       <StyledCardsWrapper>
-        {addFilter(crittersToShow, filter)?.map(fish => (
+        {addSort(addFilter(crittersToShow, filter), sort)?.map(fish => (
           <FishCard key={fish.id} fish={fish} />
         ))}
       </StyledCardsWrapper>
