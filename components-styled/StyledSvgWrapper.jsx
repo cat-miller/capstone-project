@@ -5,19 +5,27 @@ import StyledShowMore from './StyledShowMore';
 const StyledSvgWrapper = styled.div`
   height: auto;
   width: 36px;
-  fill: var(--color-navigation-icon);
+  // fill: var(--color-navigation-icon);
   display: flex;
   justify-content: center;
   align-items: center;
 
-  ${StyledIconButton} & {
+  ${StyledIconButton} & > svg {
     width: 24px;
-    fill: inherit;
+    // fill: inherit;
   }
 
   ${StyledShowMore} & {
     display: block;
     fill: white;
+  }
+
+  & > svg {
+    width: 36px;
+  }
+
+  &.navigation > svg {
+    fill: var(--color-navigation-icon);
   }
 `;
 

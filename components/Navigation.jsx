@@ -30,6 +30,7 @@ export default function Navigation() {
       <Link passHref href="/villagers">
         <StyledActiveWrapper isActive={router.pathname === '/villagers'}>
           <StyledSvgWrapper
+            className={'navigation'}
             onClick={() =>
               dispatch(
                 setVillagerView({
@@ -46,6 +47,7 @@ export default function Navigation() {
       <Link passHref href="/seacreatures">
         <StyledActiveWrapper isActive={router.pathname === '/seacreatures'}>
           <StyledSvgWrapper
+            className={'navigation'}
             onClick={() =>
               dispatch(
                 setSeaCreatureView({
@@ -61,7 +63,7 @@ export default function Navigation() {
       </Link>
       <Link passHref href="/">
         <StyledActiveWrapper isActive={router.pathname === '/'}>
-          <StyledSvgWrapper>
+          <StyledSvgWrapper className={'navigation'}>
             <Passport />
           </StyledSvgWrapper>
         </StyledActiveWrapper>
@@ -69,6 +71,7 @@ export default function Navigation() {
       <Link passHref href="/fishes">
         <StyledActiveWrapper isActive={router.pathname === '/fishes'}>
           <StyledSvgWrapper
+            className={'navigation'}
             onClick={() =>
               dispatch(
                 setFishView({
@@ -85,6 +88,7 @@ export default function Navigation() {
       <Link passHref href="/bugs">
         <StyledActiveWrapper isActive={router.pathname === '/bugs'}>
           <StyledSvgWrapper
+            className={'navigation'}
             onClick={() =>
               dispatch(
                 setBugView({
@@ -120,5 +124,9 @@ const StyledScrollShadow = styled.div`
   right: 0;
   pointer-events: none;
   height: 5rem;
-  background: linear-gradient(to top, var(--background-color), transparent);
+  background: linear-gradient(
+    to top,
+    var(--background-color),
+    var(--fu-safari)
+  );
 `;

@@ -54,6 +54,7 @@ const GlobalStyle = createGlobalStyle`
     --background-color-seacreaturespan: hsl(140, 100%, 65%);
     --background-color-bugspan: hsl(30, 100%, 65%);
     --background-color-activewrapper: ${({ theme }) => theme.navigationactive};
+    --fu-safari: ${({ theme }) => theme.schrollshadowbg};;
 
     --border-radius: 26px;
     --border-radius-inner: 20px;
