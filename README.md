@@ -12,5 +12,3 @@ There are 4 themes with which you can define the look of the app.
 ### `Tech Stack`
 
 JavaScript, React, Next.js, Redux Toolkit, Formik, styled components, Git via GitHub, Figma
-
-![](../../Desktop/Group 2.png)
