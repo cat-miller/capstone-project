@@ -12,3 +12,5 @@ There are 4 themes with which you can define the look of the app.
 ### `Tech Stack`
 
 JavaScript, React, Next.js, Redux Toolkit, Formik, styled components, Git via GitHub, Figma
+
+![MyAnimalCrossingJournal](https://user-images.githubusercontent.com/99614110/175833620-5322170e-8cf9-4bdf-848f-fc240e8d74bb.png)
